@@ -1,0 +1,12 @@
+interface:
+  display_name: "Language Reviewer"
+  short_description: "Reader-first язык ОСАГО с сохранением смысла"
+  default_prompt: >-
+    Используй $osago-language-reviewer для языковой проверки готового reader-first
+    draft Documentation Composer. Нормализуй редакционные labels, подтверждённые
+    business terms и точные повторы введения. Сохрани структуру, scope, условия,
+    последовательность, UNKNOWN/INFERRED/CONFLICT и runtime limitations. Technical
+    implementation сохраняет exact identifiers. Не добавляй факты, internal gaps,
+    скрытые IDs/provenance или узлы technical model. Работай только с артефактами
+    run, glossary и standards; неоднозначность становится warning в review report.
+    Создай final и отчёт через offline helper и проверь deterministic replay.

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Domain Decomposer"
+  short_description: "Границы сценариев и дерево документации"

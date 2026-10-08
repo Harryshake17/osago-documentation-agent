@@ -1,0 +1,3 @@
+interface:
+  display_name: "Business Rule Extractor"
+  short_description: "Правила и ограничения с проверяемыми evidence"

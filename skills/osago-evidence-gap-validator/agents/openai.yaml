@@ -1,0 +1,3 @@
+interface:
+  display_name: "Evidence / Gap / Conflict Validator"
+  short_description: "Проверка claims, evidence, gaps и конфликтов"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Source Discovery"
+  short_description: "Карта источников и проверка их релевантности"

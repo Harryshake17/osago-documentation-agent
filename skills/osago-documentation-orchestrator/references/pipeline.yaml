@@ -1,0 +1,276 @@
+schema_version: '1.0'
+stages:
+- id: domain-decomposition
+  scope: run
+  type: skill
+  skill: osago-domain-decomposer
+  depends_on: []
+  inputs:
+    documentation-request: request
+  outputs:
+    domain-tree: domain-tree
+    knowledge: knowledge-package
+  validator: domain
+  primary: domain-tree
+- id: scope-review
+  scope: run
+  type: checkpoint
+  skill: null
+  depends_on:
+  - domain-decomposition
+  inputs:
+    domain-tree: domain-decomposition.domain-tree
+    knowledge: domain-decomposition.knowledge
+  outputs: {}
+  validator: scope_review
+  primary: null
+- id: source-discovery
+  scope: item
+  type: skill
+  skill: osago-source-discovery
+  depends_on:
+  - scope-review
+  inputs:
+    documentation-request: request
+    domain-tree: base.domain-tree
+    scenario-definition: base.scenario-definition
+    knowledge: base.knowledge
+  outputs:
+    domain-tree: domain-tree
+    scenario-definition: scenario-definition
+    knowledge: knowledge-package
+    source-map: source-map
+  validator: artifact
+  primary: source-map
+- id: technical-flow
+  scope: item
+  type: skill
+  skill: osago-technical-flow-analyzer
+  depends_on:
+  - scope-review
+  - source-discovery
+  inputs:
+    domain-tree: source-discovery.domain-tree
+    scenario-definition: source-discovery.scenario-definition
+    source-map: source-discovery.source-map
+    knowledge: source-discovery.knowledge
+  outputs:
+    domain-tree: domain-tree
+    scenario-definition: scenario-definition
+    source-map: source-map
+    knowledge: knowledge-package
+    technical-flow: technical-flow
+  validator: artifact
+  primary: technical-flow
+  gates:
+  - technical-model
+- id: business-rules
+  scope: item
+  type: skill
+  skill: osago-business-rule-extractor
+  depends_on:
+  - scope-review
+  - technical-flow
+  inputs:
+    domain-tree: technical-flow.domain-tree
+    scenario-definition: technical-flow.scenario-definition
+    source-map: technical-flow.source-map
+    technical-flow: technical-flow.technical-flow
+    knowledge: technical-flow.knowledge
+  outputs:
+    domain-tree: domain-tree
+    scenario-definition: scenario-definition
+    source-map: source-map
+    technical-flow: technical-flow
+    knowledge: knowledge-package
+    business-rules: business-rules
+  validator: artifact
+  primary: business-rules
+- id: scenario-reconstruction
+  scope: item
+  type: skill
+  skill: osago-scenario-reconstructor
+  depends_on:
+  - scope-review
+  - business-rules
+  inputs:
+    domain-tree: business-rules.domain-tree
+    scenario-definition: business-rules.scenario-definition
+    source-map: business-rules.source-map
+    technical-flow: business-rules.technical-flow
+    business-rules: business-rules.business-rules
+    knowledge: business-rules.knowledge
+  outputs:
+    domain-tree: domain-tree
+    scenario-definition: scenario-definition
+    source-map: source-map
+    technical-flow: technical-flow
+    business-rules: business-rules
+    knowledge: knowledge-package
+    scenario: scenario
+  validator: artifact
+  primary: scenario
+  gates:
+  - scenario-model
+- id: evidence-validation
+  scope: item
+  type: skill
+  skill: osago-evidence-gap-validator
+  depends_on:
+  - scope-review
+  - scenario-reconstruction
+  inputs:
+    domain-tree: scenario-reconstruction.domain-tree
+    scenario-definition: scenario-reconstruction.scenario-definition
+    source-map: scenario-reconstruction.source-map
+    technical-flow: scenario-reconstruction.technical-flow
+    business-rules: scenario-reconstruction.business-rules
+    scenario: scenario-reconstruction.scenario
+    knowledge: scenario-reconstruction.knowledge
+  outputs:
+    validation-report: validation-report
+    gaps: validation-gaps
+  validator: validation
+  primary: validation-report
+  gates:
+  - scenario-model
+  - publication-relevance
+- id: evidence-review
+  scope: item
+  type: checkpoint
+  skill: null
+  depends_on:
+  - scope-review
+  - evidence-validation
+  inputs:
+    validation-report: evidence-validation.validation-report
+    gaps: evidence-validation.gaps
+  outputs: {}
+  validator: evidence_review
+  primary: null
+- id: glossary
+  scope: item
+  type: skill
+  skill: osago-glossary-curator
+  depends_on:
+  - scope-review
+  - scenario-reconstruction
+  - evidence-validation
+  - evidence-review
+  inputs:
+    knowledge: scenario-reconstruction.knowledge
+    domain-tree: scenario-reconstruction.domain-tree
+    technical-flow: scenario-reconstruction.technical-flow
+    business-rules: scenario-reconstruction.business-rules
+    scenario: scenario-reconstruction.scenario
+    validation: evidence-validation.validation-report
+    glossary: baseline.glossary
+  outputs:
+    glossary-increment: glossary-increment
+    glossary: glossary
+  validator: glossary
+  primary: glossary-increment
+- id: documentation
+  scope: item
+  type: skill
+  skill: osago-documentation-composer
+  depends_on:
+  - scope-review
+  - scenario-reconstruction
+  - evidence-validation
+  - evidence-review
+  - glossary
+  inputs:
+    knowledge: scenario-reconstruction.knowledge
+    domain-tree: scenario-reconstruction.domain-tree
+    technical-flow: scenario-reconstruction.technical-flow
+    business-rules: scenario-reconstruction.business-rules
+    scenario: scenario-reconstruction.scenario
+    report: evidence-validation.validation-report
+    gaps: evidence-validation.gaps
+    glossary: glossary.glossary
+  outputs:
+    documentation: markdown
+    documentation-manifest: documentation-manifest
+    documentation-meta: documentation-manifest
+  validator: documentation
+  primary: documentation
+  gates:
+  - document-structure
+- id: language-review
+  scope: item
+  type: skill
+  skill: osago-language-reviewer
+  depends_on:
+  - scope-review
+  - scenario-reconstruction
+  - evidence-validation
+  - glossary
+  - documentation
+  inputs:
+    draft: documentation.documentation
+    manifest: documentation.documentation-manifest
+    glossary: glossary.glossary
+    scenario: scenario-reconstruction.scenario
+    validation: evidence-validation.validation-report
+    technical-flow: scenario-reconstruction.technical-flow
+    business-rules: scenario-reconstruction.business-rules
+    glossary-increment: glossary.glossary-increment
+  outputs:
+    final-document: markdown
+    language-review: language-review
+  validator: language_review
+  primary: final-document
+  gates:
+  - final-invariants
+- id: confluence-plan
+  scope: item
+  type: skill
+  skill: osago-confluence-renderer
+  depends_on:
+  - scope-review
+  - documentation
+  - language-review
+  inputs:
+    document: language-review.final-document
+    manifest: documentation.documentation-manifest
+    language-review: language-review.language-review
+  outputs:
+    presentation-plan: confluence-presentation-plan
+    presentation-metadata: confluence-presentation-metadata
+  validator: confluence_plan
+  primary: presentation-plan
+- id: presentation-review
+  scope: item
+  type: checkpoint
+  skill: null
+  depends_on:
+  - scope-review
+  - confluence-plan
+  inputs:
+    presentation-plan: confluence-plan.presentation-plan
+    presentation-metadata: confluence-plan.presentation-metadata
+  outputs: {}
+  validator: presentation_review
+  primary: null
+- id: confluence-render
+  scope: item
+  type: skill
+  skill: osago-confluence-renderer
+  depends_on:
+  - scope-review
+  - documentation
+  - language-review
+  - confluence-plan
+  - presentation-review
+  inputs:
+    document: language-review.final-document
+    manifest: documentation.documentation-manifest
+    language-review: language-review.language-review
+    presentation-plan: confluence-plan.presentation-plan
+    presentation-metadata: confluence-plan.presentation-metadata
+  outputs:
+    confluence-body: storage-xhtml
+    publisher-metadata: confluence-render
+  validator: confluence_render
+  primary: confluence-body

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Documentation Composer"
+  short_description: "Документ из reviewed claims без новых знаний"

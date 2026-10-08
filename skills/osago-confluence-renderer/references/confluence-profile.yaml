@@ -1,0 +1,13 @@
+product: Confluence Data Center
+verified_version: "8.9.0"
+representation: storage
+api_path: /rest/api
+capabilities: [h1, h2, h3, paragraph, table, ul, ol, code, info, warning, expand, png_attachment]
+verification:
+  date: "2026-10-05"
+  config: renspec-config.yaml confluence.api/format
+  publisher: renspec cli/lib/clients/confluence.js pageBody/create/update
+  instance_version: login.action meta ajs-version-number
+  render_probe: POST /rest/api/contentbody/convert/view
+  result: "h1/h2/h3/table/ul/code preserved; info/warning/expand visible; no Unknown macro"
+  image_contract: "standard ac:image / ri:attachment, prepared PNG"

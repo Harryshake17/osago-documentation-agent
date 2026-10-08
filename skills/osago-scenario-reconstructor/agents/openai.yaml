@@ -1,0 +1,3 @@
+interface:
+  display_name: "Scenario Reconstructor"
+  short_description: "Business flows с evidence шагов и переходов"

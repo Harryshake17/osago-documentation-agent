@@ -1,0 +1,3 @@
+interface:
+  display_name: "Confluence Renderer"
+  short_description: "Оформление готовой статьи ОСАГО для Confluence"

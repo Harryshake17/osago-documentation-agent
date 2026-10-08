@@ -1,0 +1,3 @@
+interface:
+  display_name: "Glossary Curator"
+  short_description: "Словарь терминов ОСАГО, aliases и conflicts"
