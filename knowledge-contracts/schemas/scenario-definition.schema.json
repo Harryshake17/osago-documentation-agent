@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:scenario-definition:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "business_goal": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trigger": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "entry_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "attribute_claims": {
+      "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+    },
+    "proposed_fields": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "unknown_fields": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "entry_point_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/anchor"
+      }
+    },
+    "known_source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "preferred_name": {
+      "$ref": "urn:osago:kb:1.0#/$defs/preferred_name"
+    },
+    "technical_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "search_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "terminology_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/terminology_candidate"
+      },
+      "uniqueItems": true
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope_ref",
+    "package_ref",
+    "id",
+    "scenario_id",
+    "name",
+    "business_goal",
+    "trigger",
+    "entry_state",
+    "expected_outcomes",
+    "actors",
+    "attribute_claims",
+    "proposed_fields",
+    "unknown_fields",
+    "entry_point_candidates",
+    "known_source_refs",
+    "aliases",
+    "exclusions",
+    "gap_ids"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {},
+        "required": [
+          "preferred_name",
+          "technical_aliases",
+          "search_aliases",
+          "terminology_candidates",
+          "evidence"
+        ]
+      }
+    }
+  ]
+}

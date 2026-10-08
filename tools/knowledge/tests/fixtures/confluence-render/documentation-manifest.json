@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "document_profile": "reviewed-draft-v1",
+  "scope_ref": "scope:fixture:link2",
+  "package_ref": {
+    "id": "kb:fixture:link2",
+    "revision": 1
+  },
+  "report_ref": "validation:fixture:link2",
+  "report_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "gaps_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "inputs": [
+    {
+      "kind": "business-rules",
+      "id": "business-rules:osago-link2",
+      "content_hash": "edbc1243e697c65f4fcbaede2bce006f88e707598eb83cc2a82ca30bea91081b"
+    },
+    {
+      "kind": "domain-tree",
+      "id": "domain-tree:osago-fl-new-business-link2",
+      "content_hash": "862c997d36355ceb712cc923c966bb86fced7b2284df9a61e391a2e7754425c5"
+    },
+    {
+      "kind": "knowledge",
+      "id": "kb:osago-fl-new-business-link2:purchase",
+      "content_hash": "4340817a796436296acbd7cbbc50c828d2c3f8d5358e7f2c09760fce044c7e24"
+    },
+    {
+      "kind": "scenario",
+      "id": "scenario-model:osago-link2",
+      "content_hash": "8b819f55b708b132094ee71321b7e752564d1f81ca54c2204d6e1c25b98b3157"
+    },
+    {
+      "kind": "scenario-definition",
+      "id": "definition:osago-fl-new-business-link2-purchase",
+      "content_hash": "e12e61b57a43b4b1a47d3cf414d35308094ace95f75e9bc08d1d60db23789afa"
+    },
+    {
+      "kind": "source-map",
+      "id": "source-map:osago-link2-purchase",
+      "content_hash": "6fd97e1dd0776e09dab16cdda4db2c97e49153f50163ff54c12f2998c603a6b0"
+    },
+    {
+      "kind": "technical-flow",
+      "id": "technical-flow:osago-link2-purchase",
+      "content_hash": "8d298e6bc8e4dc8df0dd708f0396ee4d6e650c6e2e77f7f6e9d4c05e1dc1540f"
+    }
+  ],
+  "claim_ids": [
+    "claim:osago-link2:purpose"
+  ],
+  "document_hash": "ae79c205e424901244f0f9bb67aefc02f945268e3f91ea2e8fe3b8bde6fdb73c",
+  "publication_gate": "blocked",
+  "document": {
+    "scenario_id": "entity:osago-link2:scenario",
+    "domain_ids": [
+      "domain:fixture:link2"
+    ],
+    "source_revision": {
+      "fixture": "renderer-regression-v1"
+    },
+    "glossary": {
+      "id": "glossary:osago",
+      "revision": 2,
+      "content_hash": "6650bf682460aec7ea0899182cc825abf3218b86edb2d31028db85b7cf2d9b03"
+    },
+    "template_hash": "c2b4669f07a86d36d9b2b3a31370afa40f32b94fc71859eb4346043078c3e469",
+    "writing_style_hash": "fe72c336def0f5bf875cd74e4106d21e6397faa67cb48ae3804eae20e6b0880a",
+    "blocks": [
+      {
+        "section": "title",
+        "start_line": 1,
+        "end_line": 2,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "purpose",
+        "start_line": 3,
+        "end_line": 7,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "scope",
+        "start_line": 8,
+        "end_line": 11,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "participants",
+        "start_line": 12,
+        "end_line": 15,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "preconditions",
+        "start_line": 16,
+        "end_line": 21,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "main-flow",
+        "start_line": 22,
+        "end_line": 33,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "business-rules",
+        "start_line": 34,
+        "end_line": 42,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "states",
+        "start_line": 43,
+        "end_line": 46,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "alternatives",
+        "start_line": 47,
+        "end_line": 51,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "integrations",
+        "start_line": 52,
+        "end_line": 55,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "technical",
+        "start_line": 56,
+        "end_line": 66,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "evidence",
+        "start_line": 67,
+        "end_line": 73,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      },
+      {
+        "section": "gaps",
+        "start_line": 74,
+        "end_line": 81,
+        "derived_from": [
+          "claim:osago-link2:purpose"
+        ],
+        "source_fields": []
+      }
+    ],
+    "unresolved": [
+      "gap:fixture:unknown-rationale"
+    ]
+  }
+}

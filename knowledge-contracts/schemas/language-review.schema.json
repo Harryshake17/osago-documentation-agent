@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:language-review:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "allOf": [
+            {
+              "$ref": "urn:osago:documentation-run:1.0#/properties/nodes/additionalProperties/properties/status"
+            },
+            {
+              "enum": [
+                "COMPLETED",
+                "FAILED",
+                "WAITING_FOR_REVIEW"
+              ]
+            }
+          ]
+        },
+        "changes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "terminology_replacements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "to": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "occurrences": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "occurrences"
+                ]
+              }
+            },
+            "jargon_reductions": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sentences_simplified": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "abbreviations_resolved": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "terminology_replacements",
+            "jargon_reductions",
+            "sentences_simplified",
+            "abbreviations_resolved"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value",
+              "section",
+              "text"
+            ]
+          }
+        },
+        "protected_content_changes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "count"
+          ]
+        },
+        "semantic_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "new_claims_detected": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "removed_critical_claims": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "removed_gaps": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "status_changes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "scope_limitations_changed": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "scenario_order_changes": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "new_claims_detected",
+            "removed_critical_claims",
+            "removed_gaps",
+            "status_changes",
+            "scope_limitations_changed",
+            "scenario_order_changes"
+          ]
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "status",
+        "changes",
+        "warnings",
+        "protected_content_changes",
+        "semantic_validation",
+        "diagnostics"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "draft_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "glossary_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scenario_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validation_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "technical_flow_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "business_rules_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "glossary_increment_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "manifest_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "draft_hash",
+        "glossary_hash",
+        "scenario_hash",
+        "validation_hash"
+      ]
+    },
+    "standards_hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "terminology": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writing-style": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "documentation-template": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence-policy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "knowledge-model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "terminology",
+        "writing-style",
+        "documentation-template",
+        "evidence-policy",
+        "knowledge-model"
+      ]
+    },
+    "final_hash": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "publication_gate": {
+      "$ref": "urn:osago:documentation-manifest:1.0#/properties/publication_gate"
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:documentation-manifest:1.0#/properties/document/properties/blocks/items"
+      }
+    },
+    "claim_ids": {
+      "$ref": "urn:osago:documentation-manifest:1.0#/properties/claim_ids"
+    }
+  },
+  "required": [
+    "schema_version",
+    "review",
+    "inputs",
+    "standards_hashes",
+    "final_hash",
+    "publication_gate",
+    "blocks",
+    "claim_ids"
+  ]
+}

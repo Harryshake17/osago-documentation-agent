@@ -1,0 +1,97 @@
+{
+  "kind": "synthetic contract fixture, not production evidence",
+  "phases": [
+    [
+      "calculate",
+      "Рассчитать стоимость оформления",
+      "Расчёт подготовлен.",
+      [
+        "FixtureCalculateController.Calculate",
+        "FixtureCalculateHandler.Handle"
+      ]
+    ],
+    [
+      "import",
+      "Принять анкету для оформления",
+      "Анкета принята.",
+      [
+        "FixtureHandler.Handle",
+        "FixtureImportMapper.Map",
+        "FixtureImportRepository.Save"
+      ]
+    ],
+    [
+      "payment",
+      "Подтвердить оплату",
+      "Оплата подтверждена.",
+      [
+        "FixturePaymentController.Confirm",
+        "FixturePaymentHandler.Handle"
+      ]
+    ],
+    [
+      "issuance",
+      "Выпустить полис после оплаты",
+      "Полис выпущен.",
+      [
+        "FixturePostPaymentHandler.Handle",
+        "FixturePolicyIssuer.Issue",
+        "FixturePolicyRepository.Save"
+      ]
+    ],
+    [
+      "status-document",
+      "Получить статус и документ",
+      "Статус и документ доступны.",
+      [
+        "FixtureStatusHandler.Read",
+        "FixtureDocumentHandler.Read"
+      ]
+    ]
+  ],
+  "actor_policy": "The issuance phase is internal system processing, with no business initiator.",
+  "mapping": [
+    {
+      "step": "scenario-step:link2:calculate",
+      "nodes": [
+        "technical-step:link2:calculate:0",
+        "technical-step:link2:calculate:1"
+      ],
+      "result": "Расчёт подготовлен."
+    },
+    {
+      "step": "scenario-step:link2:import",
+      "nodes": [
+        "technical-step:guard",
+        "technical-step:link2:import:1",
+        "technical-step:link2:import:2"
+      ],
+      "result": "Анкета принята."
+    },
+    {
+      "step": "scenario-step:link2:payment",
+      "nodes": [
+        "technical-step:link2:payment:0",
+        "technical-step:link2:payment:1"
+      ],
+      "result": "Оплата подтверждена."
+    },
+    {
+      "step": "scenario-step:link2:issuance",
+      "nodes": [
+        "technical-step:link2:issuance:0",
+        "technical-step:link2:issuance:1",
+        "technical-step:link2:issuance:2"
+      ],
+      "result": "Полис выпущен."
+    },
+    {
+      "step": "scenario-step:link2:status-document",
+      "nodes": [
+        "technical-step:link2:status-document:0",
+        "technical-step:link2:status-document:1"
+      ],
+      "result": "Статус и документ доступны."
+    }
+  ]
+}

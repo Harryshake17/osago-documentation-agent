@@ -1,0 +1,454 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:technical-flow:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_map_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/relation"
+      }
+    },
+    "gap_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "conflict_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "coverage": {
+      "$ref": "urn:osago:kb:1.0#/$defs/coverage"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^technical-step:[A-Za-z0-9][A-Za-z0-9_.:/-]*$"
+          },
+          "type": {
+            "enum": [
+              "api",
+              "controller",
+              "command",
+              "pipeline",
+              "process",
+              "subprocess",
+              "rule",
+              "integration",
+              "state_modification",
+              "callback",
+              "event",
+              "other"
+            ]
+          },
+          "symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "attribute_claims": {
+            "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+          },
+          "unknown_fields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "not_applicable_fields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "gap_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "inputs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "calls": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "state_changes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "configuration_reads": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "checks": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "external_calls": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "async_events": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "business_meaning": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+          },
+          "technical_implementation": {
+            "$ref": "urn:osago:kb:1.0#/$defs/technical_representation"
+          },
+          "integrations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "component_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "claim_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "component_id",
+          "source_ids",
+          "claim_ids"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "required": [
+                    "type"
+                  ]
+                },
+                {
+                  "required": [
+                    "symbol"
+                  ]
+                },
+                {
+                  "required": [
+                    "purpose"
+                  ]
+                },
+                {
+                  "required": [
+                    "evidence"
+                  ]
+                },
+                {
+                  "required": [
+                    "attribute_claims"
+                  ]
+                },
+                {
+                  "required": [
+                    "unknown_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "not_applicable_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "gap_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "inputs"
+                  ]
+                },
+                {
+                  "required": [
+                    "outputs"
+                  ]
+                },
+                {
+                  "required": [
+                    "conditions"
+                  ]
+                },
+                {
+                  "required": [
+                    "calls"
+                  ]
+                },
+                {
+                  "required": [
+                    "state_changes"
+                  ]
+                },
+                {
+                  "required": [
+                    "configuration_reads"
+                  ]
+                },
+                {
+                  "required": [
+                    "checks"
+                  ]
+                },
+                {
+                  "required": [
+                    "external_calls"
+                  ]
+                },
+                {
+                  "required": [
+                    "async_events"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "required": [
+                "id",
+                "type",
+                "symbol",
+                "purpose",
+                "evidence",
+                "attribute_claims",
+                "unknown_fields",
+                "not_applicable_fields",
+                "gap_ids",
+                "inputs",
+                "outputs",
+                "conditions",
+                "calls",
+                "state_changes",
+                "configuration_reads",
+                "checks",
+                "external_calls",
+                "async_events"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "analysis_profile": {
+      "const": "execution-path-v1"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "runtime_confirmation_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scope_ref",
+    "package_ref",
+    "scenario_id",
+    "source_map_ref",
+    "relations",
+    "gap_ids",
+    "conflict_ids",
+    "coverage",
+    "nodes"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "analysis_profile"
+        ]
+      },
+      "then": {
+        "properties": {
+          "nodes": {
+            "items": {
+              "required": [
+                "id",
+                "type",
+                "symbol",
+                "purpose",
+                "evidence",
+                "attribute_claims",
+                "unknown_fields",
+                "not_applicable_fields",
+                "gap_ids",
+                "inputs",
+                "outputs",
+                "conditions",
+                "calls",
+                "state_changes",
+                "configuration_reads",
+                "checks",
+                "external_calls",
+                "async_events"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "nodes": {
+            "items": {
+              "required": [
+                "business_meaning",
+                "technical_implementation",
+                "integrations"
+              ]
+            }
+          }
+        },
+        "required": [
+          "nodes",
+          "analysis_profile"
+        ]
+      }
+    }
+  ],
+  "description": "Technical implementation: nodes are the only canonical collection; relations reference technical entities. Scenario steps belong to 05-scenario."
+}

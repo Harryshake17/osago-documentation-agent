@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "scope_ref": "scope:fixture",
+  "package_ref": {
+    "id": "kb:link2-process-fixture",
+    "revision": 1
+  },
+  "id": "gaps:scope:fixture",
+  "report_ref": "validation:scope:fixture",
+  "gaps": [
+    {
+      "id": "gap:rationale",
+      "reason": "unknown_reason",
+      "question": "Why this threshold?",
+      "affected_ids": [
+        "BR-FIXTURE-001"
+      ],
+      "next_action": "Find explicit documented rationale.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:external",
+      "reason": "unknown_field",
+      "question": "What is the external result/state?",
+      "affected_ids": [
+        "BR-FIXTURE-001"
+      ],
+      "next_action": "Trace caller and result mapping.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:scenario-step:guard",
+      "reason": "unknown_reason",
+      "question": "Business meaning, states and actor result?",
+      "affected_ids": [
+        "scenario-step:guard"
+      ],
+      "next_action": "Find documents and caller/result mapping.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:scenario-step:return-one",
+      "reason": "unknown_reason",
+      "question": "Business meaning, states and actor result?",
+      "affected_ids": [
+        "scenario-step:return-one"
+      ],
+      "next_action": "Find documents and caller/result mapping.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:scenario-step:return-zero",
+      "reason": "unknown_reason",
+      "question": "Business meaning, states and actor result?",
+      "affected_ids": [
+        "scenario-step:return-zero"
+      ],
+      "next_action": "Find documents and caller/result mapping.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:technical",
+      "reason": "unknown_field",
+      "question": "Which other technical effects exist?",
+      "affected_ids": [
+        "technical-step:guard",
+        "technical-step:link2:calculate:0",
+        "technical-step:link2:calculate:1",
+        "technical-step:link2:import:1",
+        "technical-step:link2:import:2",
+        "technical-step:link2:payment:0",
+        "technical-step:link2:payment:1",
+        "technical-step:link2:issuance:0",
+        "technical-step:link2:issuance:1",
+        "technical-step:link2:issuance:2",
+        "technical-step:link2:status-document:0",
+        "technical-step:link2:status-document:1"
+      ],
+      "next_action": "Inspect remaining technical dimensions.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic fixture review: internal implementation/source research; independently supported process fields do not depend on this detail."
+      }
+    },
+    {
+      "id": "gap:composer:link2:version",
+      "reason": "unknown_version",
+      "question": "Уточнить применимость порядка этапов к описываемой версии.",
+      "affected_ids": [
+        "claim:link2:211"
+      ],
+      "next_action": "Review scenario version applicability.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "PUBLICATION_RELEVANT",
+        "reviewed": true,
+        "reason": "Synthetic fixture review: referenced process/contract assertion is material.",
+        "impacts": [
+          {
+            "aspect": "VERSION_ENVIRONMENT",
+            "target_refs": [
+              "claim:link2:211"
+            ]
+          },
+          {
+            "aspect": "MAIN_FLOW",
+            "target_refs": [
+              "claim:link2:211"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gap:composer:link2:internal",
+      "reason": "unknown_field",
+      "question": "Как устроен внутренний helper ../internal/Helper.cs?",
+      "affected_ids": [
+        "technical-step:link2:calculate:0"
+      ],
+      "next_action": "Internal investigation only.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "reason": "Synthetic fixture review: referenced process/contract assertion is material.",
+        "impacts": []
+      }
+    }
+  ],
+  "finding_gap_links": [
+    {
+      "finding_id": "finding:c25bd948b9ac3d83d0ee",
+      "gap_ids": [
+        "gap:rationale"
+      ]
+    }
+  ],
+  "publication_subset": {
+    "gap_ids": [
+      "gap:composer:link2:version"
+    ],
+    "finding_ids": []
+  }
+}

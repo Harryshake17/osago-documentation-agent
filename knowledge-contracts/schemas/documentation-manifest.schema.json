@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:documentation-manifest:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "report_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "gaps_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "document_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "inputs": {
+      "$ref": "urn:osago:validation-report:1.0#/properties/inputs"
+    },
+    "claim_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "publication_gate": {
+      "enum": [
+        "passed",
+        "blocked"
+      ]
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenario_id": {
+          "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+        },
+        "domain_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          }
+        },
+        "source_revision": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "glossary": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "id",
+            "revision",
+            "content_hash"
+          ]
+        },
+        "template_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "writing_style_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "section": {
+                "enum": [
+                  "title",
+                  "purpose",
+                  "scope",
+                  "participants",
+                  "preconditions",
+                  "main-flow",
+                  "business-rules",
+                  "states",
+                  "alternatives",
+                  "integrations",
+                  "technical",
+                  "evidence",
+                  "gaps"
+                ]
+              },
+              "start_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "end_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "derived_from": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+                }
+              },
+              "source_fields": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact": {
+                      "enum": [
+                        "domain-tree",
+                        "scenario",
+                        "business-rules",
+                        "technical-flow",
+                        "knowledge",
+                        "validation-report",
+                        "validation-gaps",
+                        "glossary"
+                      ]
+                    },
+                    "record": {
+                      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+                    },
+                    "field": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "artifact",
+                    "record",
+                    "field"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "section",
+              "start_line",
+              "end_line",
+              "derived_from",
+              "source_fields"
+            ]
+          }
+        },
+        "unresolved": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "domain-tree": {
+              "$ref": "urn:osago:domain-tree:1.0"
+            },
+            "scenario-definition": {
+              "$ref": "urn:osago:scenario-definition:1.0"
+            },
+            "source-map": {
+              "$ref": "urn:osago:source-map:1.0"
+            },
+            "technical-flow": {
+              "$ref": "urn:osago:technical-flow:1.0"
+            },
+            "business-rules": {
+              "$ref": "urn:osago:business-rules:1.0"
+            },
+            "scenario": {
+              "$ref": "urn:osago:scenario:1.0"
+            },
+            "validation-report": {
+              "$ref": "urn:osago:validation-report:1.0"
+            },
+            "validation-gaps": {
+              "$ref": "urn:osago:validation-gaps:1.0"
+            },
+            "glossary": {
+              "$ref": "urn:osago:glossary:1.0"
+            },
+            "knowledge": {
+              "$ref": "urn:osago:knowledge-package:1.0"
+            }
+          },
+          "required": [
+            "knowledge",
+            "domain-tree",
+            "technical-flow",
+            "business-rules",
+            "scenario",
+            "validation-report",
+            "validation-gaps",
+            "glossary"
+          ],
+          "description": "Immutable structured inputs and full inventories. Reuses existing schemas; not a second knowledge model."
+        }
+      },
+      "required": [
+        "scenario_id",
+        "domain_ids",
+        "source_revision",
+        "glossary",
+        "template_hash",
+        "writing_style_hash",
+        "blocks",
+        "unresolved"
+      ]
+    },
+    "document_profile": {
+      "const": "reviewed-draft-v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope_ref",
+    "package_ref",
+    "report_ref",
+    "report_hash",
+    "gaps_hash",
+    "document_hash",
+    "inputs",
+    "claim_ids",
+    "publication_gate"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "document_profile"
+        ]
+      },
+      "then": {
+        "required": [
+          "document"
+        ]
+      }
+    }
+  ]
+}

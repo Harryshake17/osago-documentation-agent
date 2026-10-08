@@ -1,0 +1,88 @@
+schema_version: '1.0'
+model_profile: scoped-knowledge-v1
+id: glossary-increment:c9dea66190d6be6685218fbf
+glossary_ref:
+  id: glossary:osago
+  revision: 2
+base_hash: 8df13a75b13e38b4cdcbde2a87302fbfdc56b0510fbe42cd7133573ef5d1349e
+result_hash: 8df13a75b13e38b4cdcbde2a87302fbfdc56b0510fbe42cd7133573ef5d1349e
+domain_id: domain:glossary-fixture
+package_ref:
+  id: kb:glossary:existing
+  revision: 1
+scope_ref: scope:fixture
+input_hashes:
+  knowledge: 6fdc4031e230391be69360211803a15cb2e92d4fce5bcbafb458eef907ae6b41
+  scenario: b3c4e645f034d9f18c4727367b017c309c0890707689458f375dd3a35c5ed7a8
+  validation: 2c41e6705e1bdf75061f197ba479ae3f7efe1b66dcf32e3ad469335525d0aa13
+  glossary: 8df13a75b13e38b4cdcbde2a87302fbfdc56b0510fbe42cd7133573ef5d1349e
+added: []
+updated: []
+unchanged:
+- term_id: TERM-NSIS
+provenance_added: []
+conflicts: []
+unresolved:
+- entity_ref: BR-FIXTURE-001
+  term_id: null
+  technical_aliases:
+  - BR-FIXTURE-001
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:0f5d67e253704a1c3fbf
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - BR-FIXTURE-001
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+- entity_ref: actor:fixture
+  term_id: null
+  technical_aliases:
+  - actor:fixture
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:cf25581be44b9abd1b33
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - actor:fixture
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+- entity_ref: scenario:fixture
+  term_id: null
+  technical_aliases:
+  - scenario:fixture
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:a5a252c2ecf1da90479c
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - scenario:fixture
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+statistics:
+  candidates_total: 4
+  matched_existing: 1
+  added: 0
+  updated: 0
+  unchanged: 1
+  conflicts: 0
+  unresolved: 3
+  ignored_entities: 11

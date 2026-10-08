@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:glossary-term:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "entity_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "identity_key": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/identity_key"
+    },
+    "preferred_name": {
+      "$ref": "urn:osago:kb:1.0#/$defs/preferred_name"
+    },
+    "definition": {
+      "allOf": [
+        {
+          "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "type": {
+      "enum": [
+        "DOMAIN",
+        "SCENARIO",
+        "SYSTEM",
+        "INTEGRATION",
+        "CAPABILITY",
+        "BUSINESS_ENTITY",
+        "STATE",
+        "BUSINESS_PROCESS",
+        "BUSINESS_RULE_TERM",
+        "ABBREVIATION",
+        "TECHNICAL_CONCEPT"
+      ]
+    },
+    "technical_aliases": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/technical_aliases"
+    },
+    "search_aliases": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/search_aliases"
+    },
+    "terminology_candidates": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/terminology_candidates"
+    },
+    "search_alias_origins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "origin": {
+            "enum": [
+              "preferred_name",
+              "technical_alias",
+              "search_alias",
+              "candidate"
+            ]
+          },
+          "entity_ref": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          }
+        },
+        "required": [
+          "value",
+          "origin",
+          "entity_ref"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "abbreviations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    },
+    "related_entities": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    },
+    "attribute_claims": {
+      "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "$ref": "urn:osago:kb:1.0#/$defs/knowledge_status"
+    },
+    "provenance_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    },
+    "validation_claim_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "id",
+    "entity_ref",
+    "identity_key",
+    "preferred_name",
+    "definition",
+    "type",
+    "technical_aliases",
+    "search_aliases",
+    "terminology_candidates",
+    "search_alias_origins",
+    "abbreviations",
+    "domains",
+    "related_entities",
+    "attribute_claims",
+    "evidence",
+    "status",
+    "provenance_refs",
+    "validation_claim_ids"
+  ]
+}

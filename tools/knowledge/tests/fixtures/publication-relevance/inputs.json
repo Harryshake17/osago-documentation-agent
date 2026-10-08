@@ -1,0 +1,4426 @@
+{
+  "knowledge": {
+    "schema_version": "1.0",
+    "package_id": "kb:fixture",
+    "revision": 1,
+    "scope": {
+      "id": "scope:fixture",
+      "repositories": [
+        "fixture"
+      ],
+      "revisions": {
+        "fixture": "fixture-v1"
+      },
+      "components": [
+        "fixture"
+      ],
+      "scenarios": [
+        "scenario:fixture"
+      ],
+      "environments": [
+        "test"
+      ],
+      "time_range": null,
+      "exclusions": [
+        "production"
+      ],
+      "unresolved_constraints": []
+    },
+    "sources": [
+      {
+        "id": "snapshot:fixture",
+        "adapter": "repository",
+        "locator": "fixtures/flow.cs",
+        "repository": "fixture",
+        "revision": "fixture-v1",
+        "commit": null,
+        "retrieved_at": "2026-10-01T09:00:00Z",
+        "content_hash": "4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91",
+        "hash_scope": "full_content",
+        "working_tree_state": "clean",
+        "availability": "available",
+        "excerpt": "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+      }
+    ],
+    "entities": [
+      {
+        "id": "scenario:fixture",
+        "type": "Scenario",
+        "label": "scenario:fixture",
+        "identity_key": "scenario:fixture",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "scenario:fixture"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "actor:fixture",
+        "type": "Actor",
+        "label": "actor:fixture",
+        "identity_key": "actor:fixture",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "actor:fixture"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "FixtureCommand",
+        "type": "CodeComponent",
+        "label": "FixtureCommand",
+        "identity_key": "FixtureCommand",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "FixtureCommand"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "FixtureHandler.Handle",
+        "type": "CodeComponent",
+        "label": "FixtureHandler.Handle",
+        "identity_key": "FixtureHandler.Handle",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "FixtureHandler.Handle"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "technical-step:guard",
+        "type": "SystemBehaviour",
+        "label": "Synthetic guard",
+        "identity_key": "technical-step:guard",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "technical-step:guard"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "BR-FIXTURE-001",
+        "type": "BusinessRule",
+        "label": "Synthetic constraint",
+        "identity_key": "BR-FIXTURE-001",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "BR-FIXTURE-001"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "decision:accuracy",
+        "type": "Decision",
+        "label": "Synthetic technical guard",
+        "identity_key": "decision:accuracy",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "decision:accuracy"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "scenario-step:guard",
+        "type": "ScenarioStep",
+        "label": "scenario-step:guard",
+        "identity_key": "scenario-step:guard",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "scenario-step:guard"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "scenario-step:return-one",
+        "type": "ScenarioStep",
+        "label": "scenario-step:return-one",
+        "identity_key": "scenario-step:return-one",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "scenario-step:return-one"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "scenario-step:return-zero",
+        "type": "ScenarioStep",
+        "label": "scenario-step:return-zero",
+        "identity_key": "scenario-step:return-zero",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "scenario-step:return-zero"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "domain:workflow-fixture",
+        "type": "Domain",
+        "label": "Synthetic workflow domain",
+        "identity_key": "domain:workflow-fixture",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [],
+        "search_aliases": [],
+        "terminology_candidates": []
+      },
+      {
+        "id": "state:workflow-fixture",
+        "type": "State",
+        "label": "Synthetic stable state",
+        "identity_key": "state:workflow-fixture",
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [],
+        "search_aliases": [],
+        "terminology_candidates": []
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim:business_goal",
+        "subject_id": "scenario:fixture",
+        "predicate": "business_goal",
+        "value": "Process fixture request",
+        "text": "Synthetic: scenario:fixture business_goal Process fixture request",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:trigger",
+        "subject_id": "scenario:fixture",
+        "predicate": "trigger",
+        "value": "FixtureCommand",
+        "text": "Synthetic: scenario:fixture trigger FixtureCommand",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:entry_state",
+        "subject_id": "scenario:fixture",
+        "predicate": "entry_state",
+        "value": "fixture pending",
+        "text": "Synthetic: scenario:fixture entry_state fixture pending",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:exit_states",
+        "subject_id": "scenario:fixture",
+        "predicate": "exit_states",
+        "value": "fixture done",
+        "text": "Synthetic: scenario:fixture exit_states fixture done",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:actors",
+        "subject_id": "scenario:fixture",
+        "predicate": "actors",
+        "value": "actor:fixture",
+        "text": "Synthetic: scenario:fixture actors actor:fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:anchor",
+        "subject_id": "scenario:fixture",
+        "predicate": "entry_point",
+        "value": "FixtureCommand",
+        "text": "Synthetic: scenario:fixture entry_point FixtureCommand",
+        "modality": "discovery",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:edge",
+        "subject_id": "FixtureCommand",
+        "predicate": "registered_handler",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: FixtureCommand registered_handler FixtureHandler.Handle",
+        "modality": "discovery",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:expected_outcomes",
+        "subject_id": "scenario:fixture",
+        "predicate": "expected_outcomes",
+        "value": "fixture done",
+        "text": "Synthetic: scenario:fixture expected_outcomes fixture done",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:flow-implementation",
+        "subject_id": "technical-step:guard",
+        "predicate": "implementation",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: implementation FixtureHandler.Handle",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:rule_kind",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "rule_kind",
+        "value": "technical_constraint",
+        "text": "Synthetic: rule_kind technical_constraint",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:rule_statement",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "rule_statement",
+        "value": "Return 0 when fixture accuracy is below 7.",
+        "text": "Synthetic: rule_statement Return 0 when fixture accuracy is below 7.",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:condition",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "condition",
+        "value": "accuracy < 7",
+        "text": "Synthetic: condition accuracy < 7",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:true_result",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "true_result",
+        "value": "return 0",
+        "text": "Synthetic: true_result return 0",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:false_result",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "false_result",
+        "value": "return 1",
+        "text": "Synthetic: false_result return 1",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:affected_actor:0",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "affected_actor",
+        "value": "actor:fixture",
+        "text": "Synthetic: affected_actor actor:fixture",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:affected_scenario:0",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "affected_scenario",
+        "value": "scenario:fixture",
+        "text": "Synthetic: affected_scenario scenario:fixture",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:parameters:0",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "parameters",
+        "value": {
+          "name": "accuracy threshold",
+          "value": 7,
+          "unit": null,
+          "origin": "literal"
+        },
+        "text": "Synthetic: parameters {'name': 'accuracy threshold', 'value': 7, 'unit': None, 'origin': 'literal'}",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:rule:implementation:0",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "implementation",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: implementation FixtureHandler.Handle",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:kind",
+        "subject_id": "scenario-step:guard",
+        "predicate": "kind",
+        "value": "decision",
+        "text": "Synthetic: kind decision",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:action",
+        "subject_id": "scenario-step:guard",
+        "predicate": "action",
+        "value": "Check accuracy",
+        "text": "Synthetic: action Check accuracy",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:system_behavior",
+        "subject_id": "scenario-step:guard",
+        "predicate": "system_behavior",
+        "value": "Evaluate accuracy < 7",
+        "text": "Synthetic: system_behavior Evaluate accuracy < 7",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:decision_ref",
+        "subject_id": "scenario-step:guard",
+        "predicate": "decision_ref",
+        "value": "decision:accuracy",
+        "text": "Synthetic: decision_ref decision:accuracy",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:decision_kind",
+        "subject_id": "scenario-step:guard",
+        "predicate": "decision_kind",
+        "value": "technical",
+        "text": "Synthetic: decision_kind technical",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:evaluated_rules:0",
+        "subject_id": "scenario-step:guard",
+        "predicate": "evaluated_rules",
+        "value": "BR-FIXTURE-001",
+        "text": "Synthetic: evaluated_rules BR-FIXTURE-001",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:implementation:0",
+        "subject_id": "scenario-step:guard",
+        "predicate": "implementation",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: implementation FixtureHandler.Handle",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:na:actor",
+        "subject_id": "scenario-step:guard",
+        "predicate": "not_applicable",
+        "value": "actor",
+        "text": "Synthetic: not_applicable actor",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:guard:na:integrations",
+        "subject_id": "scenario-step:guard",
+        "predicate": "not_applicable",
+        "value": "integrations",
+        "text": "Synthetic: not_applicable integrations",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:kind",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "kind",
+        "value": "system_reaction",
+        "text": "Synthetic: kind system_reaction",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:action",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "action",
+        "value": "Return fixture result",
+        "text": "Synthetic: action Return fixture result",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:system_behavior",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "system_behavior",
+        "value": "return 1",
+        "text": "Synthetic: system_behavior return 1",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:implementation:0",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "implementation",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: implementation FixtureHandler.Handle",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:na:actor",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "not_applicable",
+        "value": "actor",
+        "text": "Synthetic: not_applicable actor",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:na:integrations",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "not_applicable",
+        "value": "integrations",
+        "text": "Synthetic: not_applicable integrations",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-one:na:evaluated_rules",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "not_applicable",
+        "value": "evaluated_rules",
+        "text": "Synthetic: not_applicable evaluated_rules",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:kind",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "kind",
+        "value": "system_reaction",
+        "text": "Synthetic: kind system_reaction",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:action",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "action",
+        "value": "Return fixture result",
+        "text": "Synthetic: action Return fixture result",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:system_behavior",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "system_behavior",
+        "value": "return 0",
+        "text": "Synthetic: system_behavior return 0",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:implementation:0",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "implementation",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic: implementation FixtureHandler.Handle",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:na:actor",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "not_applicable",
+        "value": "actor",
+        "text": "Synthetic: not_applicable actor",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:na:integrations",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "not_applicable",
+        "value": "integrations",
+        "text": "Synthetic: not_applicable integrations",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:scenario-step:return-zero:na:evaluated_rules",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "not_applicable",
+        "value": "evaluated_rules",
+        "text": "Synthetic: not_applicable evaluated_rules",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:edge:0",
+        "subject_id": "scenario-step:guard",
+        "predicate": "rule_branch",
+        "value": "scenario-step:return-one",
+        "text": "Synthetic: rule_branch scenario-step:return-one",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:edge:0:condition",
+        "subject_id": "scenario-step:guard",
+        "predicate": "branch_condition",
+        "value": {
+          "rule_id": "BR-FIXTURE-001",
+          "outcome": "false",
+          "condition": "accuracy >= 7"
+        },
+        "text": "Synthetic: branch_condition {'rule_id': 'BR-FIXTURE-001', 'outcome': 'false', 'condition': 'accuracy >= 7'}",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:edge:1",
+        "subject_id": "scenario-step:guard",
+        "predicate": "rule_branch",
+        "value": "scenario-step:return-zero",
+        "text": "Synthetic: rule_branch scenario-step:return-zero",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:edge:1:condition",
+        "subject_id": "scenario-step:guard",
+        "predicate": "branch_condition",
+        "value": {
+          "rule_id": "BR-FIXTURE-001",
+          "outcome": "true",
+          "condition": "accuracy < 7"
+        },
+        "text": "Synthetic: branch_condition {'rule_id': 'BR-FIXTURE-001', 'outcome': 'true', 'condition': 'accuracy < 7'}",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:flow:main",
+        "subject_id": "scenario:fixture",
+        "predicate": "flow_condition",
+        "value": "accuracy >= 7",
+        "text": "Synthetic: flow_condition accuracy >= 7",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:flow:alternative",
+        "subject_id": "scenario:fixture",
+        "predicate": "flow_condition",
+        "value": "accuracy < 7",
+        "text": "Synthetic: flow_condition accuracy < 7",
+        "modality": "implemented",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:flow:main:type",
+        "subject_id": "scenario:fixture",
+        "predicate": "flow_type",
+        "value": {
+          "flow_id": "scenario-flow:main",
+          "type": "main"
+        },
+        "text": "Synthetic: flow_type {'flow_id': 'scenario-flow:main', 'type': 'main'}",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:flow:alternative:type",
+        "subject_id": "scenario:fixture",
+        "predicate": "flow_type",
+        "value": {
+          "flow_id": "scenario-flow:alternative",
+          "type": "alternative"
+        },
+        "text": "Synthetic: flow_type {'flow_id': 'scenario-flow:alternative', 'type': 'alternative'}",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:type",
+        "subject_id": "technical-step:guard",
+        "predicate": "type",
+        "value": "rule",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:symbol",
+        "subject_id": "technical-step:guard",
+        "predicate": "symbol",
+        "value": "FixtureHandler.Handle",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:purpose",
+        "subject_id": "technical-step:guard",
+        "predicate": "purpose",
+        "value": "Return a value after checking fixture accuracy.",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:inputs/0",
+        "subject_id": "technical-step:guard",
+        "predicate": "inputs",
+        "value": "command",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:inputs/1",
+        "subject_id": "technical-step:guard",
+        "predicate": "inputs",
+        "value": "accuracy",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:outputs/0",
+        "subject_id": "technical-step:guard",
+        "predicate": "outputs",
+        "value": "0 or 1",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:conditions/0",
+        "subject_id": "technical-step:guard",
+        "predicate": "conditions",
+        "value": "accuracy < 7",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:technical:checks/0",
+        "subject_id": "technical-step:guard",
+        "predicate": "checks",
+        "value": "accuracy < 7",
+        "text": "Synthetic technical observation.",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:57",
+        "subject_id": "technical-step:guard",
+        "predicate": "business_meaning",
+        "value": "Synthetic business_meaning",
+        "text": "Synthetic business_meaning: Synthetic business_meaning",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:58",
+        "subject_id": "technical-step:guard",
+        "predicate": "not_applicable",
+        "value": "calls",
+        "text": "Synthetic not_applicable: calls",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:59",
+        "subject_id": "technical-step:guard",
+        "predicate": "not_applicable",
+        "value": "state_changes",
+        "text": "Synthetic not_applicable: state_changes",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:60",
+        "subject_id": "technical-step:guard",
+        "predicate": "not_applicable",
+        "value": "configuration_reads",
+        "text": "Synthetic not_applicable: configuration_reads",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:61",
+        "subject_id": "technical-step:guard",
+        "predicate": "not_applicable",
+        "value": "external_calls",
+        "text": "Synthetic not_applicable: external_calls",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:62",
+        "subject_id": "technical-step:guard",
+        "predicate": "not_applicable",
+        "value": "async_events",
+        "text": "Synthetic not_applicable: async_events",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:63",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "business_statement",
+        "value": "Synthetic business_statement",
+        "text": "Synthetic business_statement: Synthetic business_statement",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:64",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "business_rationale",
+        "value": "Synthetic business_rationale",
+        "text": "Synthetic business_rationale: Synthetic business_rationale",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:65",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "not_applicable",
+        "value": "affected_state",
+        "text": "Synthetic not_applicable: affected_state",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:66",
+        "subject_id": "BR-FIXTURE-001",
+        "predicate": "externally_visible_result",
+        "value": "Synthetic result",
+        "text": "Synthetic externally_visible_result: Synthetic result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:67",
+        "subject_id": "scenario-step:guard",
+        "predicate": "business_action",
+        "value": "Synthetic business_action",
+        "text": "Synthetic business_action: Synthetic business_action",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:68",
+        "subject_id": "scenario-step:guard",
+        "predicate": "business_result",
+        "value": "Synthetic business_result",
+        "text": "Synthetic business_result: Synthetic business_result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:69",
+        "subject_id": "scenario-step:guard",
+        "predicate": "business_meaning",
+        "value": "Synthetic business meaning",
+        "text": "Synthetic business_meaning: Synthetic business meaning",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:70",
+        "subject_id": "scenario-step:guard",
+        "predicate": "state_before",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_before: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:71",
+        "subject_id": "scenario-step:guard",
+        "predicate": "state_after",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_after: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:72",
+        "subject_id": "scenario-step:guard",
+        "predicate": "user_result",
+        "value": "Synthetic result",
+        "text": "Synthetic user_result: Synthetic result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:73",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "business_action",
+        "value": "Synthetic business_action",
+        "text": "Synthetic business_action: Synthetic business_action",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:74",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "business_result",
+        "value": "Synthetic business_result",
+        "text": "Synthetic business_result: Synthetic business_result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:75",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "business_meaning",
+        "value": "Synthetic business meaning",
+        "text": "Synthetic business_meaning: Synthetic business meaning",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:76",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "state_before",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_before: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:77",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "state_after",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_after: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:78",
+        "subject_id": "scenario-step:return-one",
+        "predicate": "user_result",
+        "value": "Synthetic result",
+        "text": "Synthetic user_result: Synthetic result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:79",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "business_action",
+        "value": "Synthetic business_action",
+        "text": "Synthetic business_action: Synthetic business_action",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:80",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "business_result",
+        "value": "Synthetic business_result",
+        "text": "Synthetic business_result: Synthetic business_result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:81",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "business_meaning",
+        "value": "Synthetic business meaning",
+        "text": "Synthetic business_meaning: Synthetic business meaning",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:82",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "state_before",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_before: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:83",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "state_after",
+        "value": "state:workflow-fixture",
+        "text": "Synthetic state_after: state:workflow-fixture",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      },
+      {
+        "id": "claim:workflow:84",
+        "subject_id": "scenario-step:return-zero",
+        "predicate": "user_result",
+        "value": "Synthetic result",
+        "text": "Synthetic user_result: Synthetic result",
+        "modality": "source_statement",
+        "context": {
+          "repository": "fixture",
+          "revision": "fixture-v1",
+          "environment": "test"
+        },
+        "support": [
+          {
+            "evidence_id": "evidence:fixture",
+            "role": "supports"
+          }
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "validation_status": "supported",
+        "lifecycle_status": "current",
+        "knowledge_status": "CONFIRMED",
+        "basis_claim_ids": [],
+        "inference_rationale": null
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence:fixture",
+        "source_type": "CODE",
+        "source_location": "fixtures/flow.cs:1",
+        "repository": "fixture",
+        "file": "fixtures/flow.cs",
+        "class": "FixtureHandler",
+        "method": "Handle",
+        "page": null,
+        "section": null,
+        "version": "fixture-v1",
+        "commit": null,
+        "snapshot_id": "snapshot:fixture",
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        },
+        "inference": false,
+        "excerpt": "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n",
+        "basis_claim_ids": [],
+        "rationale": null,
+        "source_ref": "snapshot:fixture",
+        "supports": [
+          "claim:business_goal",
+          "claim:trigger",
+          "claim:entry_state",
+          "claim:exit_states",
+          "claim:actors",
+          "claim:anchor",
+          "claim:edge",
+          "claim:expected_outcomes",
+          "claim:flow-implementation",
+          "claim:rule:rule_kind",
+          "claim:rule:rule_statement",
+          "claim:rule:condition",
+          "claim:rule:true_result",
+          "claim:rule:false_result",
+          "claim:rule:affected_actor:0",
+          "claim:rule:affected_scenario:0",
+          "claim:rule:parameters:0",
+          "claim:rule:implementation:0",
+          "claim:scenario-step:guard:kind",
+          "claim:scenario-step:guard:action",
+          "claim:scenario-step:guard:system_behavior",
+          "claim:scenario-step:guard:decision_ref",
+          "claim:scenario-step:guard:decision_kind",
+          "claim:scenario-step:guard:evaluated_rules:0",
+          "claim:scenario-step:guard:implementation:0",
+          "claim:scenario-step:guard:na:actor",
+          "claim:scenario-step:guard:na:integrations",
+          "claim:scenario-step:return-one:kind",
+          "claim:scenario-step:return-one:action",
+          "claim:scenario-step:return-one:system_behavior",
+          "claim:scenario-step:return-one:implementation:0",
+          "claim:scenario-step:return-one:na:actor",
+          "claim:scenario-step:return-one:na:integrations",
+          "claim:scenario-step:return-one:na:evaluated_rules",
+          "claim:scenario-step:return-zero:kind",
+          "claim:scenario-step:return-zero:action",
+          "claim:scenario-step:return-zero:system_behavior",
+          "claim:scenario-step:return-zero:implementation:0",
+          "claim:scenario-step:return-zero:na:actor",
+          "claim:scenario-step:return-zero:na:integrations",
+          "claim:scenario-step:return-zero:na:evaluated_rules",
+          "claim:edge:0",
+          "claim:edge:0:condition",
+          "claim:edge:1",
+          "claim:edge:1:condition",
+          "claim:flow:main",
+          "claim:flow:alternative",
+          "claim:flow:main:type",
+          "claim:flow:alternative:type",
+          "claim:technical:type",
+          "claim:technical:symbol",
+          "claim:technical:purpose",
+          "claim:technical:inputs/0",
+          "claim:technical:inputs/1",
+          "claim:technical:outputs/0",
+          "claim:technical:conditions/0",
+          "claim:technical:checks/0",
+          "claim:workflow:57",
+          "claim:workflow:58",
+          "claim:workflow:59",
+          "claim:workflow:60",
+          "claim:workflow:61",
+          "claim:workflow:62",
+          "claim:workflow:63",
+          "claim:workflow:64",
+          "claim:workflow:65",
+          "claim:workflow:66",
+          "claim:workflow:67",
+          "claim:workflow:68",
+          "claim:workflow:69",
+          "claim:workflow:70",
+          "claim:workflow:71",
+          "claim:workflow:72",
+          "claim:workflow:73",
+          "claim:workflow:74",
+          "claim:workflow:75",
+          "claim:workflow:76",
+          "claim:workflow:77",
+          "claim:workflow:78",
+          "claim:workflow:79",
+          "claim:workflow:80",
+          "claim:workflow:81",
+          "claim:workflow:82",
+          "claim:workflow:83",
+          "claim:workflow:84"
+        ],
+        "metadata": {
+          "repository": "fixture",
+          "file": "fixtures/flow.cs",
+          "symbol": "FixtureHandler.Handle",
+          "revision": "fixture-v1",
+          "page": null
+        }
+      }
+    ],
+    "relations": [],
+    "gaps": [
+      {
+        "id": "gap:internal:00",
+        "reason": "unknown_field",
+        "question": "Exact internal method?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:01",
+        "reason": "unknown_field",
+        "question": "Actor for an internal call?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:02",
+        "reason": "unknown_field",
+        "question": "Helper/extension wiring?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:03",
+        "reason": "unknown_field",
+        "question": "Full generated graph?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:04",
+        "reason": "unknown_field",
+        "question": "Secondary implementation detail?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:05",
+        "reason": "unknown_field",
+        "question": "Specific test/file locator?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:06",
+        "reason": "unknown_field",
+        "question": "Exact internal method?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:07",
+        "reason": "unknown_field",
+        "question": "Actor for an internal call?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:08",
+        "reason": "unknown_field",
+        "question": "Helper/extension wiring?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:09",
+        "reason": "unknown_field",
+        "question": "Full generated graph?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:10",
+        "reason": "unknown_field",
+        "question": "Secondary implementation detail?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:11",
+        "reason": "unknown_field",
+        "question": "Specific test/file locator?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:12",
+        "reason": "unknown_field",
+        "question": "Exact internal method?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:13",
+        "reason": "unknown_field",
+        "question": "Actor for an internal call?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:14",
+        "reason": "unknown_field",
+        "question": "Helper/extension wiring?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:15",
+        "reason": "unknown_field",
+        "question": "Full generated graph?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:16",
+        "reason": "unknown_field",
+        "question": "Secondary implementation detail?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:17",
+        "reason": "unknown_field",
+        "question": "Specific test/file locator?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:18",
+        "reason": "unknown_field",
+        "question": "Exact internal method?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:internal:19",
+        "reason": "unknown_field",
+        "question": "Actor for an internal call?",
+        "affected_ids": [
+          "technical-step:guard"
+        ],
+        "next_action": "Continue internal implementation research.",
+        "status": "open"
+      },
+      {
+        "id": "gap:process:ordering",
+        "reason": "unverified",
+        "question": "Does the main process use this order?",
+        "affected_ids": [
+          "claim:edge:0"
+        ],
+        "next_action": "Review the affected process assertion.",
+        "status": "open"
+      },
+      {
+        "id": "gap:process:result",
+        "reason": "unverified",
+        "question": "Is this the business result?",
+        "affected_ids": [
+          "claim:workflow:74"
+        ],
+        "next_action": "Review the affected process assertion.",
+        "status": "open"
+      }
+    ],
+    "conflicts": [],
+    "model_profile": "scoped-knowledge-v1"
+  },
+  "domain-tree": {
+    "schema_version": "1.0",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "id": "tree:fixture",
+    "nodes": [
+      {
+        "id": "scenario:fixture",
+        "name": "Fixture scenario",
+        "type": "scenario",
+        "parent": null,
+        "business_goal": "Process fixture request",
+        "trigger": "FixtureCommand",
+        "entry_state": "fixture pending",
+        "exit_states": [
+          "fixture done"
+        ],
+        "actors": [
+          "actor:fixture"
+        ],
+        "recommended_document": true,
+        "decomposition_reason": "One synthetic goal/lifecycle.",
+        "discovered_sources": [
+          "snapshot:fixture"
+        ],
+        "attribute_claims": {
+          "business_goal": [
+            "claim:business_goal"
+          ],
+          "trigger": [
+            "claim:trigger"
+          ],
+          "entry_state": [
+            "claim:entry_state"
+          ],
+          "exit_states/0": [
+            "claim:exit_states"
+          ],
+          "actors/0": [
+            "claim:actors"
+          ]
+        },
+        "proposed_fields": [
+          "name"
+        ],
+        "recommendation_basis_claim_ids": [
+          "claim:business_goal"
+        ],
+        "assessment": {
+          "atomicity": "atomic",
+          "lifecycle": {
+            "start_claim_ids": [
+              "claim:entry_state"
+            ],
+            "end_claim_ids": [
+              "claim:exit_states"
+            ]
+          },
+          "criteria": {
+            "business_goal": {
+              "status": "satisfied",
+              "claim_ids": [
+                "claim:business_goal"
+              ]
+            },
+            "trigger": {
+              "status": "satisfied",
+              "claim_ids": [
+                "claim:trigger"
+              ]
+            },
+            "lifecycle": {
+              "status": "satisfied",
+              "claim_ids": [
+                "claim:entry_state"
+              ]
+            },
+            "outcome": {
+              "status": "satisfied",
+              "claim_ids": [
+                "claim:exit_states"
+              ]
+            }
+          },
+          "unknown_fields": [],
+          "not_applicable_fields": []
+        },
+        "gap_ids": [],
+        "conflict_ids": [],
+        "preferred_name": {
+          "value": null,
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": []
+        },
+        "technical_aliases": [
+          "scenario:fixture"
+        ],
+        "search_aliases": [],
+        "terminology_candidates": [],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "scope_ref": "scope:fixture"
+      }
+    ],
+    "relations": [],
+    "coverage": {
+      "status": "complete",
+      "limitations": [],
+      "frontier": []
+    },
+    "model_profile": "scoped-knowledge-v1"
+  },
+  "scenario-definition": {
+    "schema_version": "1.0",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "id": "definition:fixture",
+    "scenario_id": "scenario:fixture",
+    "name": "Fixture scenario",
+    "business_goal": "Process fixture request",
+    "trigger": "FixtureCommand",
+    "entry_state": "fixture pending",
+    "expected_outcomes": [
+      "fixture done"
+    ],
+    "actors": [
+      "actor:fixture"
+    ],
+    "attribute_claims": {
+      "business_goal": [
+        "claim:business_goal"
+      ],
+      "trigger": [
+        "claim:trigger"
+      ],
+      "entry_state": [
+        "claim:entry_state"
+      ],
+      "actors/0": [
+        "claim:actors"
+      ],
+      "expected_outcomes/0": [
+        "claim:expected_outcomes"
+      ]
+    },
+    "proposed_fields": [
+      "name"
+    ],
+    "unknown_fields": [],
+    "entry_point_candidates": [
+      {
+        "id": "FixtureCommand",
+        "snapshot_id": "snapshot:fixture",
+        "claim_ids": [
+          "claim:anchor"
+        ]
+      }
+    ],
+    "known_source_refs": [
+      "snapshot:fixture"
+    ],
+    "aliases": [
+      "fixture"
+    ],
+    "exclusions": [
+      "production"
+    ],
+    "gap_ids": [],
+    "model_profile": "scoped-knowledge-v1",
+    "preferred_name": {
+      "value": null,
+      "status": "UNKNOWN",
+      "claim_ids": [],
+      "evidence_ids": []
+    },
+    "technical_aliases": [
+      "scenario:fixture"
+    ],
+    "search_aliases": [],
+    "terminology_candidates": [],
+    "evidence": [
+      "evidence:fixture"
+    ]
+  },
+  "source-map": {
+    "schema_version": "1.0",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "id": "source-map:fixture",
+    "scenario": "scenario:fixture",
+    "scenario_definition_ref": "definition:fixture",
+    "domain_tree_ref": "tree:fixture",
+    "sources": [
+      {
+        "id": "source:handler",
+        "source_type": "CODE",
+        "artifact_kind": "handler",
+        "category": "commands_handlers",
+        "repository": "fixture",
+        "path": "fixtures/flow.cs",
+        "symbol": "FixtureHandler.Handle",
+        "page_id": null,
+        "section": null,
+        "source_location": "fixtures/flow.cs:5",
+        "version": "fixture-v1",
+        "commit": null,
+        "snapshot_ref": "snapshot:fixture",
+        "relevance": "Explicit synthetic command/handler registration.",
+        "relevance_claim_ids": [
+          "claim:edge"
+        ],
+        "relevance_path": [
+          {
+            "from_ref": "FixtureCommand",
+            "relation_type": "registered_handler",
+            "to_ref": "FixtureHandler.Handle",
+            "evidence_ids": [
+              "evidence:fixture"
+            ],
+            "claim_ids": [
+              "claim:edge"
+            ]
+          }
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ],
+        "confidence": {
+          "score": 1.0,
+          "rationale": "Direct synthetic fixture statement."
+        }
+      }
+    ],
+    "candidates": [],
+    "exclusions": [],
+    "category_coverage": [
+      {
+        "category": "api_endpoints",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:api_endpoints"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "controllers",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:controllers"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "commands_handlers",
+        "status": "found",
+        "search_run_ids": [
+          "search:commands_handlers"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "process_definitions",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:process_definitions"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "subprocesses",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:subprocesses"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "business_rule_implementations",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:business_rule_implementations"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "configuration_keys",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:configuration_keys"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "integrations",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:integrations"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "automated_tests",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:automated_tests"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      },
+      {
+        "category": "confluence_pages",
+        "status": "not_found",
+        "search_run_ids": [
+          "search:confluence_pages"
+        ],
+        "basis_claim_ids": [],
+        "limitations": []
+      }
+    ],
+    "search_runs": [
+      {
+        "id": "search:api_endpoints",
+        "category": "api_endpoints",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:controllers",
+        "category": "controllers",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:commands_handlers",
+        "category": "commands_handlers",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:process_definitions",
+        "category": "process_definitions",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:subprocesses",
+        "category": "subprocesses",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:business_rule_implementations",
+        "category": "business_rule_implementations",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:configuration_keys",
+        "category": "configuration_keys",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:integrations",
+        "category": "integrations",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:automated_tests",
+        "category": "automated_tests",
+        "adapter": "repository",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      },
+      {
+        "id": "search:confluence_pages",
+        "category": "confluence_pages",
+        "adapter": "confluence",
+        "query": "synthetic fixture search",
+        "scope_ref": "scope:fixture",
+        "revision": "fixture-v1",
+        "cursor": null,
+        "status": "complete",
+        "snapshot_ids": [],
+        "diagnostic": "Synthetic search."
+      }
+    ],
+    "gap_ids": [],
+    "conflict_ids": [],
+    "coverage": {
+      "status": "complete",
+      "limitations": [],
+      "frontier": []
+    },
+    "model_profile": "scoped-knowledge-v1",
+    "terminology_candidates": []
+  },
+  "technical-flow": {
+    "schema_version": "1.0",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "id": "flow:fixture",
+    "scenario_id": "scenario:fixture",
+    "source_map_ref": "source-map:fixture",
+    "gap_ids": [],
+    "conflict_ids": [],
+    "coverage": {
+      "status": "partial",
+      "limitations": [
+        "Uninspected technical dimensions."
+      ],
+      "frontier": []
+    },
+    "analysis_profile": "execution-path-v1",
+    "nodes": [
+      {
+        "id": "technical-step:guard",
+        "component_id": "FixtureHandler.Handle",
+        "source_ids": [
+          "source:handler"
+        ],
+        "claim_ids": [
+          "claim:flow-implementation",
+          "claim:technical:type",
+          "claim:technical:symbol",
+          "claim:technical:purpose",
+          "claim:technical:inputs/0",
+          "claim:technical:inputs/1",
+          "claim:technical:outputs/0",
+          "claim:technical:conditions/0",
+          "claim:technical:checks/0",
+          "claim:workflow:58",
+          "claim:workflow:59",
+          "claim:workflow:60",
+          "claim:workflow:61",
+          "claim:workflow:62"
+        ],
+        "type": "rule",
+        "symbol": "FixtureHandler.Handle",
+        "purpose": "Return a value after checking fixture accuracy.",
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "attribute_claims": {
+          "type": [
+            "claim:technical:type"
+          ],
+          "symbol": [
+            "claim:technical:symbol"
+          ],
+          "purpose": [
+            "claim:technical:purpose"
+          ],
+          "inputs/0": [
+            "claim:technical:inputs/0"
+          ],
+          "inputs/1": [
+            "claim:technical:inputs/1"
+          ],
+          "outputs/0": [
+            "claim:technical:outputs/0"
+          ],
+          "conditions/0": [
+            "claim:technical:conditions/0"
+          ],
+          "checks/0": [
+            "claim:technical:checks/0"
+          ],
+          "not_applicable/calls": [
+            "claim:workflow:58"
+          ],
+          "not_applicable/state_changes": [
+            "claim:workflow:59"
+          ],
+          "not_applicable/configuration_reads": [
+            "claim:workflow:60"
+          ],
+          "not_applicable/external_calls": [
+            "claim:workflow:61"
+          ],
+          "not_applicable/async_events": [
+            "claim:workflow:62"
+          ]
+        },
+        "unknown_fields": [],
+        "not_applicable_fields": [
+          "calls",
+          "state_changes",
+          "configuration_reads",
+          "external_calls",
+          "async_events"
+        ],
+        "gap_ids": [],
+        "inputs": [
+          "command",
+          "accuracy"
+        ],
+        "outputs": [
+          "0 or 1"
+        ],
+        "conditions": [
+          "accuracy < 7"
+        ],
+        "calls": [],
+        "state_changes": [],
+        "configuration_reads": [],
+        "checks": [
+          "accuracy < 7"
+        ],
+        "external_calls": [],
+        "async_events": [],
+        "business_meaning": {
+          "value": "Synthetic business_meaning",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:57"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "integrations": [],
+        "technical_implementation": {
+          "implementation_refs": [
+            "FixtureHandler.Handle"
+          ],
+          "technical_step_refs": [
+            "technical-step:guard"
+          ],
+          "source_ids": [
+            "source:handler"
+          ]
+        }
+      }
+    ],
+    "relations": [],
+    "model_profile": "scoped-knowledge-v1"
+  },
+  "business-rules": {
+    "schema_version": "1.0",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "id": "rules:fixture",
+    "scenario_id": "scenario:fixture",
+    "technical_flow_ref": "flow:fixture",
+    "source_map_ref": "source-map:fixture",
+    "rules": [
+      {
+        "id": "BR-FIXTURE-001",
+        "rule_kind": "technical_constraint",
+        "extraction_categories": [
+          "guards",
+          "thresholds"
+        ],
+        "rule_statement": "Return 0 when fixture accuracy is below 7.",
+        "condition": "accuracy < 7",
+        "true_result": "return 0",
+        "false_result": "return 1",
+        "affected_actor": [
+          "actor:fixture"
+        ],
+        "affected_scenario": [
+          "scenario:fixture"
+        ],
+        "affected_state": [],
+        "externally_visible_result": "Synthetic result",
+        "business_rationale": {
+          "value": "Synthetic business_rationale",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:64"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "accuracy threshold",
+            "value": 7,
+            "unit": null,
+            "origin": "literal"
+          }
+        ],
+        "implementation": [
+          "FixtureHandler.Handle"
+        ],
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "attribute_claims": {
+          "rule_kind": [
+            "claim:rule:rule_kind"
+          ],
+          "rule_statement": [
+            "claim:rule:rule_statement"
+          ],
+          "condition": [
+            "claim:rule:condition"
+          ],
+          "true_result": [
+            "claim:rule:true_result"
+          ],
+          "false_result": [
+            "claim:rule:false_result"
+          ],
+          "affected_actor/0": [
+            "claim:rule:affected_actor:0"
+          ],
+          "affected_scenario/0": [
+            "claim:rule:affected_scenario:0"
+          ],
+          "parameters/0": [
+            "claim:rule:parameters:0"
+          ],
+          "implementation/0": [
+            "claim:rule:implementation:0"
+          ],
+          "business_rationale": [
+            "claim:workflow:64"
+          ],
+          "not_applicable/affected_state": [
+            "claim:workflow:65"
+          ],
+          "externally_visible_result": [
+            "claim:workflow:66"
+          ]
+        },
+        "unknown_fields": [],
+        "not_applicable_fields": [
+          "affected_state"
+        ],
+        "gap_ids": [],
+        "conflict_ids": [],
+        "business_statement": {
+          "value": "Synthetic business_statement",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:63"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "technical_condition": {
+          "value": "accuracy < 7",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:rule:condition"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "technical_implementation": {
+          "implementation_refs": [
+            "FixtureHandler.Handle"
+          ],
+          "technical_step_refs": [
+            "technical-step:guard"
+          ],
+          "source_ids": [
+            "source:handler"
+          ]
+        }
+      }
+    ],
+    "category_coverage": [
+      {
+        "category": "blocking_checks",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "configuration_driven_behaviour",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "eligibility_rules",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "guards",
+        "status": "found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [
+          "BR-FIXTURE-001"
+        ],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "process_branches",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "result_calculations",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "rules_extensions",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "thresholds",
+        "status": "found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [
+          "BR-FIXTURE-001"
+        ],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      },
+      {
+        "category": "validators",
+        "status": "not_found",
+        "source_ids": [
+          "source:handler"
+        ],
+        "rule_ids": [],
+        "claim_ids": [],
+        "diagnostic": "Inspected the synthetic fixture body."
+      }
+    ],
+    "gap_ids": [],
+    "conflict_ids": [],
+    "coverage": {
+      "status": "partial",
+      "limitations": [
+        "Business rationale and external mapping unknown."
+      ],
+      "frontier": []
+    },
+    "model_profile": "scoped-knowledge-v1"
+  },
+  "scenario": {
+    "schema_version": "1.0",
+    "id": "scenario-output:fixture",
+    "scenario_id": "scenario:fixture",
+    "scope_ref": "scope:fixture",
+    "package_ref": {
+      "id": "kb:fixture",
+      "revision": 1
+    },
+    "scenario_definition_ref": "definition:fixture",
+    "technical_flow_ref": "flow:fixture",
+    "business_rules_ref": "rules:fixture",
+    "source_map_ref": "source-map:fixture",
+    "confluence_evidence_ids": [],
+    "test_evidence_ids": [],
+    "flow_coverage": [
+      {
+        "category": "main",
+        "status": "found",
+        "flow_ids": [
+          "scenario-flow:main"
+        ],
+        "source_ids": [
+          "source:handler"
+        ],
+        "claim_ids": [
+          "claim:flow:main"
+        ],
+        "diagnostic": "Inspected synthetic return-one path."
+      },
+      {
+        "category": "alternative",
+        "status": "found",
+        "flow_ids": [
+          "scenario-flow:alternative"
+        ],
+        "source_ids": [
+          "source:handler"
+        ],
+        "claim_ids": [
+          "claim:flow:alternative"
+        ],
+        "diagnostic": "Inspected synthetic return-zero path."
+      },
+      {
+        "category": "error",
+        "status": "incomplete",
+        "flow_ids": [],
+        "source_ids": [
+          "source:handler"
+        ],
+        "claim_ids": [],
+        "diagnostic": "Caller error mapping unavailable in fixture."
+      }
+    ],
+    "gap_ids": [],
+    "conflict_ids": [],
+    "coverage": {
+      "status": "partial",
+      "limitations": [
+        "Synthetic technical backbone; business meaning unknown."
+      ],
+      "frontier": []
+    },
+    "steps": [
+      {
+        "id": "scenario-step:guard",
+        "order": 1,
+        "kind": "decision",
+        "actor": null,
+        "action": "Check accuracy",
+        "business_meaning": "Synthetic business meaning",
+        "system_behavior": "Evaluate accuracy < 7",
+        "evaluated_rules": [
+          "BR-FIXTURE-001"
+        ],
+        "integrations": [],
+        "state_before": "state:workflow-fixture",
+        "state_after": "state:workflow-fixture",
+        "user_result": "Synthetic result",
+        "implementation": [
+          "FixtureHandler.Handle"
+        ],
+        "technical_step_refs": [
+          "technical-step:guard"
+        ],
+        "decision_ref": "decision:accuracy",
+        "decision_kind": "technical",
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "attribute_claims": {
+          "kind": [
+            "claim:scenario-step:guard:kind"
+          ],
+          "action": [
+            "claim:scenario-step:guard:action"
+          ],
+          "system_behavior": [
+            "claim:scenario-step:guard:system_behavior"
+          ],
+          "decision_ref": [
+            "claim:scenario-step:guard:decision_ref"
+          ],
+          "decision_kind": [
+            "claim:scenario-step:guard:decision_kind"
+          ],
+          "evaluated_rules/0": [
+            "claim:scenario-step:guard:evaluated_rules:0"
+          ],
+          "implementation/0": [
+            "claim:scenario-step:guard:implementation:0"
+          ],
+          "not_applicable/actor": [
+            "claim:scenario-step:guard:na:actor"
+          ],
+          "not_applicable/integrations": [
+            "claim:scenario-step:guard:na:integrations"
+          ],
+          "business_meaning": [
+            "claim:workflow:69"
+          ],
+          "state_before": [
+            "claim:workflow:70"
+          ],
+          "state_after": [
+            "claim:workflow:71"
+          ],
+          "user_result": [
+            "claim:workflow:72"
+          ]
+        },
+        "unknown_fields": [],
+        "not_applicable_fields": [
+          "actor",
+          "integrations"
+        ],
+        "gap_ids": [],
+        "conflict_ids": [],
+        "business_action": {
+          "value": "Synthetic business_action",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:67"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "business_result": {
+          "value": "Synthetic business_result",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:68"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "knowledge_status": "CONFIRMED",
+        "state_transition": {
+          "from": "state:workflow-fixture",
+          "to": "state:workflow-fixture"
+        },
+        "technical_implementation": {
+          "implementation_refs": [
+            "FixtureHandler.Handle"
+          ],
+          "technical_step_refs": [
+            "technical-step:guard"
+          ],
+          "source_ids": [
+            "source:handler"
+          ]
+        }
+      },
+      {
+        "id": "scenario-step:return-one",
+        "order": 2,
+        "kind": "system_reaction",
+        "actor": null,
+        "action": "Return fixture result",
+        "business_meaning": "Synthetic business meaning",
+        "system_behavior": "return 1",
+        "evaluated_rules": [],
+        "integrations": [],
+        "state_before": "state:workflow-fixture",
+        "state_after": "state:workflow-fixture",
+        "user_result": "Synthetic result",
+        "implementation": [
+          "FixtureHandler.Handle"
+        ],
+        "technical_step_refs": [
+          "technical-step:guard"
+        ],
+        "decision_ref": null,
+        "decision_kind": "none",
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "attribute_claims": {
+          "kind": [
+            "claim:scenario-step:return-one:kind"
+          ],
+          "action": [
+            "claim:scenario-step:return-one:action"
+          ],
+          "system_behavior": [
+            "claim:scenario-step:return-one:system_behavior"
+          ],
+          "implementation/0": [
+            "claim:scenario-step:return-one:implementation:0"
+          ],
+          "not_applicable/actor": [
+            "claim:scenario-step:return-one:na:actor"
+          ],
+          "not_applicable/integrations": [
+            "claim:scenario-step:return-one:na:integrations"
+          ],
+          "not_applicable/evaluated_rules": [
+            "claim:scenario-step:return-one:na:evaluated_rules"
+          ],
+          "business_meaning": [
+            "claim:workflow:75"
+          ],
+          "state_before": [
+            "claim:workflow:76"
+          ],
+          "state_after": [
+            "claim:workflow:77"
+          ],
+          "user_result": [
+            "claim:workflow:78"
+          ]
+        },
+        "unknown_fields": [],
+        "not_applicable_fields": [
+          "actor",
+          "integrations",
+          "evaluated_rules"
+        ],
+        "gap_ids": [],
+        "conflict_ids": [],
+        "business_action": {
+          "value": "Synthetic business_action",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:73"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "business_result": {
+          "value": "Synthetic business_result",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:74"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "knowledge_status": "CONFIRMED",
+        "state_transition": {
+          "from": "state:workflow-fixture",
+          "to": "state:workflow-fixture"
+        },
+        "technical_implementation": {
+          "implementation_refs": [
+            "FixtureHandler.Handle"
+          ],
+          "technical_step_refs": [
+            "technical-step:guard"
+          ],
+          "source_ids": [
+            "source:handler"
+          ]
+        }
+      },
+      {
+        "id": "scenario-step:return-zero",
+        "order": 3,
+        "kind": "system_reaction",
+        "actor": null,
+        "action": "Return fixture result",
+        "business_meaning": "Synthetic business meaning",
+        "system_behavior": "return 0",
+        "evaluated_rules": [],
+        "integrations": [],
+        "state_before": "state:workflow-fixture",
+        "state_after": "state:workflow-fixture",
+        "user_result": "Synthetic result",
+        "implementation": [
+          "FixtureHandler.Handle"
+        ],
+        "technical_step_refs": [
+          "technical-step:guard"
+        ],
+        "decision_ref": null,
+        "decision_kind": "none",
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "attribute_claims": {
+          "kind": [
+            "claim:scenario-step:return-zero:kind"
+          ],
+          "action": [
+            "claim:scenario-step:return-zero:action"
+          ],
+          "system_behavior": [
+            "claim:scenario-step:return-zero:system_behavior"
+          ],
+          "implementation/0": [
+            "claim:scenario-step:return-zero:implementation:0"
+          ],
+          "not_applicable/actor": [
+            "claim:scenario-step:return-zero:na:actor"
+          ],
+          "not_applicable/integrations": [
+            "claim:scenario-step:return-zero:na:integrations"
+          ],
+          "not_applicable/evaluated_rules": [
+            "claim:scenario-step:return-zero:na:evaluated_rules"
+          ],
+          "business_meaning": [
+            "claim:workflow:81"
+          ],
+          "state_before": [
+            "claim:workflow:82"
+          ],
+          "state_after": [
+            "claim:workflow:83"
+          ],
+          "user_result": [
+            "claim:workflow:84"
+          ]
+        },
+        "unknown_fields": [],
+        "not_applicable_fields": [
+          "actor",
+          "integrations",
+          "evaluated_rules"
+        ],
+        "gap_ids": [],
+        "conflict_ids": [],
+        "business_action": {
+          "value": "Synthetic business_action",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:79"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "business_result": {
+          "value": "Synthetic business_result",
+          "status": "CONFIRMED",
+          "claim_ids": [
+            "claim:workflow:80"
+          ],
+          "evidence_ids": [
+            "evidence:fixture"
+          ]
+        },
+        "knowledge_status": "CONFIRMED",
+        "state_transition": {
+          "from": "state:workflow-fixture",
+          "to": "state:workflow-fixture"
+        },
+        "technical_implementation": {
+          "implementation_refs": [
+            "FixtureHandler.Handle"
+          ],
+          "technical_step_refs": [
+            "technical-step:guard"
+          ],
+          "source_ids": [
+            "source:handler"
+          ]
+        }
+      }
+    ],
+    "flows": [
+      {
+        "id": "scenario-flow:main",
+        "type": "main",
+        "entry_step": "scenario-step:guard",
+        "branch_from": null,
+        "entry_condition": "accuracy >= 7",
+        "condition_claim_ids": [
+          "claim:flow:main"
+        ],
+        "type_claim_ids": [
+          "claim:flow:main:type"
+        ],
+        "step_refs": [
+          "scenario-step:guard",
+          "scenario-step:return-one"
+        ],
+        "terminal_steps": [
+          "scenario-step:return-one"
+        ],
+        "gap_ids": [],
+        "conflict_ids": []
+      },
+      {
+        "id": "scenario-flow:alternative",
+        "type": "alternative",
+        "entry_step": "scenario-step:return-zero",
+        "branch_from": "scenario-step:guard",
+        "entry_condition": "accuracy < 7",
+        "condition_claim_ids": [
+          "claim:flow:alternative"
+        ],
+        "type_claim_ids": [
+          "claim:flow:alternative:type"
+        ],
+        "step_refs": [
+          "scenario-step:return-zero"
+        ],
+        "terminal_steps": [
+          "scenario-step:return-zero"
+        ],
+        "gap_ids": [],
+        "conflict_ids": []
+      }
+    ],
+    "transitions": [
+      {
+        "id": "transition:0",
+        "from_step": "scenario-step:guard",
+        "to_step": "scenario-step:return-one",
+        "kind": "rule_branch",
+        "decision_ref": "decision:accuracy",
+        "rule_ref": "BR-FIXTURE-001",
+        "rule_outcome": "false",
+        "condition": "accuracy >= 7",
+        "claim_ids": [
+          "claim:edge:0",
+          "claim:edge:0:condition"
+        ],
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "gap_ids": [],
+        "conflict_ids": []
+      },
+      {
+        "id": "transition:1",
+        "from_step": "scenario-step:guard",
+        "to_step": "scenario-step:return-zero",
+        "kind": "rule_branch",
+        "decision_ref": "decision:accuracy",
+        "rule_ref": "BR-FIXTURE-001",
+        "rule_outcome": "true",
+        "condition": "accuracy < 7",
+        "claim_ids": [
+          "claim:edge:1",
+          "claim:edge:1:condition"
+        ],
+        "source_ids": [
+          "source:handler"
+        ],
+        "evidence": [
+          "evidence:fixture"
+        ],
+        "gap_ids": [],
+        "conflict_ids": []
+      }
+    ],
+    "main_flow": "scenario-flow:main",
+    "alternative_flows": [
+      "scenario-flow:alternative"
+    ],
+    "exception_flows": [],
+    "model_profile": "scoped-knowledge-v1"
+  }
+}

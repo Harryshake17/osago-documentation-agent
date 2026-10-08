@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "definition:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 2
+  },
+  "scenario_id": "scenario:registration-address-validation",
+  "name": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+  "business_goal": null,
+  "trigger": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+  "entry_state": null,
+  "expected_outcomes": [],
+  "actors": [],
+  "attribute_claims": {
+    "trigger": [
+      "claim:address:001"
+    ]
+  },
+  "proposed_fields": [
+    "name"
+  ],
+  "unknown_fields": [
+    "business_goal",
+    "entry_state",
+    "expected_outcomes",
+    "actors"
+  ],
+  "entry_point_candidates": [
+    {
+      "id": "component:questionnaire-registration-address",
+      "snapshot_id": "snapshot:address:code",
+      "claim_ids": [
+        "claim:address:002"
+      ]
+    }
+  ],
+  "known_source_refs": [
+    "snapshot:address:code"
+  ],
+  "aliases": [
+    "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+  ],
+  "exclusions": [
+    "caller/UI mapping",
+    "other validators",
+    "external integrations"
+  ],
+  "gap_ids": [
+    "gap:address:domain"
+  ],
+  "preferred_name": {
+    "value": null,
+    "status": "UNKNOWN",
+    "claim_ids": [],
+    "evidence_ids": []
+  },
+  "technical_aliases": [
+    "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+  ],
+  "search_aliases": [],
+  "terminology_candidates": [],
+  "evidence": [
+    "evidence:address:code"
+  ]
+}

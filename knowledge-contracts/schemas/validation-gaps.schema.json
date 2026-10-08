@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:validation-gaps:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "report_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "urn:osago:kb:1.0#/$defs/gap"
+          },
+          {
+            "required": [
+              "publication_relevance"
+            ]
+          }
+        ]
+      }
+    },
+    "finding_gap_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "finding_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          }
+        },
+        "required": [
+          "finding_id",
+          "gap_ids"
+        ]
+      }
+    },
+    "publication_subset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gap_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "finding_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "gap_ids",
+        "finding_ids"
+      ],
+      "description": "Deterministic IDs of open publication-relevant items. Full inventories remain in gaps/report."
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scope_ref",
+    "package_ref",
+    "report_ref",
+    "gaps",
+    "finding_gap_links",
+    "publication_subset"
+  ]
+}

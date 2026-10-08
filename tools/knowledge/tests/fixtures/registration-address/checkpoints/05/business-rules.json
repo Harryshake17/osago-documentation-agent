@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "business-rules:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 5
+  },
+  "scenario_id": "scenario:registration-address-validation",
+  "technical_flow_ref": "technical-flow:registration-address",
+  "source_map_ref": "source-map:registration-address",
+  "rules": [
+    {
+      "id": "BR-REGISTRATION-ADDRESS-001",
+      "rule_kind": "technical_constraint",
+      "extraction_categories": [
+        "validators",
+        "guards",
+        "thresholds"
+      ],
+      "rule_statement": "The method returns true for the bypass or the default valid condition; otherwise it appends an error and returns false.",
+      "condition": "ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel) || string.IsNullOrEmpty(property.Value) || (int.TryParse(property.Value, out addressLevel) && addressLevel >= street)",
+      "true_result": "return true",
+      "false_result": "property.Errors.Add(addressLevel switch ...); return false",
+      "affected_actor": [],
+      "affected_scenario": [
+        "scenario:registration-address-validation"
+      ],
+      "affected_state": [],
+      "externally_visible_result": "UNKNOWN",
+      "business_rationale": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "parameters": [
+        {
+          "name": "city",
+          "value": 4,
+          "unit": null,
+          "origin": "literal"
+        },
+        {
+          "name": "street",
+          "value": 7,
+          "unit": null,
+          "origin": "literal"
+        }
+      ],
+      "implementation": [
+        "component:questionnaire-registration-address"
+      ],
+      "source_ids": [
+        "source:address:code"
+      ],
+      "evidence": [
+        "evidence:address:code"
+      ],
+      "attribute_claims": {
+        "rule_kind": [
+          "claim:address:017"
+        ],
+        "rule_statement": [
+          "claim:address:018"
+        ],
+        "condition": [
+          "claim:address:019"
+        ],
+        "true_result": [
+          "claim:address:020"
+        ],
+        "false_result": [
+          "claim:address:021"
+        ],
+        "affected_scenario/0": [
+          "claim:address:022"
+        ],
+        "parameters/0": [
+          "claim:address:023"
+        ],
+        "parameters/1": [
+          "claim:address:024"
+        ],
+        "implementation/0": [
+          "claim:address:025"
+        ]
+      },
+      "unknown_fields": [
+        "affected_actor",
+        "affected_state",
+        "externally_visible_result",
+        "business_rationale"
+      ],
+      "not_applicable_fields": [],
+      "gap_ids": [
+        "gap:address:rule"
+      ],
+      "conflict_ids": [],
+      "business_statement": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:questionnaire-registration-address"
+        ],
+        "technical_step_refs": [
+          "technical-step:registration-address"
+        ],
+        "source_ids": [
+          "source:address:code"
+        ]
+      },
+      "technical_condition": {
+        "value": "ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel) || string.IsNullOrEmpty(property.Value) || (int.TryParse(property.Value, out addressLevel) && addressLevel >= street)",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:address:019"
+        ],
+        "evidence_ids": [
+          "evidence:address:code"
+        ]
+      }
+    }
+  ],
+  "category_coverage": [
+    {
+      "category": "blocking_checks",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "configuration_driven_behaviour",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "eligibility_rules",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "guards",
+      "status": "found",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [
+        "BR-REGISTRATION-ADDRESS-001"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "process_branches",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "result_calculations",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "rules_extensions",
+      "status": "incomplete",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "thresholds",
+      "status": "found",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [
+        "BR-REGISTRATION-ADDRESS-001"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    },
+    {
+      "category": "validators",
+      "status": "found",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "rule_ids": [
+        "BR-REGISTRATION-ADDRESS-001"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Frozen method subset; other categories not exhaustively inspected."
+    }
+  ],
+  "gap_ids": [
+    "gap:address:rule"
+  ],
+  "conflict_ids": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Frozen method-level subset; business lifecycle, actors and caller mapping unknown."
+    ],
+    "frontier": []
+  }
+}

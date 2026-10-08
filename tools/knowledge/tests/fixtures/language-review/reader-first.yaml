@@ -1,0 +1,26 @@
+schema_version: '1.0'
+description: Synthetic editorial text and an explicitly evidence-backed alias; no production claims.
+introduction:
+  before: |
+    Workflow: оформление договора ОСАГО
+    Область: расчёт стоимости и приём анкеты в проверенной версии
+    Вне scope: оплата и расторжение договора
+  after: |
+    Документ описывает сценарий «оформление договора ОСАГО».
+    Область действия документа — расчёт стоимости и приём анкеты в проверенной версии.
+    За пределами описания — оплата и расторжение договора.
+uncertainty:
+  before: |
+    Workflow: назначение перехода [UNKNOWN]
+    Область: предположительно оформление [INFERRED]; в 5 исследованных случаях
+    Вне scope: версии X и Y — источники расходятся [CONFLICT]
+  must_contain:
+    - 'назначение перехода [UNKNOWN]'
+    - 'предположительно оформление [INFERRED]'
+    - 'в 5 исследованных случаях'
+    - 'версии X и Y — источники расходятся [CONFLICT]'
+identifier:
+  action: 'Система выполняет SAS.'
+  mapped_alias: RegisterPolicyContractNSIS
+  overview: 'Система выполняет `RegisterPolicyContractNSIS`.'
+  expected: 'Система выполняет скоринг.'

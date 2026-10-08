@@ -1,0 +1,803 @@
+{
+  "schema_version": "1.0",
+  "id": "scenario-output:link2-fixture",
+  "scenario_id": "scenario:fixture",
+  "scope_ref": "scope:fixture",
+  "package_ref": {
+    "id": "kb:link2-process-fixture",
+    "revision": 1
+  },
+  "scenario_definition_ref": "definition:fixture",
+  "technical_flow_ref": "flow:fixture",
+  "business_rules_ref": "rules:fixture",
+  "source_map_ref": "source-map:fixture",
+  "confluence_evidence_ids": [],
+  "test_evidence_ids": [],
+  "flow_coverage": [
+    {
+      "category": "main",
+      "status": "found",
+      "flow_ids": [
+        "scenario-flow:link2:main"
+      ],
+      "source_ids": [
+        "source:handler"
+      ],
+      "claim_ids": [
+        "claim:link2:212"
+      ],
+      "diagnostic": "Synthetic main-process contract fixture; variants are not asserted."
+    },
+    {
+      "category": "alternative",
+      "status": "incomplete",
+      "flow_ids": [],
+      "source_ids": [
+        "source:handler"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Synthetic main-process contract fixture; variants are not asserted."
+    },
+    {
+      "category": "error",
+      "status": "incomplete",
+      "flow_ids": [],
+      "source_ids": [
+        "source:handler"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Synthetic main-process contract fixture; variants are not asserted."
+    }
+  ],
+  "gap_ids": [
+    "gap:rationale",
+    "gap:external",
+    "gap:scenario-step:guard",
+    "gap:scenario-step:return-one",
+    "gap:scenario-step:return-zero"
+  ],
+  "conflict_ids": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Synthetic technical backbone; business meaning unknown."
+    ],
+    "frontier": []
+  },
+  "model_profile": "scoped-knowledge-v1",
+  "steps": [
+    {
+      "id": "scenario-step:link2:calculate",
+      "order": 1,
+      "kind": "actor_action",
+      "actor": "actor:fixture",
+      "action": "Рассчитать стоимость оформления",
+      "business_meaning": "Рассчитать стоимость оформления",
+      "system_behavior": "Система: Расчёт подготовлен.",
+      "evaluated_rules": [],
+      "integrations": [],
+      "state_before": "state:link2:initial",
+      "state_after": "state:link2:calculate",
+      "user_result": "Расчёт подготовлен.",
+      "implementation": [
+        "component:link2:calculate:0",
+        "component:link2:calculate:1"
+      ],
+      "technical_step_refs": [
+        "technical-step:link2:calculate:0",
+        "technical-step:link2:calculate:1"
+      ],
+      "decision_ref": null,
+      "decision_kind": "none",
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:link2:69"
+        ],
+        "actor": [
+          "claim:link2:70"
+        ],
+        "action": [
+          "claim:link2:71"
+        ],
+        "business_meaning": [
+          "claim:link2:72"
+        ],
+        "system_behavior": [
+          "claim:link2:73"
+        ],
+        "state_before": [
+          "claim:link2:74"
+        ],
+        "state_after": [
+          "claim:link2:75"
+        ],
+        "user_result": [
+          "claim:link2:76"
+        ],
+        "implementation/0": [
+          "claim:link2:77"
+        ],
+        "implementation/1": [
+          "claim:link2:78"
+        ],
+        "technical_step_refs/0": [
+          "claim:link2:79"
+        ],
+        "technical_step_refs/1": [
+          "claim:link2:80"
+        ],
+        "not_applicable/integrations": [
+          "claim:link2:81"
+        ],
+        "not_applicable/evaluated_rules": [
+          "claim:link2:82"
+        ]
+      },
+      "unknown_fields": [],
+      "not_applicable_fields": [
+        "integrations",
+        "evaluated_rules"
+      ],
+      "gap_ids": [],
+      "conflict_ids": [],
+      "knowledge_status": "CONFIRMED",
+      "state_transition": {
+        "from": "state:link2:initial",
+        "to": "state:link2:calculate"
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:link2:calculate:0",
+          "component:link2:calculate:1"
+        ],
+        "technical_step_refs": [
+          "technical-step:link2:calculate:0",
+          "technical-step:link2:calculate:1"
+        ],
+        "source_ids": [
+          "source:handler"
+        ]
+      },
+      "business_action": {
+        "value": "Рассчитать стоимость оформления",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:83"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      },
+      "business_result": {
+        "value": "Расчёт подготовлен.",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:84"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      }
+    },
+    {
+      "id": "scenario-step:link2:import",
+      "order": 2,
+      "kind": "actor_action",
+      "actor": "actor:fixture",
+      "action": "Принять анкету для оформления",
+      "business_meaning": "Принять анкету для оформления",
+      "system_behavior": "Система: Анкета принята.",
+      "evaluated_rules": [
+        "BR-FIXTURE-001"
+      ],
+      "integrations": [],
+      "state_before": "state:link2:calculate",
+      "state_after": "state:link2:import",
+      "user_result": "Анкета принята.",
+      "implementation": [
+        "FixtureHandler.Handle",
+        "component:link2:import:1",
+        "component:link2:import:2"
+      ],
+      "technical_step_refs": [
+        "technical-step:guard",
+        "technical-step:link2:import:1",
+        "technical-step:link2:import:2"
+      ],
+      "decision_ref": null,
+      "decision_kind": "none",
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:link2:97"
+        ],
+        "actor": [
+          "claim:link2:98"
+        ],
+        "action": [
+          "claim:link2:99"
+        ],
+        "business_meaning": [
+          "claim:link2:100"
+        ],
+        "system_behavior": [
+          "claim:link2:101"
+        ],
+        "state_before": [
+          "claim:link2:102"
+        ],
+        "state_after": [
+          "claim:link2:103"
+        ],
+        "user_result": [
+          "claim:link2:104"
+        ],
+        "evaluated_rules/0": [
+          "claim:link2:105"
+        ],
+        "implementation/0": [
+          "claim:link2:106"
+        ],
+        "implementation/1": [
+          "claim:link2:107"
+        ],
+        "implementation/2": [
+          "claim:link2:108"
+        ],
+        "technical_step_refs/0": [
+          "claim:link2:109"
+        ],
+        "technical_step_refs/1": [
+          "claim:link2:110"
+        ],
+        "technical_step_refs/2": [
+          "claim:link2:111"
+        ],
+        "not_applicable/integrations": [
+          "claim:link2:112"
+        ]
+      },
+      "unknown_fields": [],
+      "not_applicable_fields": [
+        "integrations"
+      ],
+      "gap_ids": [],
+      "conflict_ids": [],
+      "knowledge_status": "CONFIRMED",
+      "state_transition": {
+        "from": "state:link2:calculate",
+        "to": "state:link2:import"
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "FixtureHandler.Handle",
+          "component:link2:import:1",
+          "component:link2:import:2"
+        ],
+        "technical_step_refs": [
+          "technical-step:guard",
+          "technical-step:link2:import:1",
+          "technical-step:link2:import:2"
+        ],
+        "source_ids": [
+          "source:handler"
+        ]
+      },
+      "business_action": {
+        "value": "Принять анкету для оформления",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:113"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      },
+      "business_result": {
+        "value": "Анкета принята.",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:114"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      }
+    },
+    {
+      "id": "scenario-step:link2:payment",
+      "order": 3,
+      "kind": "actor_action",
+      "actor": "actor:fixture",
+      "action": "Подтвердить оплату",
+      "business_meaning": "Подтвердить оплату",
+      "system_behavior": "Система: Оплата подтверждена.",
+      "evaluated_rules": [],
+      "integrations": [],
+      "state_before": "state:link2:import",
+      "state_after": "state:link2:payment",
+      "user_result": "Оплата подтверждена.",
+      "implementation": [
+        "component:link2:payment:0",
+        "component:link2:payment:1"
+      ],
+      "technical_step_refs": [
+        "technical-step:link2:payment:0",
+        "technical-step:link2:payment:1"
+      ],
+      "decision_ref": null,
+      "decision_kind": "none",
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:link2:128"
+        ],
+        "actor": [
+          "claim:link2:129"
+        ],
+        "action": [
+          "claim:link2:130"
+        ],
+        "business_meaning": [
+          "claim:link2:131"
+        ],
+        "system_behavior": [
+          "claim:link2:132"
+        ],
+        "state_before": [
+          "claim:link2:133"
+        ],
+        "state_after": [
+          "claim:link2:134"
+        ],
+        "user_result": [
+          "claim:link2:135"
+        ],
+        "implementation/0": [
+          "claim:link2:136"
+        ],
+        "implementation/1": [
+          "claim:link2:137"
+        ],
+        "technical_step_refs/0": [
+          "claim:link2:138"
+        ],
+        "technical_step_refs/1": [
+          "claim:link2:139"
+        ],
+        "not_applicable/integrations": [
+          "claim:link2:140"
+        ],
+        "not_applicable/evaluated_rules": [
+          "claim:link2:141"
+        ]
+      },
+      "unknown_fields": [],
+      "not_applicable_fields": [
+        "integrations",
+        "evaluated_rules"
+      ],
+      "gap_ids": [],
+      "conflict_ids": [],
+      "knowledge_status": "CONFIRMED",
+      "state_transition": {
+        "from": "state:link2:import",
+        "to": "state:link2:payment"
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:link2:payment:0",
+          "component:link2:payment:1"
+        ],
+        "technical_step_refs": [
+          "technical-step:link2:payment:0",
+          "technical-step:link2:payment:1"
+        ],
+        "source_ids": [
+          "source:handler"
+        ]
+      },
+      "business_action": {
+        "value": "Подтвердить оплату",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:142"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      },
+      "business_result": {
+        "value": "Оплата подтверждена.",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:143"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      }
+    },
+    {
+      "id": "scenario-step:link2:issuance",
+      "order": 4,
+      "kind": "system_reaction",
+      "actor": null,
+      "action": "Выпустить полис после оплаты",
+      "business_meaning": "Выпустить полис после оплаты",
+      "system_behavior": "Система: Полис выпущен.",
+      "evaluated_rules": [],
+      "integrations": [],
+      "state_before": "state:link2:payment",
+      "state_after": "state:link2:issuance",
+      "user_result": "Полис выпущен.",
+      "implementation": [
+        "component:link2:issuance:0",
+        "component:link2:issuance:1",
+        "component:link2:issuance:2"
+      ],
+      "technical_step_refs": [
+        "technical-step:link2:issuance:0",
+        "technical-step:link2:issuance:1",
+        "technical-step:link2:issuance:2"
+      ],
+      "decision_ref": null,
+      "decision_kind": "none",
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:link2:163"
+        ],
+        "action": [
+          "claim:link2:164"
+        ],
+        "business_meaning": [
+          "claim:link2:165"
+        ],
+        "system_behavior": [
+          "claim:link2:166"
+        ],
+        "state_before": [
+          "claim:link2:167"
+        ],
+        "state_after": [
+          "claim:link2:168"
+        ],
+        "user_result": [
+          "claim:link2:169"
+        ],
+        "implementation/0": [
+          "claim:link2:170"
+        ],
+        "implementation/1": [
+          "claim:link2:171"
+        ],
+        "implementation/2": [
+          "claim:link2:172"
+        ],
+        "technical_step_refs/0": [
+          "claim:link2:173"
+        ],
+        "technical_step_refs/1": [
+          "claim:link2:174"
+        ],
+        "technical_step_refs/2": [
+          "claim:link2:175"
+        ],
+        "not_applicable/integrations": [
+          "claim:link2:176"
+        ],
+        "not_applicable/actor": [
+          "claim:link2:177"
+        ],
+        "not_applicable/evaluated_rules": [
+          "claim:link2:178"
+        ]
+      },
+      "unknown_fields": [],
+      "not_applicable_fields": [
+        "integrations",
+        "actor",
+        "evaluated_rules"
+      ],
+      "gap_ids": [],
+      "conflict_ids": [],
+      "knowledge_status": "CONFIRMED",
+      "state_transition": {
+        "from": "state:link2:payment",
+        "to": "state:link2:issuance"
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:link2:issuance:0",
+          "component:link2:issuance:1",
+          "component:link2:issuance:2"
+        ],
+        "technical_step_refs": [
+          "technical-step:link2:issuance:0",
+          "technical-step:link2:issuance:1",
+          "technical-step:link2:issuance:2"
+        ],
+        "source_ids": [
+          "source:handler"
+        ]
+      },
+      "business_action": {
+        "value": "Выпустить полис после оплаты",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:179"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      },
+      "business_result": {
+        "value": "Полис выпущен.",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:180"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      }
+    },
+    {
+      "id": "scenario-step:link2:status-document",
+      "order": 5,
+      "kind": "actor_action",
+      "actor": "actor:fixture",
+      "action": "Получить статус и документ",
+      "business_meaning": "Получить статус и документ",
+      "system_behavior": "Система: Статус и документ доступны.",
+      "evaluated_rules": [],
+      "integrations": [],
+      "state_before": "state:link2:issuance",
+      "state_after": "state:link2:status-document",
+      "user_result": "Статус и документ доступны.",
+      "implementation": [
+        "component:link2:status-document:0",
+        "component:link2:status-document:1"
+      ],
+      "technical_step_refs": [
+        "technical-step:link2:status-document:0",
+        "technical-step:link2:status-document:1"
+      ],
+      "decision_ref": null,
+      "decision_kind": "none",
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:link2:194"
+        ],
+        "actor": [
+          "claim:link2:195"
+        ],
+        "action": [
+          "claim:link2:196"
+        ],
+        "business_meaning": [
+          "claim:link2:197"
+        ],
+        "system_behavior": [
+          "claim:link2:198"
+        ],
+        "state_before": [
+          "claim:link2:199"
+        ],
+        "state_after": [
+          "claim:link2:200"
+        ],
+        "user_result": [
+          "claim:link2:201"
+        ],
+        "implementation/0": [
+          "claim:link2:202"
+        ],
+        "implementation/1": [
+          "claim:link2:203"
+        ],
+        "technical_step_refs/0": [
+          "claim:link2:204"
+        ],
+        "technical_step_refs/1": [
+          "claim:link2:205"
+        ],
+        "not_applicable/integrations": [
+          "claim:link2:206"
+        ],
+        "not_applicable/evaluated_rules": [
+          "claim:link2:207"
+        ]
+      },
+      "unknown_fields": [],
+      "not_applicable_fields": [
+        "integrations",
+        "evaluated_rules"
+      ],
+      "gap_ids": [],
+      "conflict_ids": [],
+      "knowledge_status": "CONFIRMED",
+      "state_transition": {
+        "from": "state:link2:issuance",
+        "to": "state:link2:status-document"
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:link2:status-document:0",
+          "component:link2:status-document:1"
+        ],
+        "technical_step_refs": [
+          "technical-step:link2:status-document:0",
+          "technical-step:link2:status-document:1"
+        ],
+        "source_ids": [
+          "source:handler"
+        ]
+      },
+      "business_action": {
+        "value": "Получить статус и документ",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:208"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      },
+      "business_result": {
+        "value": "Статус и документ доступны.",
+        "status": "CONFIRMED",
+        "claim_ids": [
+          "claim:link2:209"
+        ],
+        "evidence_ids": [
+          "evidence:fixture"
+        ]
+      }
+    }
+  ],
+  "flows": [
+    {
+      "id": "scenario-flow:link2:main",
+      "type": "main",
+      "entry_step": "scenario-step:link2:calculate",
+      "branch_from": null,
+      "entry_condition": "Выполнены условия синтетического основного сценария.",
+      "condition_claim_ids": [
+        "claim:link2:212"
+      ],
+      "type_claim_ids": [
+        "claim:link2:211"
+      ],
+      "step_refs": [
+        "scenario-step:link2:calculate",
+        "scenario-step:link2:import",
+        "scenario-step:link2:payment",
+        "scenario-step:link2:issuance",
+        "scenario-step:link2:status-document"
+      ],
+      "terminal_steps": [
+        "scenario-step:link2:status-document"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    }
+  ],
+  "transitions": [
+    {
+      "id": "transition:link2:import",
+      "from_step": "scenario-step:link2:calculate",
+      "to_step": "scenario-step:link2:import",
+      "kind": "precedes",
+      "decision_ref": null,
+      "rule_ref": null,
+      "rule_outcome": "none",
+      "condition": null,
+      "claim_ids": [
+        "claim:link2:115"
+      ],
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    },
+    {
+      "id": "transition:link2:payment",
+      "from_step": "scenario-step:link2:import",
+      "to_step": "scenario-step:link2:payment",
+      "kind": "precedes",
+      "decision_ref": null,
+      "rule_ref": null,
+      "rule_outcome": "none",
+      "condition": null,
+      "claim_ids": [
+        "claim:link2:144"
+      ],
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    },
+    {
+      "id": "transition:link2:issuance",
+      "from_step": "scenario-step:link2:payment",
+      "to_step": "scenario-step:link2:issuance",
+      "kind": "precedes",
+      "decision_ref": null,
+      "rule_ref": null,
+      "rule_outcome": "none",
+      "condition": null,
+      "claim_ids": [
+        "claim:link2:181"
+      ],
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    },
+    {
+      "id": "transition:link2:status-document",
+      "from_step": "scenario-step:link2:issuance",
+      "to_step": "scenario-step:link2:status-document",
+      "kind": "precedes",
+      "decision_ref": null,
+      "rule_ref": null,
+      "rule_outcome": "none",
+      "condition": null,
+      "claim_ids": [
+        "claim:link2:210"
+      ],
+      "source_ids": [
+        "source:handler"
+      ],
+      "evidence": [
+        "evidence:fixture"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    }
+  ],
+  "main_flow": "scenario-flow:link2:main",
+  "alternative_flows": [],
+  "exception_flows": []
+}

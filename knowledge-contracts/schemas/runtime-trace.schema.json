@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:runtime-trace:1.0",
+  "$ref": "urn:osago:kb:1.0#/$defs/runtime_trace"
+}

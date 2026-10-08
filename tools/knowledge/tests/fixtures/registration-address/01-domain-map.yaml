@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "domain-map:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 1
+  },
+  "nodes": [
+    {
+      "id": "scenario:registration-address-validation",
+      "name": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "type": "scenario",
+      "parent": null,
+      "business_goal": null,
+      "trigger": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "entry_state": null,
+      "exit_states": [],
+      "actors": [],
+      "recommended_document": true,
+      "decomposition_reason": "Bounded validation operation; business atomicity undetermined.",
+      "discovered_sources": [
+        "snapshot:address:code"
+      ],
+      "attribute_claims": {
+        "trigger": [
+          "claim:address:001"
+        ]
+      },
+      "proposed_fields": [
+        "name"
+      ],
+      "recommendation_basis_claim_ids": [],
+      "assessment": {
+        "atomicity": "undetermined",
+        "lifecycle": null,
+        "criteria": {
+          "business_goal": {
+            "status": "unknown",
+            "claim_ids": []
+          },
+          "trigger": {
+            "status": "unknown",
+            "claim_ids": []
+          },
+          "lifecycle": {
+            "status": "unknown",
+            "claim_ids": []
+          },
+          "outcome": {
+            "status": "unknown",
+            "claim_ids": []
+          }
+        },
+        "unknown_fields": [
+          "business_goal",
+          "entry_state",
+          "exit_states",
+          "actors"
+        ],
+        "not_applicable_fields": []
+      },
+      "gap_ids": [
+        "gap:address:domain"
+      ],
+      "conflict_ids": [],
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": [],
+      "evidence": [
+        "evidence:address:code"
+      ],
+      "scope_ref": "scope:registration-address-validation"
+    }
+  ],
+  "relations": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Frozen method-level subset; business lifecycle, actors and caller mapping unknown."
+    ],
+    "frontier": []
+  }
+}

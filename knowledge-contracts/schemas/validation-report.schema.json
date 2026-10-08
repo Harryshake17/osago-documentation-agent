@@ -1,0 +1,546 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:validation-report:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "knowledge",
+              "source-map",
+              "scenario",
+              "business-rules",
+              "technical-flow",
+              "domain-tree",
+              "scenario-definition"
+            ]
+          },
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "kind",
+          "id",
+          "content_hash"
+        ]
+      }
+    },
+    "claim_inventory": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "claim_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "status": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_status"
+          },
+          "reviewed": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "snapshot_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_location": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "version": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "content_hash": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "verification": {
+                  "enum": [
+                    "reopened",
+                    "snapshot_only",
+                    "reasoning_checked",
+                    "unavailable",
+                    "not_checked"
+                  ]
+                },
+                "result": {
+                  "enum": [
+                    "SUPPORTS",
+                    "PARTIAL_SUPPORT",
+                    "CONTRADICTS",
+                    "IRRELEVANT",
+                    "UNAVAILABLE",
+                    "NOT_CHECKED"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "evidence_id",
+                "snapshot_id",
+                "source_location",
+                "version",
+                "content_hash",
+                "verification",
+                "result",
+                "quote",
+                "reason"
+              ]
+            }
+          },
+          "supported_parts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "unsupported_parts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "comparison_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "conflict_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "required_action": {
+            "enum": [
+              "none",
+              "analyst_review",
+              "add_evidence",
+              "verify_source",
+              "extend_scenario",
+              "trace_implementation",
+              "document_config",
+              "resolve_conflict",
+              "fix_contract",
+              "split_claim"
+            ]
+          }
+        },
+        "required": [
+          "claim_id",
+          "claim_hash",
+          "status",
+          "reviewed",
+          "reason",
+          "source_checks",
+          "supported_parts",
+          "unsupported_parts",
+          "comparison_ids",
+          "conflict_ids",
+          "gap_ids",
+          "required_action"
+        ]
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "code_confluence",
+              "test_code"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 2
+          },
+          "reviewed": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "CONFLICT",
+              "CONSISTENT",
+              "CONTEXT_DIFFERENCE",
+              "UNRESOLVED"
+            ]
+          },
+          "context_comparison": {
+            "enum": [
+              "overlap",
+              "different",
+              "unknown"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_action": {
+            "enum": [
+              "none",
+              "analyst_review",
+              "add_evidence",
+              "verify_source",
+              "extend_scenario",
+              "trace_implementation",
+              "document_config",
+              "resolve_conflict",
+              "fix_contract",
+              "split_claim"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "claim_ids",
+          "evidence_ids",
+          "reviewed",
+          "status",
+          "context_comparison",
+          "reason",
+          "required_action"
+        ]
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "missing_evidence",
+              "code_confluence_conflict",
+              "test_code_conflict",
+              "unknown_business_rationale",
+              "unknown_state_transition",
+              "undocumented_config_behaviour",
+              "unrepresented_technical_branch",
+              "scenario_without_implementation",
+              "unverified_claim",
+              "structural_error",
+              "scope_mismatch",
+              "source_unavailable",
+              "RUNTIME_UNVERIFIED",
+              "STATIC_RUNTIME_CONFLICT",
+              "RUNTIME_VARIABILITY",
+              "INSUFFICIENT_RUNTIME_SAMPLE"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "target_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "verification": {
+            "enum": [
+              "observed_structure",
+              "needs_source_verification",
+              "source_verified"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_action": {
+            "enum": [
+              "none",
+              "analyst_review",
+              "add_evidence",
+              "verify_source",
+              "extend_scenario",
+              "trace_implementation",
+              "document_config",
+              "resolve_conflict",
+              "fix_contract",
+              "split_claim"
+            ]
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "open",
+              "resolved"
+            ]
+          },
+          "resolution_claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "publication_relevance": {
+            "$ref": "urn:osago:kb:1.0#/$defs/publication_relevance"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "claim_ids",
+          "target_refs",
+          "evidence_ids",
+          "verification",
+          "reason",
+          "required_action",
+          "blocking",
+          "status",
+          "resolution_claim_ids",
+          "publication_relevance"
+        ]
+      }
+    },
+    "mechanical_errors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_claims": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reviewed_claims": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "CONFIRMED": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "PARTIALLY_CONFIRMED": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "INFERRED": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "CONFLICT": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "UNKNOWN": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "CONFIRMED",
+            "PARTIALLY_CONFIRMED",
+            "INFERRED",
+            "CONFLICT",
+            "UNKNOWN"
+          ]
+        },
+        "review_status": {
+          "enum": [
+            "complete",
+            "partial"
+          ]
+        },
+        "publication_gate": {
+          "enum": [
+            "passed",
+            "blocked"
+          ]
+        }
+      },
+      "required": [
+        "total_claims",
+        "reviewed_claims",
+        "counts",
+        "review_status",
+        "publication_gate"
+      ]
+    },
+    "gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "runtime_reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/runtime_review"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scope_ref",
+    "package_ref",
+    "inputs",
+    "claim_inventory",
+    "claim_reviews",
+    "comparisons",
+    "findings",
+    "mechanical_errors",
+    "summary",
+    "gap_ids",
+    "limitations"
+  ]
+}

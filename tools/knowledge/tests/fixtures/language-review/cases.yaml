@@ -1,0 +1,50 @@
+schema_version: '1.0'
+description: Synthetic upstream facts; no OSAGO production claims.
+cases:
+  - id: technical-alias
+    action: 'После Import выполняется SAS.'
+    must_contain: ['После Import', 'скоринг']
+    must_not_contain: ['После получения анкеты', 'SAS']
+  - id: supplied-import-meaning
+    action: 'После получения анкеты система выполняет SAS.'
+    must_contain: ['После получения анкеты', 'скоринг']
+    must_not_contain: ['SAS']
+  - id: conflict
+    action: 'Источники расходятся по порядку X и Y.'
+    status: CONFLICT
+    must_contain: ['Источники расходятся', 'X и Y']
+    must_not_contain: ['X → Y', 'Y → X']
+  - id: runtime-limitation
+    action: 'В 5 исследованных production traces скоринг выполнялся до Import.'
+    must_contain: ['В 5 исследованных production traces', 'до Import']
+    must_not_contain: ['всегда', 'обычно', 'как правило']
+  - id: threshold
+    action: 'Для продолжения оформления требуется addressRecognitionAccuracy >= 7.'
+    must_contain: ['addressRecognitionAccuracy', '&gt;= 7']
+    must_not_contain: ['&gt;= 8', '&gt; 7', 'полностью распознан']
+  - id: inferred
+    action: 'Предположительно этот переход используется после скоринга.'
+    status: INFERRED
+    section: 11
+    must_contain: ['Предположительно', 'INFERRED']
+  - id: glossary-consistency
+    action: 'Система вызывает SAS. SAS обозначен как скоринговый сервис; скоринг завершён.'
+    mapped_alias: 'скоринговый сервис'
+    must_contain: ['скоринг']
+    must_not_contain: ['SAS', 'скоринговый сервис']
+  - id: unknown-abbreviation
+    action: 'Система передаёт результат в XYZ.'
+    must_contain: ['XYZ']
+    warning: UNRESOLVED_ABBREVIATION
+  - id: explicit-subject-style
+    action: 'Система осуществляет выполнение SAS.'
+    must_contain: ['Система выполняет скоринг.']
+    must_not_contain: ['осуществляет выполнение', 'SAS']
+  - id: passive-style
+    action: 'В рамках данного этапа осуществляется выполнение SAS.'
+    must_contain: ['В рамках данного этапа выполняется скоринг.']
+    must_not_contain: ['осуществляется выполнение', 'Система выполняет']
+  - id: ambiguous-pronoun
+    action: 'Он проверяет полученный результат.'
+    must_contain: ['Он проверяет полученный результат.']
+    warning: AMBIGUOUS_SENTENCE

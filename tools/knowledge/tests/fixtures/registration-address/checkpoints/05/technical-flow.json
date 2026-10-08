@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "technical-flow:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 5
+  },
+  "scenario_id": "scenario:registration-address-validation",
+  "source_map_ref": "source-map:registration-address",
+  "analysis_profile": "execution-path-v1",
+  "nodes": [
+    {
+      "id": "technical-step:registration-address",
+      "type": "rule",
+      "symbol": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "purpose": "Validate the registration-address accuracy; bypass the check for eligible import prolongation.",
+      "inputs": [
+        "viewModel",
+        "propertyName",
+        "personType"
+      ],
+      "outputs": [
+        "bool valid"
+      ],
+      "conditions": [
+        "addressLevel >= street",
+        "parsedAccuracy >= minCityAccuracyLevel"
+      ],
+      "calls": [],
+      "state_changes": [
+        "property.Errors.Add(...) when valid == false"
+      ],
+      "configuration_reads": [],
+      "checks": [
+        "int.TryParse(property.Value, out addressLevel)"
+      ],
+      "external_calls": [],
+      "async_events": [],
+      "evidence": [
+        "evidence:address:code"
+      ],
+      "attribute_claims": {
+        "type": [
+          "claim:address:005"
+        ],
+        "symbol": [
+          "claim:address:006"
+        ],
+        "purpose": [
+          "claim:address:007"
+        ],
+        "inputs/0": [
+          "claim:address:008"
+        ],
+        "inputs/1": [
+          "claim:address:009"
+        ],
+        "inputs/2": [
+          "claim:address:010"
+        ],
+        "outputs/0": [
+          "claim:address:011"
+        ],
+        "conditions/0": [
+          "claim:address:012"
+        ],
+        "conditions/1": [
+          "claim:address:013"
+        ],
+        "state_changes/0": [
+          "claim:address:014"
+        ],
+        "checks/0": [
+          "claim:address:015"
+        ]
+      },
+      "unknown_fields": [
+        "calls",
+        "configuration_reads",
+        "external_calls",
+        "async_events"
+      ],
+      "not_applicable_fields": [],
+      "gap_ids": [
+        "gap:address:technical"
+      ],
+      "business_meaning": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "integrations": [],
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:questionnaire-registration-address"
+        ],
+        "technical_step_refs": [
+          "technical-step:registration-address"
+        ],
+        "source_ids": [
+          "source:address:code"
+        ]
+      },
+      "component_id": "component:questionnaire-registration-address",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "claim_ids": [
+        "claim:address:016",
+        "claim:address:005",
+        "claim:address:006",
+        "claim:address:007",
+        "claim:address:008",
+        "claim:address:009",
+        "claim:address:010",
+        "claim:address:011",
+        "claim:address:012",
+        "claim:address:013",
+        "claim:address:014",
+        "claim:address:015"
+      ]
+    }
+  ],
+  "relations": [],
+  "gap_ids": [
+    "gap:address:technical"
+  ],
+  "conflict_ids": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Frozen method-level subset; business lifecycle, actors and caller mapping unknown."
+    ],
+    "frontier": []
+  }
+}

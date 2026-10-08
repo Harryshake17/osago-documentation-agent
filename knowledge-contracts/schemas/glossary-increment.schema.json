@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:glossary-increment:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "id": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "glossary_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "base_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "result_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "domain_id": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "scope_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "input_hashes": {
+      "type": "object",
+      "required": [
+        "knowledge",
+        "scenario",
+        "validation",
+        "glossary"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "added": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "term": {
+            "$ref": "urn:osago:glossary-term:1.0"
+          }
+        },
+        "required": [
+          "term"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "updated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "term_id": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          },
+          "changes": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "preferred_name": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/preferred_name"
+              },
+              "definition": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/definition"
+              },
+              "type": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/type"
+              },
+              "technical_aliases": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/technical_aliases"
+              },
+              "search_aliases": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/search_aliases"
+              },
+              "terminology_candidates": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/terminology_candidates"
+              },
+              "search_alias_origins": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/search_alias_origins"
+              },
+              "abbreviations": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/abbreviations"
+              },
+              "domains": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/domains"
+              },
+              "related_entities": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/related_entities"
+              },
+              "attribute_claims": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/attribute_claims"
+              },
+              "evidence": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/evidence"
+              },
+              "status": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/status"
+              },
+              "provenance_refs": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/provenance_refs"
+              },
+              "validation_claim_ids": {
+                "$ref": "urn:osago:glossary-term:1.0#/properties/validation_claim_ids"
+              }
+            }
+          }
+        },
+        "required": [
+          "term_id",
+          "changes"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "unchanged": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "term_id": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          }
+        },
+        "required": [
+          "term_id"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "provenance_added": {
+      "$ref": "urn:osago:glossary:1.0#/properties/provenance"
+    },
+    "conflicts": {
+      "$ref": "urn:osago:glossary:1.0#/properties/conflicts"
+    },
+    "unresolved": {
+      "$ref": "urn:osago:glossary:1.0#/properties/unresolved"
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "candidates_total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "matched_existing": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "added": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "updated": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unchanged": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "conflicts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unresolved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ignored_entities": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "candidates_total",
+        "matched_existing",
+        "added",
+        "updated",
+        "unchanged",
+        "conflicts",
+        "unresolved",
+        "ignored_entities"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "model_profile",
+    "id",
+    "glossary_ref",
+    "base_hash",
+    "result_hash",
+    "domain_id",
+    "package_ref",
+    "scope_ref",
+    "input_hashes",
+    "added",
+    "updated",
+    "unchanged",
+    "provenance_added",
+    "conflicts",
+    "unresolved",
+    "statistics"
+  ]
+}

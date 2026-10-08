@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:knowledge-package:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "package_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope": {
+      "$ref": "urn:osago:kb:1.0#/$defs/scope"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/snapshot"
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/entity"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/claim"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/evidence"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/relation"
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/gap"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/conflict"
+      }
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "runtime_traces": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/runtime_trace"
+      }
+    },
+    "runtime_confirmations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/runtime_confirmation"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "package_id",
+    "revision",
+    "scope",
+    "sources",
+    "entities",
+    "claims",
+    "evidence",
+    "relations",
+    "gaps",
+    "conflicts"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "entities": {
+            "items": {
+              "required": [
+                "preferred_name",
+                "technical_aliases",
+                "search_aliases",
+                "terminology_candidates",
+                "identity_key"
+              ]
+            }
+          },
+          "claims": {
+            "items": {
+              "required": [
+                "knowledge_status",
+                "basis_claim_ids",
+                "inference_rationale"
+              ]
+            }
+          },
+          "evidence": {
+            "items": {
+              "required": [
+                "source_ref",
+                "supports",
+                "metadata"
+              ],
+              "properties": {
+                "source_type": {
+                  "not": {
+                    "const": "INFERENCE"
+                  }
+                },
+                "inference": {
+                  "const": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

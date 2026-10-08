@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:domain-tree:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "domain",
+              "scenario",
+              "capability",
+              "business_rule"
+            ]
+          },
+          "parent": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "business_goal": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "trigger": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entry_state": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "exit_states": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "recommended_document": {
+            "type": "boolean"
+          },
+          "decomposition_reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "discovered_sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "attribute_claims": {
+            "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+          },
+          "proposed_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "recommendation_basis_claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "assessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "atomicity": {
+                "enum": [
+                  "atomic",
+                  "decompose",
+                  "undetermined",
+                  "not_applicable"
+                ]
+              },
+              "lifecycle": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "start_claim_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "uniqueItems": true,
+                        "minItems": 1
+                      },
+                      "end_claim_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "uniqueItems": true,
+                        "minItems": 1
+                      }
+                    },
+                    "required": [
+                      "start_claim_ids",
+                      "end_claim_ids"
+                    ]
+                  }
+                ]
+              },
+              "criteria": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "business_goal": {
+                    "$ref": "urn:osago:kb:1.0#/$defs/criterion"
+                  },
+                  "trigger": {
+                    "$ref": "urn:osago:kb:1.0#/$defs/criterion"
+                  },
+                  "lifecycle": {
+                    "$ref": "urn:osago:kb:1.0#/$defs/criterion"
+                  },
+                  "outcome": {
+                    "$ref": "urn:osago:kb:1.0#/$defs/criterion"
+                  }
+                },
+                "required": [
+                  "business_goal",
+                  "trigger",
+                  "lifecycle",
+                  "outcome"
+                ]
+              },
+              "unknown_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "not_applicable_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "atomicity",
+              "lifecycle",
+              "criteria",
+              "unknown_fields",
+              "not_applicable_fields"
+            ]
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "conflict_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "preferred_name": {
+            "$ref": "urn:osago:kb:1.0#/$defs/preferred_name"
+          },
+          "technical_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "search_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "terminology_candidates": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:osago:kb:1.0#/$defs/terminology_candidate"
+            },
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "scope_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "parent",
+          "business_goal",
+          "trigger",
+          "entry_state",
+          "exit_states",
+          "actors",
+          "recommended_document",
+          "decomposition_reason",
+          "discovered_sources",
+          "attribute_claims",
+          "proposed_fields",
+          "recommendation_basis_claim_ids",
+          "assessment",
+          "gap_ids",
+          "conflict_ids"
+        ]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/relation"
+      }
+    },
+    "coverage": {
+      "$ref": "urn:osago:kb:1.0#/$defs/coverage"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope_ref",
+    "package_ref",
+    "id",
+    "nodes",
+    "relations",
+    "coverage"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "nodes": {
+            "items": {
+              "required": [
+                "preferred_name",
+                "technical_aliases",
+                "search_aliases",
+                "terminology_candidates",
+                "evidence",
+                "scope_ref"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

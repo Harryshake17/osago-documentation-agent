@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "source-map:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 4
+  },
+  "scenario": "scenario:registration-address-validation",
+  "scenario_definition_ref": "definition:registration-address",
+  "domain_tree_ref": "domain-map:registration-address",
+  "sources": [
+    {
+      "id": "source:address:code",
+      "source_type": "CODE",
+      "artifact_kind": "rule_implementation",
+      "category": "business_rule_implementations",
+      "repository": "b-app-eosago-api",
+      "path": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs",
+      "symbol": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "page_id": null,
+      "section": null,
+      "source_location": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs:297-358",
+      "version": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "snapshot_ref": "snapshot:address:code",
+      "relevance": "Direct method anchor or invocation in the frozen test body.",
+      "relevance_claim_ids": [
+        "claim:address:003"
+      ],
+      "relevance_path": [
+        {
+          "from_ref": "component:questionnaire-registration-address",
+          "relation_type": "identifies",
+          "to_ref": "source:address:code",
+          "evidence_ids": [
+            "evidence:address:code"
+          ],
+          "claim_ids": [
+            "claim:address:003"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence:address:code"
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      }
+    },
+    {
+      "id": "source:address:test",
+      "source_type": "TEST",
+      "artifact_kind": "automated_test",
+      "category": "automated_tests",
+      "repository": "b-app-eosago-api",
+      "path": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs",
+      "symbol": "QuestionnaireExternalFunctionsInvokerTests.ValidateRegistrationAddress",
+      "page_id": null,
+      "section": null,
+      "source_location": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs:251-329",
+      "version": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "snapshot_ref": "snapshot:address:test",
+      "relevance": "Direct method anchor or invocation in the frozen test body.",
+      "relevance_claim_ids": [
+        "claim:address:004"
+      ],
+      "relevance_path": [
+        {
+          "from_ref": "component:questionnaire-registration-address",
+          "relation_type": "tested_by",
+          "to_ref": "source:address:test",
+          "evidence_ids": [
+            "evidence:address:test"
+          ],
+          "claim_ids": [
+            "claim:address:004"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence:address:test"
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      }
+    }
+  ],
+  "candidates": [],
+  "exclusions": [],
+  "category_coverage": [
+    {
+      "category": "api_endpoints",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:api_endpoints"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "controllers",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:controllers"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "commands_handlers",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:commands_handlers"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "process_definitions",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:process_definitions"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "subprocesses",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:subprocesses"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "business_rule_implementations",
+      "status": "found",
+      "search_run_ids": [
+        "search:address:business_rule_implementations"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "configuration_keys",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:configuration_keys"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "integrations",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:integrations"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "automated_tests",
+      "status": "found",
+      "search_run_ids": [
+        "search:address:automated_tests"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    },
+    {
+      "category": "confluence_pages",
+      "status": "incomplete",
+      "search_run_ids": [
+        "search:address:confluence_pages"
+      ],
+      "basis_claim_ids": [],
+      "limitations": []
+    }
+  ],
+  "search_runs": [
+    {
+      "id": "search:address:api_endpoints",
+      "category": "api_endpoints",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:controllers",
+      "category": "controllers",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:commands_handlers",
+      "category": "commands_handlers",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:process_definitions",
+      "category": "process_definitions",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:subprocesses",
+      "category": "subprocesses",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:business_rule_implementations",
+      "category": "business_rule_implementations",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "complete",
+      "snapshot_ids": [
+        "snapshot:address:code"
+      ],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:configuration_keys",
+      "category": "configuration_keys",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:integrations",
+      "category": "integrations",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:automated_tests",
+      "category": "automated_tests",
+      "adapter": "repository",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "complete",
+      "snapshot_ids": [
+        "snapshot:address:test"
+      ],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    },
+    {
+      "id": "search:address:confluence_pages",
+      "category": "confluence_pages",
+      "adapter": "confluence",
+      "query": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "scope_ref": "scope:registration-address-validation",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "cursor": null,
+      "status": "incomplete",
+      "snapshot_ids": [],
+      "diagnostic": "Frozen relevant excerpts only; no project-wide coverage claim."
+    }
+  ],
+  "gap_ids": [
+    "gap:address:domain"
+  ],
+  "conflict_ids": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Frozen method-level subset; business lifecycle, actors and caller mapping unknown."
+    ],
+    "frontier": []
+  },
+  "terminology_candidates": []
+}

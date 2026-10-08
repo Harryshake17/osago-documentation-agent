@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:glossary:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "id": {
+      "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:glossary-term:1.0"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          },
+          "knowledge": {
+            "$ref": "urn:osago:knowledge-package:1.0"
+          },
+          "validation": {
+            "$ref": "urn:osago:validation-report:1.0"
+          }
+        },
+        "required": [
+          "id",
+          "knowledge",
+          "validation"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          },
+          "record": {
+            "$ref": "urn:osago:kb:1.0#/$defs/conflict"
+          },
+          "entity_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+            },
+            "uniqueItems": true
+          },
+          "term_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+            },
+            "uniqueItems": true
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+            },
+            "uniqueItems": true
+          },
+          "required_action": {
+            "const": "ANALYST_REVIEW"
+          },
+          "knowledge_status": {
+            "allOf": [
+              {
+                "$ref": "urn:osago:kb:1.0#/$defs/knowledge_status"
+              },
+              {
+                "const": "CONFLICT"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "record",
+          "entity_refs",
+          "term_ids",
+          "variants",
+          "evidence",
+          "required_action",
+          "knowledge_status"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "entity_ref": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id"
+          },
+          "term_id": {
+            "anyOf": [
+              { "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/id" },
+              { "type": "null" }
+            ]
+          },
+          "technical_aliases": {
+            "$ref": "urn:osago:kb:1.0#/$defs/entity/properties/technical_aliases"
+          },
+          "preferred_name": {
+            "$ref": "urn:osago:kb:1.0#/$defs/preferred_name"
+          },
+          "status": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_status"
+          },
+          "gap": {
+            "$ref": "urn:osago:kb:1.0#/$defs/gap"
+          }
+        },
+        "required": [
+          "entity_ref",
+          "term_id",
+          "technical_aliases",
+          "preferred_name",
+          "status",
+          "gap"
+        ]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "model_profile",
+    "id",
+    "revision",
+    "terms",
+    "provenance",
+    "conflicts",
+    "unresolved"
+  ]
+}

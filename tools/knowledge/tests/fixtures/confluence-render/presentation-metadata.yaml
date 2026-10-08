@@ -1,0 +1,6 @@
+inline_identifiers: [ReadyForSign, RegisterPolicyContractNSIS]
+diagrams:
+  link2-flow.mmd:
+    source_file: link2-flow.mmd
+    rendered_file: link2-flow.png
+    caption: Этапы оформления полиса

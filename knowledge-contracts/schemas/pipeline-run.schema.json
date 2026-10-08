@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:pipeline-run:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "model_profile": {"const": "scoped-knowledge-v1"},
+    "stages": {
+      "type": "array", "minItems": 5, "maxItems": 5,
+      "items": {"$ref": "#/$defs/stage"},
+      "prefixItems": [
+        {"properties": {"kind": {"const": "domain-tree"}}},
+        {"properties": {"kind": {"const": "source-map"}}},
+        {"properties": {"kind": {"const": "technical-flow"}}},
+        {"properties": {"kind": {"const": "business-rules"}}},
+        {"properties": {"kind": {"const": "scenario"}}}
+      ]
+    }
+  },
+  "required": ["model_profile", "stages"],
+  "$defs": {
+    "path": {"type": "string", "minLength": 1},
+    "stage": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "kind": {"enum": ["domain-tree", "source-map", "technical-flow", "business-rules", "scenario"]},
+        "artifact": {"$ref": "#/$defs/path"},
+        "knowledge": {"$ref": "#/$defs/path"},
+        "domain_tree": {"$ref": "#/$defs/path"},
+        "scenario_definition": {"$ref": "#/$defs/path"},
+        "source_map": {"$ref": "#/$defs/path"},
+        "technical_flow": {"$ref": "#/$defs/path"},
+        "business_rules": {"$ref": "#/$defs/path"}
+      },
+      "required": ["kind", "artifact", "knowledge"]
+    }
+  }
+}

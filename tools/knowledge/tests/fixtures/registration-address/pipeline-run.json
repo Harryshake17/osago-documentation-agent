@@ -1,0 +1,45 @@
+{
+  "model_profile": "scoped-knowledge-v1",
+  "stages": [
+    {
+      "kind": "domain-tree",
+      "artifact": "01-domain-map.yaml",
+      "knowledge": "checkpoints/01/knowledge.yaml",
+      "scenario_definition": "checkpoints/01/scenario-definition.json"
+    },
+    {
+      "kind": "source-map",
+      "artifact": "02-source-map.json",
+      "knowledge": "checkpoints/02/knowledge.yaml",
+      "domain_tree": "checkpoints/02/domain-tree.json",
+      "scenario_definition": "checkpoints/02/scenario-definition.json"
+    },
+    {
+      "kind": "technical-flow",
+      "artifact": "03-technical-flow.json",
+      "knowledge": "checkpoints/03/knowledge.yaml",
+      "domain_tree": "checkpoints/03/domain-tree.json",
+      "scenario_definition": "checkpoints/03/scenario-definition.json",
+      "source_map": "checkpoints/03/source-map.json"
+    },
+    {
+      "kind": "business-rules",
+      "artifact": "04-business-rules.json",
+      "knowledge": "checkpoints/04/knowledge.yaml",
+      "domain_tree": "checkpoints/04/domain-tree.json",
+      "scenario_definition": "checkpoints/04/scenario-definition.json",
+      "source_map": "checkpoints/04/source-map.json",
+      "technical_flow": "checkpoints/04/technical-flow.json"
+    },
+    {
+      "kind": "scenario",
+      "artifact": "05-scenario.json",
+      "knowledge": "checkpoints/05/knowledge.yaml",
+      "domain_tree": "checkpoints/05/domain-tree.json",
+      "scenario_definition": "checkpoints/05/scenario-definition.json",
+      "source_map": "checkpoints/05/source-map.json",
+      "technical_flow": "checkpoints/05/technical-flow.json",
+      "business_rules": "checkpoints/05/business-rules.json"
+    }
+  ]
+}

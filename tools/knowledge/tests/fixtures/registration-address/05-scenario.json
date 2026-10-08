@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "id": "scenario-model:registration-address",
+  "scope_ref": "scope:registration-address-validation",
+  "package_ref": {
+    "id": "kb:registration-address",
+    "revision": 5
+  },
+  "scenario_id": "scenario:registration-address-validation",
+  "scenario_definition_ref": "definition:registration-address",
+  "technical_flow_ref": "technical-flow:registration-address",
+  "business_rules_ref": "business-rules:registration-address",
+  "source_map_ref": "source-map:registration-address",
+  "confluence_evidence_ids": [],
+  "test_evidence_ids": [
+    "evidence:address:test"
+  ],
+  "steps": [
+    {
+      "id": "scenario-step:registration-address",
+      "order": 1,
+      "kind": "decision",
+      "actor": null,
+      "action": "Evaluate registration-address validation",
+      "business_meaning": "UNKNOWN",
+      "system_behavior": "The method returns true for the bypass or the default valid condition; otherwise it appends an error and returns false.",
+      "evaluated_rules": [
+        "BR-REGISTRATION-ADDRESS-001"
+      ],
+      "integrations": [],
+      "state_before": null,
+      "state_after": null,
+      "user_result": "UNKNOWN",
+      "implementation": [
+        "component:questionnaire-registration-address"
+      ],
+      "technical_step_refs": [
+        "technical-step:registration-address"
+      ],
+      "decision_ref": "decision:registration-address",
+      "decision_kind": "technical",
+      "source_ids": [
+        "source:address:code"
+      ],
+      "evidence": [
+        "evidence:address:code"
+      ],
+      "attribute_claims": {
+        "kind": [
+          "claim:address:026"
+        ],
+        "action": [
+          "claim:address:027"
+        ],
+        "system_behavior": [
+          "claim:address:028"
+        ],
+        "decision_ref": [
+          "claim:address:029"
+        ],
+        "decision_kind": [
+          "claim:address:030"
+        ],
+        "evaluated_rules/0": [
+          "claim:address:031"
+        ],
+        "implementation/0": [
+          "claim:address:032"
+        ]
+      },
+      "unknown_fields": [
+        "actor",
+        "business_meaning",
+        "integrations",
+        "state_before",
+        "state_after",
+        "user_result"
+      ],
+      "not_applicable_fields": [],
+      "gap_ids": [
+        "gap:address:scenario"
+      ],
+      "conflict_ids": [],
+      "business_action": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "business_result": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "knowledge_status": "UNKNOWN",
+      "state_transition": {
+        "from": null,
+        "to": null
+      },
+      "technical_implementation": {
+        "implementation_refs": [
+          "component:questionnaire-registration-address"
+        ],
+        "technical_step_refs": [
+          "technical-step:registration-address"
+        ],
+        "source_ids": [
+          "source:address:code"
+        ]
+      }
+    }
+  ],
+  "flows": [
+    {
+      "id": "scenario-flow:ordinary-address-validation",
+      "type": "main",
+      "entry_step": "scenario-step:registration-address",
+      "branch_from": null,
+      "entry_condition": "The import-prolongation bypass does not apply.",
+      "condition_claim_ids": [
+        "claim:address:034"
+      ],
+      "type_claim_ids": [
+        "claim:address:033"
+      ],
+      "step_refs": [
+        "scenario-step:registration-address"
+      ],
+      "terminal_steps": [
+        "scenario-step:registration-address"
+      ],
+      "gap_ids": [],
+      "conflict_ids": []
+    }
+  ],
+  "transitions": [],
+  "flow_coverage": [
+    {
+      "category": "main",
+      "status": "found",
+      "flow_ids": [
+        "scenario-flow:ordinary-address-validation"
+      ],
+      "source_ids": [
+        "source:address:code"
+      ],
+      "claim_ids": [
+        "claim:address:034"
+      ],
+      "diagnostic": "Default implemented method path only; business and alternative/error lifecycle incomplete."
+    },
+    {
+      "category": "alternative",
+      "status": "incomplete",
+      "flow_ids": [],
+      "source_ids": [
+        "source:address:code"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Default implemented method path only; business and alternative/error lifecycle incomplete."
+    },
+    {
+      "category": "error",
+      "status": "incomplete",
+      "flow_ids": [],
+      "source_ids": [
+        "source:address:code"
+      ],
+      "claim_ids": [],
+      "diagnostic": "Default implemented method path only; business and alternative/error lifecycle incomplete."
+    }
+  ],
+  "gap_ids": [
+    "gap:address:scenario"
+  ],
+  "conflict_ids": [],
+  "coverage": {
+    "status": "partial",
+    "limitations": [
+      "Frozen method-level subset; business lifecycle, actors and caller mapping unknown."
+    ],
+    "frontier": []
+  },
+  "main_flow": "scenario-flow:ordinary-address-validation",
+  "alternative_flows": [],
+  "exception_flows": []
+}

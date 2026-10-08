@@ -1,0 +1,686 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "package_id": "kb:registration-address",
+  "revision": 3,
+  "scope": {
+    "id": "scope:registration-address-validation",
+    "repositories": [
+      "b-app-eosago-api"
+    ],
+    "revisions": {
+      "b-app-eosago-api": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+frozen-excerpts"
+    },
+    "components": [
+      "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+    ],
+    "scenarios": [
+      "scenario:registration-address-validation"
+    ],
+    "environments": [],
+    "time_range": null,
+    "exclusions": [
+      "caller/UI mapping",
+      "other validators",
+      "external integrations"
+    ],
+    "unresolved_constraints": [
+      "Business lifecycle and actors not established by the code/test excerpts."
+    ]
+  },
+  "sources": [
+    {
+      "id": "snapshot:address:code",
+      "adapter": "repository",
+      "locator": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs:297-358",
+      "repository": "b-app-eosago-api",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "retrieved_at": "2026-10-01T12:00:00+03:00",
+      "content_hash": "a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "hash_scope": "excerpt",
+      "working_tree_state": "dirty",
+      "availability": "available",
+      "excerpt": "        public bool ValidateRegistrationAddress(BaseViewModel viewModel, string propertyName, string personType)\n        {\n            const int city = 4;\n            const int street = 7;\n            int addressLevel = street;\n\n            var property = viewModel.GetProperty<ViewModelProperty<string>>(propertyName);\n            if (ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel))\n            {\n                return true;\n            }\n\n            bool valid = string.IsNullOrEmpty(property.Value) ||\n                         (int.TryParse(property.Value, out addressLevel) &&\n                          addressLevel >= street);\n\n            if (valid == false)\n            {\n                property.Errors.Add(addressLevel switch\n                {\n                    int _ when addressLevel < city => $\"Проверьте корректность указанного адреса регистрации {personType}.\",\n                    int _ when addressLevel < street => $\"Проверьте корректность указания улицы и номера дома в адресе регистрации {personType}.\",\n                    _ => string.Empty\n                });\n            }\n\n            return valid;\n        }\n\n        private bool ShouldSkipRegistrationAddressValidationForImportProlongation(\n            string propertyName,\n            string accuracyValue,\n            int minCityAccuracyLevel,\n            out int parsedAccuracy)\n        {\n            parsedAccuracy = 0;\n            var processApiContext = _context?.ServiceProvider?.GetService(typeof(ProcessApiContext)) as ProcessApiContext;\n            if (propertyName != nameof(AutoQuestionnaireStepViewModel.InsurantRegistrationAddressRecognitionAccuracy)\n                && propertyName != nameof(AutoQuestionnaireStepOwnerViewModel.OwnerRegistrationAddressRecognitionAccuracy))\n            {\n                return false;\n            }\n\n            if (processApiContext?.Command is not EOsagoImportLink2Command\n                || processApiContext.ViewModel is not EOsagoImportViewModel importViewModel)\n            {\n                return false;\n            }\n\n            var prolongationId = importViewModel[ProlongationIdPropertyName]?.ToString()?.Trim();\n            if (string.IsNullOrEmpty(prolongationId)\n                || !int.TryParse(accuracyValue, out parsedAccuracy))\n            {\n                return false;\n            }\n\n            return parsedAccuracy >= minCityAccuracyLevel;\n        }\n\n        /// <summary>\n        /// Валидирует дату истечения паспорта.\n        /// </summary>\n"
+    },
+    {
+      "id": "snapshot:address:test",
+      "adapter": "repository",
+      "locator": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs:251-329",
+      "repository": "b-app-eosago-api",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "retrieved_at": "2026-10-01T12:00:00+03:00",
+      "content_hash": "ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+      "hash_scope": "excerpt",
+      "working_tree_state": "dirty",
+      "availability": "available",
+      "excerpt": "\n        [Test(Description = \"Проверяет валидацию введенного адреса и сообщение, в зависимости от уровня\")]\n        [TestCase(\"1\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"2\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"3\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"4\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"5\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"6\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"7\", null, ExpectedResult = true)]\n        public bool ValidateRegistrationAddress_AddressLevel_ShouldReturnCorrectMessage(string addressLevel, string errorMessage)\n        {\n            // Arrange\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, null, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string>\n            {\n                Value = addressLevel\n            };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n            var error = property.Errors.FirstOrDefault();\n\n            // Assert\n            Assert.AreEqual(errorMessage, error);\n            return result;\n        }\n\n        [Test(Description = \"При импорте пролонгации и уровне адреса >= 4 валидация AddressRecognitionAccuracy пропускается\")]\n        [TestCase(\"4\")]\n        [TestCase(\"5\")]\n        [TestCase(\"6\")]\n        public void ValidateRegistrationAddress_ImportProlongationAndAccuracyAtLeastFour_ShouldSkipValidation(string addressLevel)\n        {\n            // Arrange\n            var processApiContext = new ProcessApiContext\n            {\n                Command = new EOsagoImportLink2Command(),\n                ViewModel = new EOsagoImportViewModel()\n            };\n            processApiContext.ViewModel.GetDictionary().Add(\"prolongationId\", \"prolongation-id\");\n            var context = BuildPipelineExecutionContext(processApiContext);\n\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, context, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string> { Value = addressLevel };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n\n            // Assert\n            Assert.IsTrue(result);\n            Assert.IsEmpty(property.Errors);\n        }\n\n        [Test(Description = \"Без prolongationId поведение остается прежним: уровень 4 не проходит\")]\n        public void ValidateRegistrationAddress_ImportWithoutProlongationId_ShouldKeepOriginalValidation()\n        {\n            // Arrange\n            var processApiContext = new ProcessApiContext\n            {\n                Command = new EOsagoImportLink2Command(),\n                ViewModel = new EOsagoImportViewModel()\n            };\n            var context = BuildPipelineExecutionContext(processApiContext);\n\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, context, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string> { Value = \"4\" };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n\n            // Assert\n            Assert.IsFalse(result);\n            Assert.AreEqual(\"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", property.Errors.FirstOrDefault());\n"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence:address:code",
+      "source_type": "CODE",
+      "source_location": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs:297-358",
+      "repository": "b-app-eosago-api",
+      "file": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs",
+      "page": null,
+      "section": null,
+      "version": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "snapshot_id": "snapshot:address:code",
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "excerpt": "        public bool ValidateRegistrationAddress(BaseViewModel viewModel, string propertyName, string personType)\n        {\n            const int city = 4;\n            const int street = 7;\n            int addressLevel = street;\n\n            var property = viewModel.GetProperty<ViewModelProperty<string>>(propertyName);\n            if (ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel))\n            {\n                return true;\n            }\n\n            bool valid = string.IsNullOrEmpty(property.Value) ||\n                         (int.TryParse(property.Value, out addressLevel) &&\n                          addressLevel >= street);\n\n            if (valid == false)\n            {\n                property.Errors.Add(addressLevel switch\n                {\n                    int _ when addressLevel < city => $\"Проверьте корректность указанного адреса регистрации {personType}.\",\n                    int _ when addressLevel < street => $\"Проверьте корректность указания улицы и номера дома в адресе регистрации {personType}.\",\n                    _ => string.Empty\n                });\n            }\n\n            return valid;\n        }\n\n        private bool ShouldSkipRegistrationAddressValidationForImportProlongation(\n            string propertyName,\n            string accuracyValue,\n            int minCityAccuracyLevel,\n            out int parsedAccuracy)\n        {\n            parsedAccuracy = 0;\n            var processApiContext = _context?.ServiceProvider?.GetService(typeof(ProcessApiContext)) as ProcessApiContext;\n            if (propertyName != nameof(AutoQuestionnaireStepViewModel.InsurantRegistrationAddressRecognitionAccuracy)\n                && propertyName != nameof(AutoQuestionnaireStepOwnerViewModel.OwnerRegistrationAddressRecognitionAccuracy))\n            {\n                return false;\n            }\n\n            if (processApiContext?.Command is not EOsagoImportLink2Command\n                || processApiContext.ViewModel is not EOsagoImportViewModel importViewModel)\n            {\n                return false;\n            }\n\n            var prolongationId = importViewModel[ProlongationIdPropertyName]?.ToString()?.Trim();\n            if (string.IsNullOrEmpty(prolongationId)\n                || !int.TryParse(accuracyValue, out parsedAccuracy))\n            {\n                return false;\n            }\n\n            return parsedAccuracy >= minCityAccuracyLevel;\n        }\n\n        /// <summary>\n        /// Валидирует дату истечения паспорта.\n        /// </summary>\n",
+      "basis_claim_ids": [],
+      "rationale": null,
+      "source_ref": "snapshot:address:code",
+      "supports": [
+        "claim:address:001",
+        "claim:address:002",
+        "claim:address:003",
+        "claim:address:005",
+        "claim:address:006",
+        "claim:address:007",
+        "claim:address:008",
+        "claim:address:009",
+        "claim:address:010",
+        "claim:address:011",
+        "claim:address:012",
+        "claim:address:013",
+        "claim:address:014",
+        "claim:address:015",
+        "claim:address:016"
+      ],
+      "metadata": {
+        "repository": "b-app-eosago-api",
+        "file": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs",
+        "symbol": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "page": null
+      },
+      "class": "QuestionnaireExternalFunctionsInvoker",
+      "method": "ValidateRegistrationAddress"
+    },
+    {
+      "id": "evidence:address:test",
+      "source_type": "TEST",
+      "source_location": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs:251-329",
+      "repository": "b-app-eosago-api",
+      "file": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs",
+      "page": null,
+      "section": null,
+      "version": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "snapshot_id": "snapshot:address:test",
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "excerpt": "\n        [Test(Description = \"Проверяет валидацию введенного адреса и сообщение, в зависимости от уровня\")]\n        [TestCase(\"1\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"2\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"3\", \"Проверьте корректность указанного адреса регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"4\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"5\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"6\", \"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", ExpectedResult = false)]\n        [TestCase(\"7\", null, ExpectedResult = true)]\n        public bool ValidateRegistrationAddress_AddressLevel_ShouldReturnCorrectMessage(string addressLevel, string errorMessage)\n        {\n            // Arrange\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, null, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string>\n            {\n                Value = addressLevel\n            };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n            var error = property.Errors.FirstOrDefault();\n\n            // Assert\n            Assert.AreEqual(errorMessage, error);\n            return result;\n        }\n\n        [Test(Description = \"При импорте пролонгации и уровне адреса >= 4 валидация AddressRecognitionAccuracy пропускается\")]\n        [TestCase(\"4\")]\n        [TestCase(\"5\")]\n        [TestCase(\"6\")]\n        public void ValidateRegistrationAddress_ImportProlongationAndAccuracyAtLeastFour_ShouldSkipValidation(string addressLevel)\n        {\n            // Arrange\n            var processApiContext = new ProcessApiContext\n            {\n                Command = new EOsagoImportLink2Command(),\n                ViewModel = new EOsagoImportViewModel()\n            };\n            processApiContext.ViewModel.GetDictionary().Add(\"prolongationId\", \"prolongation-id\");\n            var context = BuildPipelineExecutionContext(processApiContext);\n\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, context, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string> { Value = addressLevel };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n\n            // Assert\n            Assert.IsTrue(result);\n            Assert.IsEmpty(property.Errors);\n        }\n\n        [Test(Description = \"Без prolongationId поведение остается прежним: уровень 4 не проходит\")]\n        public void ValidateRegistrationAddress_ImportWithoutProlongationId_ShouldKeepOriginalValidation()\n        {\n            // Arrange\n            var processApiContext = new ProcessApiContext\n            {\n                Command = new EOsagoImportLink2Command(),\n                ViewModel = new EOsagoImportViewModel()\n            };\n            var context = BuildPipelineExecutionContext(processApiContext);\n\n            var invoker = new QuestionnaireExternalFunctionsInvoker(null, context, null, null, null, null, null, null, null);\n            var viewModel = new AutoQuestionnaireStepViewModel();\n            var property = new ViewModelProperty<string> { Value = \"4\" };\n            viewModel[Names.InsurantRegistrationAddressRecognitionAccuracy] = property;\n\n            // Act\n            var result = invoker.ValidateRegistrationAddress(viewModel, Names.InsurantRegistrationAddressRecognitionAccuracy, \"страхователя\");\n\n            // Assert\n            Assert.IsFalse(result);\n            Assert.AreEqual(\"Проверьте корректность указания улицы и номера дома в адресе регистрации страхователя.\", property.Errors.FirstOrDefault());\n",
+      "basis_claim_ids": [],
+      "rationale": null,
+      "source_ref": "snapshot:address:test",
+      "supports": [
+        "claim:address:004"
+      ],
+      "metadata": {
+        "repository": "b-app-eosago-api",
+        "file": "sources/App/src/Modules/iRIS.EOsago.Tests/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvokerTests.cs",
+        "symbol": "QuestionnaireExternalFunctionsInvokerTests.ValidateRegistrationAddress",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+        "page": null
+      },
+      "class": "QuestionnaireExternalFunctionsInvokerTests",
+      "method": "ValidateRegistrationAddress"
+    }
+  ],
+  "entities": [
+    {
+      "id": "scenario:registration-address-validation",
+      "type": "Scenario",
+      "label": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "identity_key": "b-app-eosago-api:scenario:registration-address-validation",
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": []
+    },
+    {
+      "id": "component:questionnaire-registration-address",
+      "type": "CodeComponent",
+      "label": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "identity_key": "b-app-eosago-api:component:questionnaire-registration-address",
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": []
+    },
+    {
+      "id": "technical-step:registration-address",
+      "type": "SystemBehaviour",
+      "label": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "identity_key": "b-app-eosago-api:technical-step:registration-address",
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": []
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:address:001",
+      "subject_id": "scenario:registration-address-validation",
+      "predicate": "trigger",
+      "value": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "text": "trigger: QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:002",
+      "subject_id": "scenario:registration-address-validation",
+      "predicate": "entry_point",
+      "value": "component:questionnaire-registration-address",
+      "text": "entry_point: component:questionnaire-registration-address",
+      "modality": "discovery",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:003",
+      "subject_id": "component:questionnaire-registration-address",
+      "predicate": "identifies",
+      "value": "source:address:code",
+      "text": "identifies: source:address:code",
+      "modality": "discovery",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:004",
+      "subject_id": "component:questionnaire-registration-address",
+      "predicate": "tested_by",
+      "value": "source:address:test",
+      "text": "tested_by: source:address:test",
+      "modality": "discovery",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:ee99e8752593433cfff57258e754d3397d3a425094e05a862063b94cd3e7d6b3",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:test",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:005",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "type",
+      "value": "rule",
+      "text": "type: rule",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:006",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "symbol",
+      "value": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "text": "symbol: QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:007",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "purpose",
+      "value": "Validate the registration-address accuracy; bypass the check for eligible import prolongation.",
+      "text": "purpose: Validate the registration-address accuracy; bypass the check for eligible import prolongation.",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:008",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "inputs",
+      "value": "viewModel",
+      "text": "inputs: viewModel",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:009",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "inputs",
+      "value": "propertyName",
+      "text": "inputs: propertyName",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:010",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "inputs",
+      "value": "personType",
+      "text": "inputs: personType",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:011",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "outputs",
+      "value": "bool valid",
+      "text": "outputs: bool valid",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:012",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "conditions",
+      "value": "addressLevel >= street",
+      "text": "conditions: addressLevel >= street",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:013",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "conditions",
+      "value": "parsedAccuracy >= minCityAccuracyLevel",
+      "text": "conditions: parsedAccuracy >= minCityAccuracyLevel",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:014",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "state_changes",
+      "value": "property.Errors.Add(...) when valid == false",
+      "text": "state_changes: property.Errors.Add(...) when valid == false",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:015",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "checks",
+      "value": "int.TryParse(property.Value, out addressLevel)",
+      "text": "checks: int.TryParse(property.Value, out addressLevel)",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:016",
+      "subject_id": "technical-step:registration-address",
+      "predicate": "implementation",
+      "value": "component:questionnaire-registration-address",
+      "text": "implementation: component:questionnaire-registration-address",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    }
+  ],
+  "relations": [],
+  "gaps": [
+    {
+      "id": "gap:address:domain",
+      "reason": "unknown_field",
+      "question": "What are the confirmed business goal, actors, entry/exit states and canonical scenario term?",
+      "affected_ids": [
+        "scenario:registration-address-validation"
+      ],
+      "next_action": "Read scoped caller/domain requirements before assigning business meaning.",
+      "status": "open"
+    },
+    {
+      "id": "gap:address:technical",
+      "reason": "unknown_reason",
+      "question": "Business meaning, remaining call graph, persistence and integrations?",
+      "affected_ids": [
+        "technical-step:registration-address"
+      ],
+      "next_action": "Read scoped caller/domain requirements before assigning business meaning.",
+      "status": "open"
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "model_profile": "scoped-knowledge-v1",
+  "package_id": "kb:registration-address",
+  "revision": 1,
+  "scope": {
+    "id": "scope:registration-address-validation",
+    "repositories": [
+      "b-app-eosago-api"
+    ],
+    "revisions": {
+      "b-app-eosago-api": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+frozen-excerpts"
+    },
+    "components": [
+      "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+    ],
+    "scenarios": [
+      "scenario:registration-address-validation"
+    ],
+    "environments": [],
+    "time_range": null,
+    "exclusions": [
+      "caller/UI mapping",
+      "other validators",
+      "external integrations"
+    ],
+    "unresolved_constraints": [
+      "Business lifecycle and actors not established by the code/test excerpts."
+    ]
+  },
+  "sources": [
+    {
+      "id": "snapshot:address:code",
+      "adapter": "repository",
+      "locator": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs:297-358",
+      "repository": "b-app-eosago-api",
+      "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "retrieved_at": "2026-10-01T12:00:00+03:00",
+      "content_hash": "a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "hash_scope": "excerpt",
+      "working_tree_state": "dirty",
+      "availability": "available",
+      "excerpt": "        public bool ValidateRegistrationAddress(BaseViewModel viewModel, string propertyName, string personType)\n        {\n            const int city = 4;\n            const int street = 7;\n            int addressLevel = street;\n\n            var property = viewModel.GetProperty<ViewModelProperty<string>>(propertyName);\n            if (ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel))\n            {\n                return true;\n            }\n\n            bool valid = string.IsNullOrEmpty(property.Value) ||\n                         (int.TryParse(property.Value, out addressLevel) &&\n                          addressLevel >= street);\n\n            if (valid == false)\n            {\n                property.Errors.Add(addressLevel switch\n                {\n                    int _ when addressLevel < city => $\"Проверьте корректность указанного адреса регистрации {personType}.\",\n                    int _ when addressLevel < street => $\"Проверьте корректность указания улицы и номера дома в адресе регистрации {personType}.\",\n                    _ => string.Empty\n                });\n            }\n\n            return valid;\n        }\n\n        private bool ShouldSkipRegistrationAddressValidationForImportProlongation(\n            string propertyName,\n            string accuracyValue,\n            int minCityAccuracyLevel,\n            out int parsedAccuracy)\n        {\n            parsedAccuracy = 0;\n            var processApiContext = _context?.ServiceProvider?.GetService(typeof(ProcessApiContext)) as ProcessApiContext;\n            if (propertyName != nameof(AutoQuestionnaireStepViewModel.InsurantRegistrationAddressRecognitionAccuracy)\n                && propertyName != nameof(AutoQuestionnaireStepOwnerViewModel.OwnerRegistrationAddressRecognitionAccuracy))\n            {\n                return false;\n            }\n\n            if (processApiContext?.Command is not EOsagoImportLink2Command\n                || processApiContext.ViewModel is not EOsagoImportViewModel importViewModel)\n            {\n                return false;\n            }\n\n            var prolongationId = importViewModel[ProlongationIdPropertyName]?.ToString()?.Trim();\n            if (string.IsNullOrEmpty(prolongationId)\n                || !int.TryParse(accuracyValue, out parsedAccuracy))\n            {\n                return false;\n            }\n\n            return parsedAccuracy >= minCityAccuracyLevel;\n        }\n\n        /// <summary>\n        /// Валидирует дату истечения паспорта.\n        /// </summary>\n"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence:address:code",
+      "source_type": "CODE",
+      "source_location": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs:297-358",
+      "repository": "b-app-eosago-api",
+      "file": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs",
+      "page": null,
+      "section": null,
+      "version": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+      "commit": "ce126119edba11d18614ea3b41b7d5d7aaba6f12",
+      "snapshot_id": "snapshot:address:code",
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "excerpt": "        public bool ValidateRegistrationAddress(BaseViewModel viewModel, string propertyName, string personType)\n        {\n            const int city = 4;\n            const int street = 7;\n            int addressLevel = street;\n\n            var property = viewModel.GetProperty<ViewModelProperty<string>>(propertyName);\n            if (ShouldSkipRegistrationAddressValidationForImportProlongation(propertyName, property?.Value, city, out addressLevel))\n            {\n                return true;\n            }\n\n            bool valid = string.IsNullOrEmpty(property.Value) ||\n                         (int.TryParse(property.Value, out addressLevel) &&\n                          addressLevel >= street);\n\n            if (valid == false)\n            {\n                property.Errors.Add(addressLevel switch\n                {\n                    int _ when addressLevel < city => $\"Проверьте корректность указанного адреса регистрации {personType}.\",\n                    int _ when addressLevel < street => $\"Проверьте корректность указания улицы и номера дома в адресе регистрации {personType}.\",\n                    _ => string.Empty\n                });\n            }\n\n            return valid;\n        }\n\n        private bool ShouldSkipRegistrationAddressValidationForImportProlongation(\n            string propertyName,\n            string accuracyValue,\n            int minCityAccuracyLevel,\n            out int parsedAccuracy)\n        {\n            parsedAccuracy = 0;\n            var processApiContext = _context?.ServiceProvider?.GetService(typeof(ProcessApiContext)) as ProcessApiContext;\n            if (propertyName != nameof(AutoQuestionnaireStepViewModel.InsurantRegistrationAddressRecognitionAccuracy)\n                && propertyName != nameof(AutoQuestionnaireStepOwnerViewModel.OwnerRegistrationAddressRecognitionAccuracy))\n            {\n                return false;\n            }\n\n            if (processApiContext?.Command is not EOsagoImportLink2Command\n                || processApiContext.ViewModel is not EOsagoImportViewModel importViewModel)\n            {\n                return false;\n            }\n\n            var prolongationId = importViewModel[ProlongationIdPropertyName]?.ToString()?.Trim();\n            if (string.IsNullOrEmpty(prolongationId)\n                || !int.TryParse(accuracyValue, out parsedAccuracy))\n            {\n                return false;\n            }\n\n            return parsedAccuracy >= minCityAccuracyLevel;\n        }\n\n        /// <summary>\n        /// Валидирует дату истечения паспорта.\n        /// </summary>\n",
+      "basis_claim_ids": [],
+      "rationale": null,
+      "source_ref": "snapshot:address:code",
+      "supports": [
+        "claim:address:001",
+        "claim:address:002"
+      ],
+      "metadata": {
+        "repository": "b-app-eosago-api",
+        "file": "sources/App/src/Modules/iRIS.EOsago/Code/EOsago/ExternalFunctions/QuestionnaireExternalFunctionsInvoker.cs",
+        "symbol": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "page": null
+      },
+      "class": "QuestionnaireExternalFunctionsInvoker",
+      "method": "ValidateRegistrationAddress"
+    }
+  ],
+  "entities": [
+    {
+      "id": "scenario:registration-address-validation",
+      "type": "Scenario",
+      "label": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "identity_key": "b-app-eosago-api:scenario:registration-address-validation",
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": []
+    },
+    {
+      "id": "component:questionnaire-registration-address",
+      "type": "CodeComponent",
+      "label": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "identity_key": "b-app-eosago-api:component:questionnaire-registration-address",
+      "preferred_name": {
+        "value": null,
+        "status": "UNKNOWN",
+        "claim_ids": [],
+        "evidence_ids": []
+      },
+      "technical_aliases": [
+        "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress"
+      ],
+      "search_aliases": [],
+      "terminology_candidates": []
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:address:001",
+      "subject_id": "scenario:registration-address-validation",
+      "predicate": "trigger",
+      "value": "QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "text": "trigger: QuestionnaireExternalFunctionsInvoker.ValidateRegistrationAddress",
+      "modality": "implemented",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    },
+    {
+      "id": "claim:address:002",
+      "subject_id": "scenario:registration-address-validation",
+      "predicate": "entry_point",
+      "value": "component:questionnaire-registration-address",
+      "text": "entry_point: component:questionnaire-registration-address",
+      "modality": "discovery",
+      "context": {
+        "repository": "b-app-eosago-api",
+        "revision": "ce126119edba11d18614ea3b41b7d5d7aaba6f12+excerpt:a70ec79fe71dee118d2ac60399ae270b0f911a272995eeee1da25905a6a88101",
+        "environment": null
+      },
+      "support": [
+        {
+          "evidence_id": "evidence:address:code",
+          "role": "supports"
+        }
+      ],
+      "confidence": {
+        "score": 1.0,
+        "rationale": "Reviewed frozen code/test excerpt; does not establish business purpose."
+      },
+      "inference": false,
+      "validation_status": "supported",
+      "lifecycle_status": "current",
+      "knowledge_status": "CONFIRMED",
+      "basis_claim_ids": [],
+      "inference_rationale": null
+    }
+  ],
+  "relations": [],
+  "gaps": [
+    {
+      "id": "gap:address:domain",
+      "reason": "unknown_field",
+      "question": "What are the confirmed business goal, actors, entry/exit states and canonical scenario term?",
+      "affected_ids": [
+        "scenario:registration-address-validation"
+      ],
+      "next_action": "Read scoped caller/domain requirements before assigning business meaning.",
+      "status": "open"
+    }
+  ],
+  "conflicts": []
+}

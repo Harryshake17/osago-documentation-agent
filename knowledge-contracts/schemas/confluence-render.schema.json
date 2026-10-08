@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:confluence-render:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "inputs",
+    "hierarchy_plan",
+    "profile",
+    "publisher",
+    "attachments",
+    "traceability",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "urn:osago:documentation-run:1.0#/properties/nodes/additionalProperties/properties/status"
+        },
+        {
+          "const": "COMPLETED"
+        }
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "required": [
+        "document_hash",
+        "manifest_hash",
+        "language_review_hash",
+        "presentation_metadata_hash"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "hierarchy_plan": {
+      "allOf": [
+        {
+          "$ref": "urn:osago:confluence-presentation-plan:1.0"
+        },
+        {
+          "properties": {
+            "approval": {
+              "properties": {
+                "status": {
+                  "const": "COMPLETED"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "product",
+        "verified_version",
+        "representation",
+        "api_path",
+        "capabilities",
+        "verification"
+      ],
+      "properties": {
+        "product": {
+          "const": "Confluence Data Center"
+        },
+        "verified_version": {
+          "type": "string"
+        },
+        "representation": {
+          "const": "storage"
+        },
+        "api_path": {
+          "const": "/rest/api"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "h1",
+              "h2",
+              "h3",
+              "paragraph",
+              "table",
+              "ul",
+              "ol",
+              "code",
+              "info",
+              "warning",
+              "expand",
+              "png_attachment"
+            ]
+          }
+        },
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "publisher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "body_file",
+        "content_format",
+        "representation",
+        "api_path",
+        "body_hash",
+        "publication_gate",
+        "eligible",
+        "attachment_order"
+      ],
+      "properties": {
+        "body_file": {
+          "const": "10-confluence-body.storage.xhtml"
+        },
+        "content_format": {
+          "const": "storage"
+        },
+        "representation": {
+          "const": "storage"
+        },
+        "api_path": {
+          "const": "/rest/api"
+        },
+        "body_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "publication_gate": {
+          "$ref": "urn:osago:documentation-manifest:1.0#/properties/publication_gate"
+        },
+        "eligible": {
+          "type": "boolean"
+        },
+        "attachment_order": {
+          "const": "ensure-page-then-upload-before-final-body"
+        }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "filename",
+          "media_type",
+          "content_hash",
+          "bundle_path",
+          "caption",
+          "source_ref",
+          "source_hash"
+        ],
+        "properties": {
+          "filename": {
+            "type": "string",
+            "pattern": "^diagram-[a-f0-9]{16}\\.png$"
+          },
+          "media_type": {
+            "const": "image/png"
+          },
+          "content_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bundle_path": {
+            "type": "string",
+            "pattern": "^attachments/diagram-[a-f0-9]{16}\\.png$"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "source_ref": {
+            "type": "string"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "traceability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_ids",
+        "blocks",
+        "hidden_references"
+      ],
+      "properties": {
+        "claim_ids": {
+          "$ref": "urn:osago:documentation-manifest:1.0#/properties/claim_ids"
+        },
+        "blocks": {
+          "$ref": "urn:osago:documentation-manifest:1.0#/properties/document/properties/blocks"
+        },
+        "hidden_references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "original"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "original": {}
+            }
+          }
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storage_xml",
+        "private_references_in_body",
+        "raw_markdown_in_body"
+      ],
+      "properties": {
+        "storage_xml": {
+          "const": true
+        },
+        "private_references_in_body": {
+          "const": 0
+        },
+        "raw_markdown_in_body": {
+          "const": 0
+        }
+      }
+    }
+  }
+}

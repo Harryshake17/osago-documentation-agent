@@ -1,0 +1,386 @@
+{
+  "schema_version": "1.0",
+  "scope_ref": "scope:fixture",
+  "package_ref": {
+    "id": "kb:fixture",
+    "revision": 1
+  },
+  "id": "gaps:scope:fixture",
+  "report_ref": "validation:scope:fixture",
+  "gaps": [
+    {
+      "id": "gap:internal:00",
+      "reason": "unknown_field",
+      "question": "Exact internal method?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:01",
+      "reason": "unknown_field",
+      "question": "Actor for an internal call?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:02",
+      "reason": "unknown_field",
+      "question": "Helper/extension wiring?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:03",
+      "reason": "unknown_field",
+      "question": "Full generated graph?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:04",
+      "reason": "unknown_field",
+      "question": "Secondary implementation detail?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:05",
+      "reason": "unknown_field",
+      "question": "Specific test/file locator?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:06",
+      "reason": "unknown_field",
+      "question": "Exact internal method?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:07",
+      "reason": "unknown_field",
+      "question": "Actor for an internal call?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:08",
+      "reason": "unknown_field",
+      "question": "Helper/extension wiring?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:09",
+      "reason": "unknown_field",
+      "question": "Full generated graph?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:10",
+      "reason": "unknown_field",
+      "question": "Secondary implementation detail?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:11",
+      "reason": "unknown_field",
+      "question": "Specific test/file locator?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:12",
+      "reason": "unknown_field",
+      "question": "Exact internal method?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:13",
+      "reason": "unknown_field",
+      "question": "Actor for an internal call?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:14",
+      "reason": "unknown_field",
+      "question": "Helper/extension wiring?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:15",
+      "reason": "unknown_field",
+      "question": "Full generated graph?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:16",
+      "reason": "unknown_field",
+      "question": "Secondary implementation detail?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:17",
+      "reason": "unknown_field",
+      "question": "Specific test/file locator?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:18",
+      "reason": "unknown_field",
+      "question": "Exact internal method?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:internal:19",
+      "reason": "unknown_field",
+      "question": "Actor for an internal call?",
+      "affected_ids": [
+        "technical-step:guard"
+      ],
+      "next_action": "Continue internal implementation research.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "INTERNAL_RESEARCH",
+        "reviewed": true,
+        "impacts": [],
+        "reason": "Synthetic review: only internal wiring is unresolved; process actions, rules and results have independent support."
+      }
+    },
+    {
+      "id": "gap:process:ordering",
+      "reason": "unverified",
+      "question": "Does the main process use this order?",
+      "affected_ids": [
+        "claim:edge:0"
+      ],
+      "next_action": "Review the affected process assertion.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "PUBLICATION_RELEVANT",
+        "reviewed": true,
+        "impacts": [
+          {
+            "aspect": "MAIN_FLOW",
+            "target_refs": [
+              "claim:edge:0"
+            ]
+          }
+        ],
+        "reason": "Synthetic review: this uncertainty can change the referenced process assertion."
+      }
+    },
+    {
+      "id": "gap:process:result",
+      "reason": "unverified",
+      "question": "Is this the business result?",
+      "affected_ids": [
+        "claim:workflow:74"
+      ],
+      "next_action": "Review the affected process assertion.",
+      "status": "open",
+      "publication_relevance": {
+        "classification": "PUBLICATION_RELEVANT",
+        "reviewed": true,
+        "impacts": [
+          {
+            "aspect": "BUSINESS_RESULT",
+            "target_refs": [
+              "claim:workflow:74"
+            ]
+          }
+        ],
+        "reason": "Synthetic review: this uncertainty can change the referenced process assertion."
+      }
+    }
+  ],
+  "finding_gap_links": [],
+  "publication_subset": {
+    "gap_ids": [
+      "gap:process:ordering",
+      "gap:process:result"
+    ],
+    "finding_ids": []
+  }
+}

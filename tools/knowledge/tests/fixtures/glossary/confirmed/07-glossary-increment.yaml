@@ -1,0 +1,3694 @@
+schema_version: '1.0'
+model_profile: scoped-knowledge-v1
+id: glossary-increment:d720f14f78d4782b265369f5
+glossary_ref:
+  id: glossary:osago
+  revision: 1
+base_hash: 896cfc1a14b1417f83a52777ebc96681daf2d265e9c02fd3f507de87b41b8334
+result_hash: dde5c63833ca7cc5037e958b564ba06893f6a647bc875a3031a8daf7ede1cdb7
+domain_id: domain:glossary-fixture
+package_ref:
+  id: kb:glossary:confirmed
+  revision: 1
+scope_ref: scope:fixture
+input_hashes:
+  knowledge: 5782b018d259f50af6c274f60b3ca8616779f2a01b33f0c27509a7807abed668
+  scenario: 41360e9d586efea98c9125e2968e36a2cd3c89f33eb766bc8225989ae27414ba
+  validation: 42dc98a0a693f4d7c80b481d8517828a59306e6a4572c0149d5afbb466cf80f4
+  glossary: 896cfc1a14b1417f83a52777ebc96681daf2d265e9c02fd3f507de87b41b8334
+added:
+- term:
+    id: TERM-692FC14E7668F7D1
+    entity_ref: integration:glossary:scoring
+    identity_key: fixture:concept:scoring
+    preferred_name:
+      value: скоринг
+      status: CONFIRMED
+      claim_ids:
+      - claim:glossary:confirmed:58
+      evidence_ids:
+      - evidence:glossary:scoring-doc
+    definition:
+      value: Синтетическая проверка данных для теста.
+      status: CONFIRMED
+      claim_ids:
+      - claim:glossary:confirmed:59
+      evidence_ids:
+      - evidence:glossary:scoring-doc
+    type: INTEGRATION
+    technical_aliases:
+    - SAS
+    search_aliases:
+    - SAS
+    - sas
+    - скоринг
+    terminology_candidates: []
+    search_alias_origins:
+    - value: SAS
+      origin: technical_alias
+      entity_ref: integration:glossary:scoring
+    - value: sas
+      origin: technical_alias
+      entity_ref: integration:glossary:scoring
+    - value: скоринг
+      origin: preferred_name
+      entity_ref: integration:glossary:scoring
+    abbreviations:
+    - SAS
+    domains:
+    - domain:glossary-fixture
+    related_entities:
+    - integration:glossary:scoring
+    attribute_claims:
+      technical_aliases/0:
+      - claim:glossary:confirmed:57
+      related_entities/0:
+      - claim:glossary:confirmed:57
+      - claim:glossary:confirmed:58
+      - claim:glossary:confirmed:59
+    evidence:
+    - evidence:glossary:scoring-code
+    - evidence:glossary:scoring-doc
+    status: CONFIRMED
+    provenance_refs:
+    - provenance:cd91735e7167429701a21db76d0d85d82a7823b897a26f96f4b3883a4e5b9260
+    validation_claim_ids:
+    - claim:glossary:confirmed:57
+    - claim:glossary:confirmed:58
+    - claim:glossary:confirmed:59
+updated: []
+unchanged: []
+provenance_added:
+- id: provenance:cd91735e7167429701a21db76d0d85d82a7823b897a26f96f4b3883a4e5b9260
+  knowledge:
+    schema_version: '1.0'
+    package_id: kb:glossary:confirmed
+    revision: 1
+    scope:
+      id: scope:fixture
+      repositories:
+      - fixture
+      revisions:
+        fixture: fixture-v1
+      components:
+      - fixture
+      scenarios:
+      - scenario:fixture
+      environments:
+      - test
+      time_range: null
+      exclusions:
+      - production
+      unresolved_constraints: []
+    sources:
+    - id: snapshot:fixture
+      adapter: repository
+      locator: fixtures/flow.cs
+      repository: fixture
+      revision: fixture-v1
+      commit: null
+      retrieved_at: '2026-10-01T09:00:00Z'
+      content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+      hash_scope: full_content
+      working_tree_state: clean
+      availability: available
+      excerpt: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+        \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+        \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord FixtureCommand();\n\
+        class FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business rule.\n    public int\
+        \ Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return 0;\n        return 1;\n\
+        \    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+    - id: snapshot:glossary:scoring-code
+      adapter: repository
+      locator: fixture:scoring-code
+      repository: fixture
+      revision: fixture:scoring-code
+      commit: null
+      retrieved_at: '2026-10-01T09:00:00Z'
+      content_hash: b8092c234c2a696ef4a6e182fbce922d967623c70bda98e790b271c778223e34
+      hash_scope: full_content
+      working_tree_state: clean
+      availability: available
+      excerpt: '// Synthetic alias mapping: SAS denotes integration:glossary:scoring.'
+    - id: snapshot:glossary:scoring-doc
+      adapter: confluence
+      locator: fixture:scoring-doc
+      repository: null
+      revision: fixture:scoring-doc
+      commit: null
+      retrieved_at: '2026-10-01T09:00:00Z'
+      content_hash: a89cfef07b05afd8a7114f66eed39b175e864bf680a1c96266f539e3f004a7c5
+      hash_scope: full_content
+      working_tree_state: clean
+      availability: available
+      excerpt: 'Synthetic glossary: SAS means скоринг. Definition: Синтетическая проверка данных для теста..'
+    entities:
+    - id: scenario:fixture
+      type: Scenario
+      label: scenario:fixture
+      identity_key: scenario:fixture
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - scenario:fixture
+      search_aliases: []
+      terminology_candidates: []
+    - id: actor:fixture
+      type: Actor
+      label: actor:fixture
+      identity_key: actor:fixture
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - actor:fixture
+      search_aliases: []
+      terminology_candidates: []
+    - id: FixtureCommand
+      type: CodeComponent
+      label: FixtureCommand
+      identity_key: FixtureCommand
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - FixtureCommand
+      search_aliases: []
+      terminology_candidates: []
+    - id: FixtureHandler.Handle
+      type: CodeComponent
+      label: FixtureHandler.Handle
+      identity_key: FixtureHandler.Handle
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - FixtureHandler.Handle
+      search_aliases: []
+      terminology_candidates: []
+    - id: technical-step:guard
+      type: SystemBehaviour
+      label: Synthetic guard
+      identity_key: technical-step:guard
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - technical-step:guard
+      search_aliases: []
+      terminology_candidates: []
+    - id: BR-FIXTURE-001
+      type: BusinessRule
+      label: Synthetic constraint
+      identity_key: BR-FIXTURE-001
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - BR-FIXTURE-001
+      search_aliases: []
+      terminology_candidates: []
+    - id: decision:accuracy
+      type: Decision
+      label: Synthetic technical guard
+      identity_key: decision:accuracy
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - decision:accuracy
+      search_aliases: []
+      terminology_candidates: []
+    - id: scenario-step:guard
+      type: ScenarioStep
+      label: scenario-step:guard
+      identity_key: scenario-step:guard
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - scenario-step:guard
+      search_aliases: []
+      terminology_candidates: []
+    - id: scenario-step:return-one
+      type: ScenarioStep
+      label: scenario-step:return-one
+      identity_key: scenario-step:return-one
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - scenario-step:return-one
+      search_aliases: []
+      terminology_candidates: []
+    - id: scenario-step:return-zero
+      type: ScenarioStep
+      label: scenario-step:return-zero
+      identity_key: scenario-step:return-zero
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - scenario-step:return-zero
+      search_aliases: []
+      terminology_candidates: []
+    - id: domain:glossary-fixture
+      type: Domain
+      label: Synthetic glossary test domain
+      identity_key: domain:glossary-fixture
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases: []
+      search_aliases: []
+      terminology_candidates: []
+    - id: integration:glossary:scoring
+      type: Integration
+      label: SAS
+      identity_key: fixture:concept:scoring
+      preferred_name:
+        value: null
+        status: UNKNOWN
+        claim_ids: []
+        evidence_ids: []
+      technical_aliases:
+      - SAS
+      search_aliases: []
+      terminology_candidates: []
+    claims:
+    - id: claim:business_goal
+      subject_id: scenario:fixture
+      predicate: business_goal
+      value: Process fixture request
+      text: 'Synthetic: scenario:fixture business_goal Process fixture request'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: &id001
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:trigger
+      subject_id: scenario:fixture
+      predicate: trigger
+      value: FixtureCommand
+      text: 'Synthetic: scenario:fixture trigger FixtureCommand'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:entry_state
+      subject_id: scenario:fixture
+      predicate: entry_state
+      value: fixture pending
+      text: 'Synthetic: scenario:fixture entry_state fixture pending'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:exit_states
+      subject_id: scenario:fixture
+      predicate: exit_states
+      value: fixture done
+      text: 'Synthetic: scenario:fixture exit_states fixture done'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:actors
+      subject_id: scenario:fixture
+      predicate: actors
+      value: actor:fixture
+      text: 'Synthetic: scenario:fixture actors actor:fixture'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:anchor
+      subject_id: scenario:fixture
+      predicate: entry_point
+      value: FixtureCommand
+      text: 'Synthetic: scenario:fixture entry_point FixtureCommand'
+      modality: discovery
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:edge
+      subject_id: FixtureCommand
+      predicate: registered_handler
+      value: FixtureHandler.Handle
+      text: 'Synthetic: FixtureCommand registered_handler FixtureHandler.Handle'
+      modality: discovery
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:expected_outcomes
+      subject_id: scenario:fixture
+      predicate: expected_outcomes
+      value: fixture done
+      text: 'Synthetic: scenario:fixture expected_outcomes fixture done'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence: *id001
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:flow-implementation
+      subject_id: technical-step:guard
+      predicate: implementation
+      value: FixtureHandler.Handle
+      text: 'Synthetic: implementation FixtureHandler.Handle'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:rule_kind
+      subject_id: BR-FIXTURE-001
+      predicate: rule_kind
+      value: technical_constraint
+      text: 'Synthetic: rule_kind technical_constraint'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:rule_statement
+      subject_id: BR-FIXTURE-001
+      predicate: rule_statement
+      value: Return 0 when fixture accuracy is below 7.
+      text: 'Synthetic: rule_statement Return 0 when fixture accuracy is below 7.'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:condition
+      subject_id: BR-FIXTURE-001
+      predicate: condition
+      value: accuracy < 7
+      text: 'Synthetic: condition accuracy < 7'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:true_result
+      subject_id: BR-FIXTURE-001
+      predicate: true_result
+      value: return 0
+      text: 'Synthetic: true_result return 0'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:false_result
+      subject_id: BR-FIXTURE-001
+      predicate: false_result
+      value: return 1
+      text: 'Synthetic: false_result return 1'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:affected_actor:0
+      subject_id: BR-FIXTURE-001
+      predicate: affected_actor
+      value: actor:fixture
+      text: 'Synthetic: affected_actor actor:fixture'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:affected_scenario:0
+      subject_id: BR-FIXTURE-001
+      predicate: affected_scenario
+      value: scenario:fixture
+      text: 'Synthetic: affected_scenario scenario:fixture'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:parameters:0
+      subject_id: BR-FIXTURE-001
+      predicate: parameters
+      value:
+        name: accuracy threshold
+        value: 7
+        unit: null
+        origin: literal
+      text: 'Synthetic: parameters {''name'': ''accuracy threshold'', ''value'': 7, ''unit'': None, ''origin'':
+        ''literal''}'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:rule:implementation:0
+      subject_id: BR-FIXTURE-001
+      predicate: implementation
+      value: FixtureHandler.Handle
+      text: 'Synthetic: implementation FixtureHandler.Handle'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:kind
+      subject_id: scenario-step:guard
+      predicate: kind
+      value: decision
+      text: 'Synthetic: kind decision'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:action
+      subject_id: scenario-step:guard
+      predicate: action
+      value: Check accuracy
+      text: 'Synthetic: action Check accuracy'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:system_behavior
+      subject_id: scenario-step:guard
+      predicate: system_behavior
+      value: Evaluate accuracy < 7
+      text: 'Synthetic: system_behavior Evaluate accuracy < 7'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:decision_ref
+      subject_id: scenario-step:guard
+      predicate: decision_ref
+      value: decision:accuracy
+      text: 'Synthetic: decision_ref decision:accuracy'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:decision_kind
+      subject_id: scenario-step:guard
+      predicate: decision_kind
+      value: technical
+      text: 'Synthetic: decision_kind technical'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:evaluated_rules:0
+      subject_id: scenario-step:guard
+      predicate: evaluated_rules
+      value: BR-FIXTURE-001
+      text: 'Synthetic: evaluated_rules BR-FIXTURE-001'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:implementation:0
+      subject_id: scenario-step:guard
+      predicate: implementation
+      value: FixtureHandler.Handle
+      text: 'Synthetic: implementation FixtureHandler.Handle'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:na:actor
+      subject_id: scenario-step:guard
+      predicate: not_applicable
+      value: actor
+      text: 'Synthetic: not_applicable actor'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:guard:na:integrations
+      subject_id: scenario-step:guard
+      predicate: not_applicable
+      value: integrations
+      text: 'Synthetic: not_applicable integrations'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:kind
+      subject_id: scenario-step:return-one
+      predicate: kind
+      value: system_reaction
+      text: 'Synthetic: kind system_reaction'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:action
+      subject_id: scenario-step:return-one
+      predicate: action
+      value: Return fixture result
+      text: 'Synthetic: action Return fixture result'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:system_behavior
+      subject_id: scenario-step:return-one
+      predicate: system_behavior
+      value: return 1
+      text: 'Synthetic: system_behavior return 1'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:implementation:0
+      subject_id: scenario-step:return-one
+      predicate: implementation
+      value: FixtureHandler.Handle
+      text: 'Synthetic: implementation FixtureHandler.Handle'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:na:actor
+      subject_id: scenario-step:return-one
+      predicate: not_applicable
+      value: actor
+      text: 'Synthetic: not_applicable actor'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:na:integrations
+      subject_id: scenario-step:return-one
+      predicate: not_applicable
+      value: integrations
+      text: 'Synthetic: not_applicable integrations'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-one:na:evaluated_rules
+      subject_id: scenario-step:return-one
+      predicate: not_applicable
+      value: evaluated_rules
+      text: 'Synthetic: not_applicable evaluated_rules'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:kind
+      subject_id: scenario-step:return-zero
+      predicate: kind
+      value: system_reaction
+      text: 'Synthetic: kind system_reaction'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:action
+      subject_id: scenario-step:return-zero
+      predicate: action
+      value: Return fixture result
+      text: 'Synthetic: action Return fixture result'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:system_behavior
+      subject_id: scenario-step:return-zero
+      predicate: system_behavior
+      value: return 0
+      text: 'Synthetic: system_behavior return 0'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:implementation:0
+      subject_id: scenario-step:return-zero
+      predicate: implementation
+      value: FixtureHandler.Handle
+      text: 'Synthetic: implementation FixtureHandler.Handle'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:na:actor
+      subject_id: scenario-step:return-zero
+      predicate: not_applicable
+      value: actor
+      text: 'Synthetic: not_applicable actor'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:na:integrations
+      subject_id: scenario-step:return-zero
+      predicate: not_applicable
+      value: integrations
+      text: 'Synthetic: not_applicable integrations'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:scenario-step:return-zero:na:evaluated_rules
+      subject_id: scenario-step:return-zero
+      predicate: not_applicable
+      value: evaluated_rules
+      text: 'Synthetic: not_applicable evaluated_rules'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:edge:0
+      subject_id: scenario-step:guard
+      predicate: rule_branch
+      value: scenario-step:return-one
+      text: 'Synthetic: rule_branch scenario-step:return-one'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:edge:0:condition
+      subject_id: scenario-step:guard
+      predicate: branch_condition
+      value:
+        rule_id: BR-FIXTURE-001
+        outcome: 'false'
+        condition: accuracy >= 7
+      text: 'Synthetic: branch_condition {''rule_id'': ''BR-FIXTURE-001'', ''outcome'': ''false'', ''condition'':
+        ''accuracy >= 7''}'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:edge:1
+      subject_id: scenario-step:guard
+      predicate: rule_branch
+      value: scenario-step:return-zero
+      text: 'Synthetic: rule_branch scenario-step:return-zero'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:edge:1:condition
+      subject_id: scenario-step:guard
+      predicate: branch_condition
+      value:
+        rule_id: BR-FIXTURE-001
+        outcome: 'true'
+        condition: accuracy < 7
+      text: 'Synthetic: branch_condition {''rule_id'': ''BR-FIXTURE-001'', ''outcome'': ''true'', ''condition'':
+        ''accuracy < 7''}'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:flow:main
+      subject_id: scenario:fixture
+      predicate: flow_condition
+      value: accuracy >= 7
+      text: 'Synthetic: flow_condition accuracy >= 7'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:flow:alternative
+      subject_id: scenario:fixture
+      predicate: flow_condition
+      value: accuracy < 7
+      text: 'Synthetic: flow_condition accuracy < 7'
+      modality: implemented
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:flow:main:type
+      subject_id: scenario:fixture
+      predicate: flow_type
+      value:
+        flow_id: scenario-flow:main
+        type: main
+      text: 'Synthetic: flow_type {''flow_id'': ''scenario-flow:main'', ''type'': ''main''}'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:flow:alternative:type
+      subject_id: scenario:fixture
+      predicate: flow_type
+      value:
+        flow_id: scenario-flow:alternative
+        type: alternative
+      text: 'Synthetic: flow_type {''flow_id'': ''scenario-flow:alternative'', ''type'': ''alternative''}'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:type
+      subject_id: technical-step:guard
+      predicate: type
+      value: rule
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:symbol
+      subject_id: technical-step:guard
+      predicate: symbol
+      value: FixtureHandler.Handle
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:purpose
+      subject_id: technical-step:guard
+      predicate: purpose
+      value: Return a value after checking fixture accuracy.
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:inputs/0
+      subject_id: technical-step:guard
+      predicate: inputs
+      value: command
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:inputs/1
+      subject_id: technical-step:guard
+      predicate: inputs
+      value: accuracy
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:outputs/0
+      subject_id: technical-step:guard
+      predicate: outputs
+      value: 0 or 1
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:conditions/0
+      subject_id: technical-step:guard
+      predicate: conditions
+      value: accuracy < 7
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:technical:checks/0
+      subject_id: technical-step:guard
+      predicate: checks
+      value: accuracy < 7
+      text: Synthetic technical observation.
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture-v1
+        environment: test
+      support:
+      - evidence_id: evidence:fixture
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:glossary:confirmed:57
+      subject_id: integration:glossary:scoring
+      predicate: technical_aliases
+      value: SAS
+      text: 'Synthetic technical_aliases: SAS'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture:scoring-code
+        environment: test
+      support:
+      - evidence_id: evidence:glossary:scoring-code
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:glossary:confirmed:58
+      subject_id: integration:glossary:scoring
+      predicate: preferred_name
+      value: скоринг
+      text: 'Synthetic preferred_name: скоринг'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture:scoring-doc
+        environment: test
+      support:
+      - evidence_id: evidence:glossary:scoring-doc
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    - id: claim:glossary:confirmed:59
+      subject_id: integration:glossary:scoring
+      predicate: definition
+      value: Синтетическая проверка данных для теста.
+      text: 'Synthetic definition: Синтетическая проверка данных для теста.'
+      modality: source_statement
+      context:
+        repository: fixture
+        revision: fixture:scoring-doc
+        environment: test
+      support:
+      - evidence_id: evidence:glossary:scoring-doc
+        role: supports
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      validation_status: supported
+      lifecycle_status: current
+      knowledge_status: CONFIRMED
+      basis_claim_ids: []
+      inference_rationale: null
+    evidence:
+    - id: evidence:fixture
+      source_type: CODE
+      source_location: fixtures/flow.cs:1
+      repository: fixture
+      file: fixtures/flow.cs
+      class: FixtureHandler
+      method: Handle
+      page: null
+      section: null
+      version: fixture-v1
+      commit: null
+      snapshot_id: snapshot:fixture
+      confidence: *id001
+      inference: false
+      excerpt: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+        \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+        \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord FixtureCommand();\n\
+        class FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business rule.\n    public int\
+        \ Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return 0;\n        return 1;\n\
+        \    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+      basis_claim_ids: []
+      rationale: null
+      source_ref: snapshot:fixture
+      supports:
+      - claim:business_goal
+      - claim:trigger
+      - claim:entry_state
+      - claim:exit_states
+      - claim:actors
+      - claim:anchor
+      - claim:edge
+      - claim:expected_outcomes
+      - claim:flow-implementation
+      - claim:rule:rule_kind
+      - claim:rule:rule_statement
+      - claim:rule:condition
+      - claim:rule:true_result
+      - claim:rule:false_result
+      - claim:rule:affected_actor:0
+      - claim:rule:affected_scenario:0
+      - claim:rule:parameters:0
+      - claim:rule:implementation:0
+      - claim:scenario-step:guard:kind
+      - claim:scenario-step:guard:action
+      - claim:scenario-step:guard:system_behavior
+      - claim:scenario-step:guard:decision_ref
+      - claim:scenario-step:guard:decision_kind
+      - claim:scenario-step:guard:evaluated_rules:0
+      - claim:scenario-step:guard:implementation:0
+      - claim:scenario-step:guard:na:actor
+      - claim:scenario-step:guard:na:integrations
+      - claim:scenario-step:return-one:kind
+      - claim:scenario-step:return-one:action
+      - claim:scenario-step:return-one:system_behavior
+      - claim:scenario-step:return-one:implementation:0
+      - claim:scenario-step:return-one:na:actor
+      - claim:scenario-step:return-one:na:integrations
+      - claim:scenario-step:return-one:na:evaluated_rules
+      - claim:scenario-step:return-zero:kind
+      - claim:scenario-step:return-zero:action
+      - claim:scenario-step:return-zero:system_behavior
+      - claim:scenario-step:return-zero:implementation:0
+      - claim:scenario-step:return-zero:na:actor
+      - claim:scenario-step:return-zero:na:integrations
+      - claim:scenario-step:return-zero:na:evaluated_rules
+      - claim:edge:0
+      - claim:edge:0:condition
+      - claim:edge:1
+      - claim:edge:1:condition
+      - claim:flow:main
+      - claim:flow:alternative
+      - claim:flow:main:type
+      - claim:flow:alternative:type
+      - claim:technical:type
+      - claim:technical:symbol
+      - claim:technical:purpose
+      - claim:technical:inputs/0
+      - claim:technical:inputs/1
+      - claim:technical:outputs/0
+      - claim:technical:conditions/0
+      - claim:technical:checks/0
+      metadata:
+        repository: fixture
+        file: fixtures/flow.cs
+        symbol: FixtureHandler.Handle
+        revision: fixture-v1
+        page: null
+    - id: evidence:glossary:scoring-code
+      source_type: CODE
+      source_location: fixture:scoring-code
+      repository: fixture
+      file: fixtures/scoring-code.cs
+      class: null
+      method: null
+      page: null
+      section: null
+      version: fixture:scoring-code
+      commit: null
+      snapshot_id: snapshot:glossary:scoring-code
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      excerpt: '// Synthetic alias mapping: SAS denotes integration:glossary:scoring.'
+      basis_claim_ids: []
+      rationale: null
+      source_ref: snapshot:glossary:scoring-code
+      supports:
+      - claim:glossary:confirmed:57
+      metadata:
+        repository: fixture
+        file: fixtures/scoring-code.cs
+        symbol: null
+        revision: fixture:scoring-code
+        page: null
+    - id: evidence:glossary:scoring-doc
+      source_type: CONFLUENCE
+      source_location: fixture:scoring-doc
+      repository: null
+      file: null
+      class: null
+      method: null
+      page: scoring-doc
+      section: Glossary
+      version: fixture:scoring-doc
+      commit: null
+      snapshot_id: snapshot:glossary:scoring-doc
+      confidence:
+        score: 1.0
+        rationale: Direct synthetic fixture statement.
+      inference: false
+      excerpt: 'Synthetic glossary: SAS means скоринг. Definition: Синтетическая проверка данных для теста..'
+      basis_claim_ids: []
+      rationale: null
+      source_ref: snapshot:glossary:scoring-doc
+      supports:
+      - claim:glossary:confirmed:58
+      - claim:glossary:confirmed:59
+      metadata:
+        repository: null
+        file: null
+        symbol: null
+        revision: fixture:scoring-doc
+        page: scoring-doc
+    relations: []
+    gaps:
+    - id: gap:rationale
+      reason: unknown_reason
+      question: Why this threshold?
+      affected_ids:
+      - BR-FIXTURE-001
+      next_action: Find explicit documented rationale.
+      status: open
+    - id: gap:external
+      reason: unknown_field
+      question: What is the external result/state?
+      affected_ids:
+      - BR-FIXTURE-001
+      next_action: Trace caller and result mapping.
+      status: open
+    - id: gap:scenario-step:guard
+      reason: unknown_reason
+      question: Business meaning, states and actor result?
+      affected_ids:
+      - scenario-step:guard
+      next_action: Find documents and caller/result mapping.
+      status: open
+    - id: gap:scenario-step:return-one
+      reason: unknown_reason
+      question: Business meaning, states and actor result?
+      affected_ids:
+      - scenario-step:return-one
+      next_action: Find documents and caller/result mapping.
+      status: open
+    - id: gap:scenario-step:return-zero
+      reason: unknown_reason
+      question: Business meaning, states and actor result?
+      affected_ids:
+      - scenario-step:return-zero
+      next_action: Find documents and caller/result mapping.
+      status: open
+    - id: gap:technical
+      reason: unknown_field
+      question: Which other technical effects exist?
+      affected_ids:
+      - technical-step:guard
+      next_action: Inspect remaining technical dimensions.
+      status: open
+    conflicts: []
+    model_profile: scoped-knowledge-v1
+  validation:
+    schema_version: '1.0'
+    scope_ref: scope:fixture
+    package_ref:
+      id: kb:glossary:confirmed
+      revision: 1
+    id: validation:scope:fixture
+    inputs:
+    - kind: business-rules
+      id: rules:fixture
+      content_hash: 2f4db19fcd11ffe278e90c9f9fa3e2edcb7307b9ff483b9b2826ad3fea61a5df
+    - kind: domain-tree
+      id: tree:fixture
+      content_hash: 7b2366d0108914fbf0df1bc0eecc06a4a5d2d656db1ec319aab518e671965c5f
+    - kind: knowledge
+      id: kb:glossary:confirmed
+      content_hash: 5782b018d259f50af6c274f60b3ca8616779f2a01b33f0c27509a7807abed668
+    - kind: scenario
+      id: scenario-output:fixture
+      content_hash: 41360e9d586efea98c9125e2968e36a2cd3c89f33eb766bc8225989ae27414ba
+    - kind: scenario-definition
+      id: definition:fixture
+      content_hash: 7ce826c142d682b5403597057903841342936e87a7ee7942e93a79183da9717e
+    - kind: source-map
+      id: source-map:fixture
+      content_hash: 500f0b26730f0b88434f77a3c88f1885b1ec4743aef8951825389bb3db0b5102
+    - kind: technical-flow
+      id: flow:fixture
+      content_hash: 58710a509a321d42fd364d5608c8a4d90eb586eca5a71699d2a6e2b5a9ca481f
+    claim_inventory:
+    - claim:actors
+    - claim:anchor
+    - claim:business_goal
+    - claim:edge
+    - claim:edge:0
+    - claim:edge:0:condition
+    - claim:edge:1
+    - claim:edge:1:condition
+    - claim:entry_state
+    - claim:exit_states
+    - claim:expected_outcomes
+    - claim:flow-implementation
+    - claim:flow:alternative
+    - claim:flow:alternative:type
+    - claim:flow:main
+    - claim:flow:main:type
+    - claim:glossary:confirmed:57
+    - claim:glossary:confirmed:58
+    - claim:glossary:confirmed:59
+    - claim:rule:affected_actor:0
+    - claim:rule:affected_scenario:0
+    - claim:rule:condition
+    - claim:rule:false_result
+    - claim:rule:implementation:0
+    - claim:rule:parameters:0
+    - claim:rule:rule_kind
+    - claim:rule:rule_statement
+    - claim:rule:true_result
+    - claim:scenario-step:guard:action
+    - claim:scenario-step:guard:decision_kind
+    - claim:scenario-step:guard:decision_ref
+    - claim:scenario-step:guard:evaluated_rules:0
+    - claim:scenario-step:guard:implementation:0
+    - claim:scenario-step:guard:kind
+    - claim:scenario-step:guard:na:actor
+    - claim:scenario-step:guard:na:integrations
+    - claim:scenario-step:guard:system_behavior
+    - claim:scenario-step:return-one:action
+    - claim:scenario-step:return-one:implementation:0
+    - claim:scenario-step:return-one:kind
+    - claim:scenario-step:return-one:na:actor
+    - claim:scenario-step:return-one:na:evaluated_rules
+    - claim:scenario-step:return-one:na:integrations
+    - claim:scenario-step:return-one:system_behavior
+    - claim:scenario-step:return-zero:action
+    - claim:scenario-step:return-zero:implementation:0
+    - claim:scenario-step:return-zero:kind
+    - claim:scenario-step:return-zero:na:actor
+    - claim:scenario-step:return-zero:na:evaluated_rules
+    - claim:scenario-step:return-zero:na:integrations
+    - claim:scenario-step:return-zero:system_behavior
+    - claim:technical:checks/0
+    - claim:technical:conditions/0
+    - claim:technical:inputs/0
+    - claim:technical:inputs/1
+    - claim:technical:outputs/0
+    - claim:technical:purpose
+    - claim:technical:symbol
+    - claim:technical:type
+    - claim:trigger
+    claim_reviews:
+    - claim_id: claim:actors
+      claim_hash: 7462f9b008db35fa9643e6a8be362f29c99b78a543c7122312fc4e4aec2f922b
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:anchor
+      claim_hash: 0ece68f3f8504f56ad74cc6ea4df864616d68b78305a3326cc3192b4cbd3a7e5
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:business_goal
+      claim_hash: e4a181e0c000b13562cee55bdec22ebf99bcb209da69f6f1f387c9ba2730e7b7
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:edge
+      claim_hash: 339687bb11086467e6e01a5930d305765adf03225492c1100e02dbd7cf250872
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:edge:0
+      claim_hash: ebc8ab17c16d4163f7a6ddbb847c6f58c690f39e5e99acae6fdd0e8d472456fb
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:edge:0:condition
+      claim_hash: 8e299bf286d750f009764b3e273401adbc13201e4e0fec418ffc2e951d87fb58
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:edge:1
+      claim_hash: 282c15479bb851a0cf8b0b79404cc293d85b3c2a060e1d82fb06b5ac2d894242
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:edge:1:condition
+      claim_hash: a771e38b166d9975e8ad3090be8def7b71a34e741f8f79cc20d9855c0a65ba9a
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:entry_state
+      claim_hash: 56ad0674886d072a16a5087d229b0d71d1bc91a269ea2fd7d53b9ea70b292d32
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:exit_states
+      claim_hash: c3b4aa90e179c28ac051cf41de3c59fc6e4c1828d66d3b2eb72ec6706e717cec
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:expected_outcomes
+      claim_hash: 1f57a1b08f4dd2265906f3e9554566517cc6ca1fc06d3fe369256c42226adb5b
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:flow-implementation
+      claim_hash: 08e5eab2f845af64065711f1e1a6c6e1782c73353980585be49c28ab58b59a1a
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:flow:alternative
+      claim_hash: a1f24582371f044e0b6ba54074ce3708062e2696b3688f57033c58b3adb5d521
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:flow:alternative:type
+      claim_hash: 4bd68e9c103ac560786c570e3099950eadce01342aee0499001ca33b110cc0b2
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:flow:main
+      claim_hash: 17b81008d02ccc5cc2998fb50e82c0375431bf0b604b7077deca5feb6ef6e024
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:flow:main:type
+      claim_hash: a563893159e431181a2277be5050c47622b0200e6cf6d73031715790e76f101d
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:glossary:confirmed:57
+      claim_hash: c4ee4ad4604c6881881ee00325b3599aefac053e9283be196e66ebe3cf871177
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:glossary:scoring-code
+        snapshot_id: snapshot:glossary:scoring-code
+        source_location: fixture:scoring-code
+        version: fixture:scoring-code
+        content_hash: b8092c234c2a696ef4a6e182fbce922d967623c70bda98e790b271c778223e34
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: '// Synthetic alias mapping: SAS denotes integration:glossary:scoring.'
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:glossary:confirmed:58
+      claim_hash: 7102fafaac46da2a8d0b3c323dc811c3ba9ab813ec9e9a24f66717266d8d3a05
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:glossary:scoring-doc
+        snapshot_id: snapshot:glossary:scoring-doc
+        source_location: fixture:scoring-doc
+        version: fixture:scoring-doc
+        content_hash: a89cfef07b05afd8a7114f66eed39b175e864bf680a1c96266f539e3f004a7c5
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: 'Synthetic glossary: SAS means скоринг. Definition: Синтетическая проверка данных для теста..'
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:glossary:confirmed:59
+      claim_hash: 633338370f22bdff7e61a0797779917112dc3b3c4d329fdaf6cf905cb790f3ba
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:glossary:scoring-doc
+        snapshot_id: snapshot:glossary:scoring-doc
+        source_location: fixture:scoring-doc
+        version: fixture:scoring-doc
+        content_hash: a89cfef07b05afd8a7114f66eed39b175e864bf680a1c96266f539e3f004a7c5
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: 'Synthetic glossary: SAS means скоринг. Definition: Синтетическая проверка данных для теста..'
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    - claim_id: claim:rule:affected_actor:0
+      claim_hash: 1aef9d9e96291b8d71495a897ea5c12cc726a61b111010325772e0008e984c44
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:affected_scenario:0
+      claim_hash: b2dd5c16532e9e3d44b1e117b4699a3f23a24a2a06a0de04734f0ba95899b667
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:condition
+      claim_hash: cfc96e34fde0e3dcbf15bd0f00bc2e43a960ebf70a2761a3d6bb9e764ae06e6e
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:false_result
+      claim_hash: f7dce3ebaa5deeff77e2b1f3074d6df94ab5c8ba0ac7d1acf50906b5cca2cc5a
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:implementation:0
+      claim_hash: d146f82bc5eb2237e38aed1c9046e98a443633242314989d0c13e5ffb518ca1c
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:parameters:0
+      claim_hash: 05ce3f694437a7d00a02e764c0a5b2996edeceb3ed46b90a21b3fb4dd3c2a7f3
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:rule_kind
+      claim_hash: baf0b90e5fc69b75cb783bc5a6ab2f3891bc66ac3daaafafde146e3f6173aefd
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:rule_statement
+      claim_hash: 4e0f468079a4979d34b718a4faaba78818489b49eaab6efa20d48c6a8cb02940
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:rule:true_result
+      claim_hash: 874f5865807e58efb6563fd68b36e874ec140aa52ad98e78463c680ff0c709f8
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:external
+      - gap:rationale
+      required_action: none
+    - claim_id: claim:scenario-step:guard:action
+      claim_hash: 2037d4ec7ec314ff487e62c88e51038c50a0fa999e14f803c2bb85ad50886e84
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:decision_kind
+      claim_hash: 3ff036aad3224718d646065e122d696ac1fd6c8f086b102ae9ce5e5c3fbedea6
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:decision_ref
+      claim_hash: 6e1b81cf32aaef53b98ca0d3b33b0f5bb91d2a1f9c40e17fe57b98f1d3052ac4
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:evaluated_rules:0
+      claim_hash: 49d22bfdb3224d38510c2ca480e06e59d2117e6286e6bea4aa93ab0b8dc06579
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:implementation:0
+      claim_hash: f8fd99436aa466638ae9deabcdd89e8ecef60a7a0154443737ee3991c59431ae
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:kind
+      claim_hash: d93c2c3a8632b87d8cec6bcd3fcc268d22f5408af353cf085730006a5e279abb
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:na:actor
+      claim_hash: 41301fd4f477a7fbe4eba8ad5997ad3e70e2629f7f598778caf141b51b81f313
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:na:integrations
+      claim_hash: fe68cc18981d55a6f11b6756b1792e77dc7aa1043e28edee351a0ad623cfb33f
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:guard:system_behavior
+      claim_hash: c0e8aca9bd785cf71fba8fbceb5bbb21a9514f332148c278fc94c4dde45bb31d
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:guard
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:action
+      claim_hash: 66f850d20fd9d426ff28a9275900f332525a3dee6d4480cfeff68ec24e9540b0
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:implementation:0
+      claim_hash: 0ed91be2f444c3e289474ebc73caa0ddb5bee37c4cddb33bcce9b8d27cb9620d
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:kind
+      claim_hash: 9775f773bff393bc602bdaa37af31a133d0d0b0a606181efaea190336e0fdf96
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:na:actor
+      claim_hash: 92ac75fa0492902f8c9b1120e6d583a75b4bd90e53554f92401d9ba8011893b0
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:na:evaluated_rules
+      claim_hash: 68018ffc337188ea2ac67f80c600d1f2f11f7e4aa0a39909c8dca13a0fdc75ba
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:na:integrations
+      claim_hash: ddfdfaa1dcc297c72842f3129cf52e3fc9e2b18849571d96066ff999e524c2e8
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-one:system_behavior
+      claim_hash: 0d939355a4415dc523fa794a5c653441c4f405bc7d7bb5867314b4a587c8b664
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-one
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:action
+      claim_hash: f87ab3cb38d7a93b4169614fcf43e42ba4907b1b1a4bb44cf3054ceca396f63d
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:implementation:0
+      claim_hash: 6e2469e5880af046f7454b61670a3ccd7fec127a3d4d8a8e4d497e177d61e68b
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:kind
+      claim_hash: 6c83f6254f82b4ef15c0836ef38ef0529e9f48ceb9b57ffb42a3854deaf7f6de
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:na:actor
+      claim_hash: 4f874960fe1175c7c7325caabfff48bff6b8f27ca14fda4b2ed82a538a19e8c3
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:na:evaluated_rules
+      claim_hash: d4d5f7a6a0d1dfc970ecb80312ac748c869474d92bedd17ccffbdb50e15b3a28
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:na:integrations
+      claim_hash: dd284a4386b04eec717377d4331e267b10ea47ed3348c5105c6dddf751b3f2ff
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:scenario-step:return-zero:system_behavior
+      claim_hash: fae9f07be98608d7fe813fc3433fd2a7fc6747e7d41729220df152ab05585170
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:scenario-step:return-zero
+      required_action: none
+    - claim_id: claim:technical:checks/0
+      claim_hash: b1a1fc737b16afed92b188b6d8f5b276693620e1b1f27288dbec0054c30792a0
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:conditions/0
+      claim_hash: f815847d7769fd016f0c48ff4c5a8548e62b2839d890acc6586403352ecf2c84
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:inputs/0
+      claim_hash: d6ca891865a917090ef801e7e8578677a12246e9f7c049ae099fb6010275f7a0
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:inputs/1
+      claim_hash: 25c9cb67d40b6d74f88f0012b718bc86e63bf4a3ab119ccc17597a26d0c0fb58
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:outputs/0
+      claim_hash: 57572ea7f3a1d4fb07e8f01bb4ea66063c943a653beff5f8da7b6e392ee8f396
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:purpose
+      claim_hash: 3c9c17b4aaa4e9f11f5dd4691aa85e382c58fccf431393032aa93d939c0bbfb5
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:symbol
+      claim_hash: 6cd84ca6d7a21724f8873b245d20361e00421b7a1f99f397517ffdc323b6fe41
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:technical:type
+      claim_hash: 22e562914f94c83cd5aa409f79b9f08871d433f4791ecd7c0d5a203b2ccc8016
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids:
+      - gap:technical
+      required_action: none
+    - claim_id: claim:trigger
+      claim_hash: ac6a8d4c49f174f4b84ab8a996b34e061165417f1120aa3c19b233914631d452
+      status: CONFIRMED
+      reviewed: true
+      reason: Synthetic inspected evidence for fixed fixture version.
+      source_checks:
+      - evidence_id: evidence:fixture
+        snapshot_id: snapshot:fixture
+        source_location: fixtures/flow.cs:1
+        version: fixture-v1
+        content_hash: 4bd7b55ee5ce1de563cee83b7bca75628c825b3443bb3ec545106d9f80763c91
+        verification: snapshot_only
+        result: SUPPORTS
+        quote: "// Synthetic fixture: one goal = process the fixture request.\n// Trigger = FixtureCommand. Entry\
+          \ = fixture pending. Outcome = fixture done.\n// Actor = fixture client. No OSAGO business knowledge is\
+          \ asserted.\n// Synthetic technical main path: accuracy >= 7; alternative path: accuracy < 7.\nrecord\
+          \ FixtureCommand();\nclass FixtureHandler {\n    // Synthetic technical threshold, not an OSAGO business\
+          \ rule.\n    public int Handle(FixtureCommand command, int accuracy) {\n        if (accuracy < 7) return\
+          \ 0;\n        return 1;\n    }\n}\n// Registration: FixtureCommand -> FixtureHandler.Handle\n"
+        reason: Synthetic check; semantic truth is not assessed by this test helper.
+      supported_parts: []
+      unsupported_parts: []
+      comparison_ids: []
+      conflict_ids: []
+      gap_ids: []
+      required_action: none
+    comparisons: []
+    findings:
+    - id: finding:c25bd948b9ac3d83d0ee
+      kind: unknown_business_rationale
+      target_refs:
+      - BR-FIXTURE-001
+      claim_ids: []
+      evidence_ids:
+      - evidence:fixture
+      verification: observed_structure
+      reason: Business rationale is explicitly UNKNOWN in the supplied rule; no motive is inferred.
+      required_action: analyst_review
+      blocking: true
+      status: open
+      resolution_claim_ids: []
+      publication_relevance:
+        classification: UNASSESSED
+        reviewed: false
+        impacts: []
+        reason: Reader impact is not established; review before declaring an internal research gap.
+    - id: finding:1d1fff26867618136a30
+      kind: unknown_state_transition
+      target_refs:
+      - scenario-step:guard
+      claim_ids: []
+      evidence_ids:
+      - evidence:fixture
+      verification: observed_structure
+      reason: State before/after is unknown in the supplied scenario step.
+      required_action: verify_source
+      blocking: true
+      status: open
+      resolution_claim_ids: []
+      publication_relevance:
+        classification: PUBLICATION_RELEVANT
+        reviewed: false
+        impacts:
+        - aspect: BUSINESS_RESULT
+          target_refs:
+          - scenario-step:guard
+        - aspect: MAIN_FLOW
+          target_refs:
+          - scenario-step:guard
+        - aspect: STATE_TRANSITION
+          target_refs:
+          - scenario-step:guard
+        reason: Declared structured references can affect the process/contract; semantic relevance review is pending.
+    - id: finding:84404be14c3959ce6704
+      kind: unknown_state_transition
+      target_refs:
+      - scenario-step:return-one
+      claim_ids: []
+      evidence_ids:
+      - evidence:fixture
+      verification: observed_structure
+      reason: State before/after is unknown in the supplied scenario step.
+      required_action: verify_source
+      blocking: true
+      status: open
+      resolution_claim_ids: []
+      publication_relevance:
+        classification: PUBLICATION_RELEVANT
+        reviewed: false
+        impacts:
+        - aspect: BUSINESS_RESULT
+          target_refs:
+          - scenario-step:return-one
+        - aspect: MAIN_FLOW
+          target_refs:
+          - scenario-step:return-one
+        - aspect: STATE_TRANSITION
+          target_refs:
+          - scenario-step:return-one
+        reason: Declared structured references can affect the process/contract; semantic relevance review is pending.
+    - id: finding:0e2754349fb0373c230c
+      kind: unknown_state_transition
+      target_refs:
+      - scenario-step:return-zero
+      claim_ids: []
+      evidence_ids:
+      - evidence:fixture
+      verification: observed_structure
+      reason: State before/after is unknown in the supplied scenario step.
+      required_action: verify_source
+      blocking: true
+      status: open
+      resolution_claim_ids: []
+      publication_relevance:
+        classification: PUBLICATION_RELEVANT
+        reviewed: false
+        impacts:
+        - aspect: ALTERNATIVE_OR_EXCEPTION_FLOW
+          target_refs:
+          - scenario-step:return-zero
+        - aspect: BUSINESS_RESULT
+          target_refs:
+          - scenario-step:return-zero
+        - aspect: STATE_TRANSITION
+          target_refs:
+          - scenario-step:return-zero
+        reason: Declared structured references can affect the process/contract; semantic relevance review is pending.
+    mechanical_errors: []
+    summary:
+      total_claims: 60
+      reviewed_claims: 60
+      counts:
+        CONFIRMED: 60
+        PARTIALLY_CONFIRMED: 0
+        INFERRED: 0
+        CONFLICT: 0
+        UNKNOWN: 0
+      review_status: complete
+      publication_gate: blocked
+    gap_ids:
+    - gap:audit:0e2754349fb0373c230c
+    - gap:audit:1d1fff26867618136a30
+    - gap:audit:84404be14c3959ce6704
+    - gap:external
+    - gap:rationale
+    - gap:scenario-step:guard
+    - gap:scenario-step:return-one
+    - gap:scenario-step:return-zero
+    - gap:technical
+    limitations: []
+conflicts: []
+unresolved:
+- entity_ref: BR-FIXTURE-001
+  term_id: null
+  technical_aliases:
+  - BR-FIXTURE-001
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:0f5d67e253704a1c3fbf
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - BR-FIXTURE-001
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+- entity_ref: actor:fixture
+  term_id: null
+  technical_aliases:
+  - actor:fixture
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:cf25581be44b9abd1b33
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - actor:fixture
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+- entity_ref: scenario:fixture
+  term_id: null
+  technical_aliases:
+  - scenario:fixture
+  preferred_name:
+    value: null
+    status: UNKNOWN
+    claim_ids: []
+    evidence_ids: []
+  status: UNKNOWN
+  gap:
+    id: gap:glossary:a5a252c2ecf1da90479c
+    reason: missing_link
+    question: Как подтверждено соответствие имени и этой сущности?
+    affected_ids:
+    - scenario:fixture
+    next_action: Add a scoped mapping Claim and validate it; aliases here are candidates.
+    status: open
+statistics:
+  candidates_total: 4
+  matched_existing: 0
+  added: 1
+  updated: 0
+  unchanged: 0
+  conflicts: 0
+  unresolved: 3
+  ignored_entities: 11

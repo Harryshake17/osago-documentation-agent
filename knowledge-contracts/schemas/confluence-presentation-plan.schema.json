@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document_hash",
+    "manifest_hash",
+    "language_review_hash",
+    "headings",
+    "technical_expand",
+    "policy",
+    "plan_hash",
+    "approval"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "document_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "manifest_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "language_review_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "plan_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "technical_expand": {
+      "type": "boolean"
+    },
+    "policy": {
+      "const": "preserve-source-hierarchy-and-order-v1"
+    },
+    "headings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "level",
+          "text",
+          "line"
+        ],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "approved_plan_hash"
+      ],
+      "properties": {
+        "status": {
+          "allOf": [
+            {
+              "$ref": "urn:osago:documentation-run:1.0#/properties/nodes/additionalProperties/properties/status"
+            },
+            {
+              "enum": [
+                "WAITING_FOR_REVIEW",
+                "COMPLETED"
+              ]
+            }
+          ]
+        },
+        "approved_plan_hash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:confluence-presentation-plan:1.0"
+}

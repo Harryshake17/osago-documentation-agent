@@ -1,0 +1,4 @@
+/tools/knowledge/** text eol=lf
+/knowledge-contracts/** text eol=lf
+/README.md text eol=lf
+*.png binary

@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:source-map:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "scenario": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_definition_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_tree_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/source"
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/candidate"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_location": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "source_location",
+          "reason"
+        ]
+      }
+    },
+    "category_coverage": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/category"
+      }
+    },
+    "search_runs": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/search_run"
+      }
+    },
+    "gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "conflict_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "coverage": {
+      "$ref": "urn:osago:kb:1.0#/$defs/coverage"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "terminology_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:osago:kb:1.0#/$defs/terminology_candidate"
+      },
+      "uniqueItems": true
+    },
+    "runtime_lookup": {
+      "$ref": "urn:osago:kb:1.0#/$defs/runtime_lookup"
+    }
+  },
+  "required": [
+    "id",
+    "schema_version",
+    "scope_ref",
+    "package_ref",
+    "scenario",
+    "scenario_definition_ref",
+    "domain_tree_ref",
+    "sources",
+    "candidates",
+    "exclusions",
+    "category_coverage",
+    "search_runs",
+    "gap_ids",
+    "conflict_ids",
+    "coverage"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {},
+        "required": [
+          "terminology_candidates"
+        ]
+      }
+    }
+  ]
+}

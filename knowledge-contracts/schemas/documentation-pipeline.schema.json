@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:documentation-pipeline:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "enum": [
+              "run",
+              "item"
+            ]
+          },
+          "type": {
+            "enum": [
+              "skill",
+              "checkpoint"
+            ]
+          },
+          "skill": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "inputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "outputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "validator": {
+            "enum": [
+              "domain",
+              "artifact",
+              "validation",
+              "glossary",
+              "documentation",
+              "language_review",
+              "schema",
+              "scope_review",
+              "evidence_review",
+              "confluence_plan",
+              "presentation_review",
+              "confluence_render"
+            ]
+          },
+          "primary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gates": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "technical-model",
+                "scenario-model",
+                "publication-relevance",
+                "document-structure",
+                "final-invariants"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "scope",
+          "type",
+          "skill",
+          "depends_on",
+          "inputs",
+          "outputs",
+          "validator",
+          "primary"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "stages"
+  ]
+}

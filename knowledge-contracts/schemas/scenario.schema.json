@@ -1,0 +1,677 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:scenario:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "scenario_definition_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "technical_flow_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "business_rules_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_map_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confluence_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "test_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^scenario-step:[A-Za-z0-9][A-Za-z0-9_.:/-]*$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "kind": {
+            "enum": [
+              "actor_action",
+              "system_reaction",
+              "decision",
+              "integration",
+              "state_transition",
+              "actor_result"
+            ]
+          },
+          "actor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "business_meaning": {
+            "type": "string",
+            "minLength": 1
+          },
+          "system_behavior": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evaluated_rules": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "integrations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "state_before": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "state_after": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "user_result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implementation": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "technical_step_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "decision_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decision_kind": {
+            "enum": [
+              "business",
+              "technical",
+              "none"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "attribute_claims": {
+            "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+          },
+          "unknown_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "not_applicable_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "conflict_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "business_action": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+          },
+          "business_result": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+          },
+          "technical_implementation": {
+            "$ref": "urn:osago:kb:1.0#/$defs/technical_representation"
+          },
+          "knowledge_status": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_status"
+          },
+          "state_transition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "from",
+              "to"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "order",
+          "kind",
+          "actor",
+          "action",
+          "business_meaning",
+          "system_behavior",
+          "evaluated_rules",
+          "integrations",
+          "state_before",
+          "state_after",
+          "user_result",
+          "implementation",
+          "technical_step_refs",
+          "decision_ref",
+          "decision_kind",
+          "source_ids",
+          "evidence",
+          "attribute_claims",
+          "unknown_fields",
+          "not_applicable_fields",
+          "gap_ids",
+          "conflict_ids"
+        ]
+      },
+      "description": "Unique meaningful process actions/results, shared by flow references. Technical details stay in 03 nodes."
+    },
+    "flows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "main",
+              "alternative",
+              "error"
+            ]
+          },
+          "entry_step": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "branch_from": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entry_condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "condition_claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "type_claim_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "step_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "terminal_steps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "conflict_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "entry_step",
+          "branch_from",
+          "entry_condition",
+          "condition_claim_ids",
+          "type_claim_ids",
+          "step_refs",
+          "terminal_steps",
+          "gap_ids",
+          "conflict_ids"
+        ]
+      },
+      "contains": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "const": "main"
+          }
+        }
+      },
+      "minContains": 0,
+      "maxContains": 1
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_step": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_step": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "causes",
+              "precedes",
+              "rule_branch",
+              "integration_response",
+              "state_change",
+              "actor_result",
+              "retry",
+              "unresolved"
+            ]
+          },
+          "decision_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rule_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rule_outcome": {
+            "enum": [
+              "true",
+              "false",
+              "case",
+              "none",
+              "UNKNOWN"
+            ]
+          },
+          "condition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "gap_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "conflict_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "from_step",
+          "to_step",
+          "kind",
+          "decision_ref",
+          "rule_ref",
+          "rule_outcome",
+          "condition",
+          "claim_ids",
+          "source_ids",
+          "evidence",
+          "gap_ids",
+          "conflict_ids"
+        ]
+      }
+    },
+    "flow_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "main",
+              "alternative",
+              "error"
+            ]
+          },
+          "status": {
+            "enum": [
+              "found",
+              "not_found",
+              "unavailable",
+              "incomplete",
+              "not_applicable"
+            ]
+          },
+          "flow_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "diagnostic": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "category",
+          "status",
+          "flow_ids",
+          "source_ids",
+          "claim_ids",
+          "diagnostic"
+        ]
+      }
+    },
+    "gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "conflict_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "coverage": {
+      "$ref": "urn:osago:kb:1.0#/$defs/coverage"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    },
+    "runtime_confirmation_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "main_flow": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "ID of the sole main entry in flows, or null when not evidenced; never another copied path."
+    },
+    "alternative_flows": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "IDs of alternative entries in flows, without duplicated steps or narrative."
+    },
+    "exception_flows": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "IDs of error entries in flows, without duplicated steps or narrative."
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scenario_id",
+    "scope_ref",
+    "package_ref",
+    "scenario_definition_ref",
+    "technical_flow_ref",
+    "business_rules_ref",
+    "source_map_ref",
+    "confluence_evidence_ids",
+    "test_evidence_ids",
+    "steps",
+    "flows",
+    "transitions",
+    "flow_coverage",
+    "gap_ids",
+    "conflict_ids",
+    "coverage",
+    "main_flow",
+    "alternative_flows",
+    "exception_flows"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "steps": {
+            "items": {
+              "required": [
+                "business_action",
+                "business_result",
+                "technical_implementation",
+                "knowledge_status",
+                "state_transition"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "05 is the canonical human process model. main_flow/alternative_flows/exception_flows select definitions in flows; happy_path/UC copies are forbidden."
+}

@@ -1,0 +1,400 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:osago:business-rules:1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_ref": {
+      "$ref": "urn:osago:kb:1.0#/$defs/package_ref"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "technical_flow_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_map_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_kind": {
+            "enum": [
+              "technical_constraint",
+              "business_rule",
+              "calculation",
+              "eligibility"
+            ]
+          },
+          "extraction_categories": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "guards",
+                "validators",
+                "rules_extensions",
+                "process_branches",
+                "thresholds",
+                "configuration_driven_behaviour",
+                "blocking_checks",
+                "eligibility_rules",
+                "result_calculations"
+              ]
+            },
+            "minItems": 1
+          },
+          "rule_statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "true_result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "false_result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "affected_actor": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "affected_scenario": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "affected_state": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "externally_visible_result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "business_rationale": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+              }
+            ]
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "value": {},
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "origin": {
+                  "enum": [
+                    "literal",
+                    "configuration",
+                    "documented",
+                    "calculated"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "value",
+                "unit",
+                "origin"
+              ]
+            }
+          },
+          "implementation": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "attribute_claims": {
+            "$ref": "urn:osago:kb:1.0#/$defs/attribute_claims"
+          },
+          "unknown_fields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "not_applicable_fields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "gap_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "conflict_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "business_statement": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+          },
+          "technical_condition": {
+            "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+          },
+          "technical_implementation": {
+            "$ref": "urn:osago:kb:1.0#/$defs/technical_representation"
+          },
+          "runtime_examples": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "rule_kind",
+          "extraction_categories",
+          "rule_statement",
+          "condition",
+          "true_result",
+          "false_result",
+          "affected_actor",
+          "affected_scenario",
+          "affected_state",
+          "externally_visible_result",
+          "business_rationale",
+          "parameters",
+          "implementation",
+          "source_ids",
+          "evidence",
+          "attribute_claims",
+          "unknown_fields",
+          "not_applicable_fields",
+          "gap_ids",
+          "conflict_ids"
+        ]
+      }
+    },
+    "category_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "guards",
+              "validators",
+              "rules_extensions",
+              "process_branches",
+              "thresholds",
+              "configuration_driven_behaviour",
+              "blocking_checks",
+              "eligibility_rules",
+              "result_calculations"
+            ]
+          },
+          "status": {
+            "enum": [
+              "found",
+              "not_found",
+              "unavailable",
+              "incomplete",
+              "not_applicable"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rule_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "claim_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "diagnostic": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "category",
+          "status",
+          "source_ids",
+          "rule_ids",
+          "claim_ids",
+          "diagnostic"
+        ]
+      }
+    },
+    "gap_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "conflict_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "coverage": {
+      "$ref": "urn:osago:kb:1.0#/$defs/coverage"
+    },
+    "model_profile": {
+      "const": "scoped-knowledge-v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scope_ref",
+    "package_ref",
+    "scenario_id",
+    "technical_flow_ref",
+    "source_map_ref",
+    "rules",
+    "category_coverage",
+    "gap_ids",
+    "conflict_ids",
+    "coverage"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "model_profile"
+        ],
+        "properties": {
+          "model_profile": {
+            "const": "scoped-knowledge-v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "rules": {
+            "items": {
+              "required": [
+                "business_statement",
+                "technical_condition",
+                "technical_implementation"
+              ],
+              "properties": {
+                "business_rationale": {
+                  "$ref": "urn:osago:kb:1.0#/$defs/knowledge_value"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
